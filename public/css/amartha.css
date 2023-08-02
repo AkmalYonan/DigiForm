@@ -1,0 +1,107 @@
+.bg-gradient-4 {
+    background: #0b666a;
+    background: -webkit-linear-gradient(to right, #071952, #0b666a);
+    background: linear-gradient(to right, #071952, #0b666a);
+}
+.text-warna-utama {
+    color: #0b666a;
+}
+
+.border-warna-utama {
+    border: 8px solid #0b666a; /* Lebar border dan jenis garis */
+}
+
+.text-warna-utama2 {
+    color: #97feed;
+}
+.bg-warna-utama {
+    background-color: #0b666a;
+}
+
+.warna-bunga {
+    filter: hue-rotate(
+        240deg
+    ); /* Nilai derajat sesuaikan dengan warna yang diinginkan */
+}
+
+.text1 {
+    font-family: "Fira Code", monospace;
+}
+.hidden-content {
+    position: relative;
+    z-index: 1;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/amartha/img/galery2.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.cenatcenut {
+    transition: transform 0.5s;
+}
+
+.cenatcenut:hover {
+    transform: scale(0.7);
+}
+
+.bgwedding1 {
+    position: relative;
+    background: url("../img/amartha/img/galery1.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+.bgwedding1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.3
+    ); /* Ubah alpha (0.5) sesuai kebutuhan */
+    z-index: -1; /* Menempatkan overlay di belakang konten */
+}
+
+.section1 {
+    position: relative;
+    z-index: 1; /* Menempatkan konten di atas overlay */
+    /* padding-top: 31rem;
+      padding-bottom: 3rem; */
+}

@@ -21,8 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'paket_id',
         'birthdate',
         'gender',
+        'level',
     ];
 
     /**
@@ -44,4 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function paket()
+    {
+        return $this->belongsTo(Paket::class, 'paket_id');
+    }
 }

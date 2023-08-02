@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script&family=Parisienne&display=swap");
+@font-face {
+    font-family: "";
+    src: url("../yonans/font/Segatha.ttf");
+}
+@font-face {
+    font-family: "nyc";
+    src: url("../yonans/font/nyc.otf");
+}
+@font-face {
+    font-family: "robotl";
+    src: url("../yonans/font/Roboto-Light.ttf");
+}
+@font-face {
+    font-family: "robotm";
+    src: url("../yonans/font/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: "robotr";
+    src: url("../yonans/font/Roboto-Regular.ttf");
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 200vh;
+    background: rgb(78, 1, 14);
+}
+
+.bg-img {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    opacity: 0;
+    transition: all 1.5s;
+}
+
+.show {
+    opacity: 1;
+}
+
+.bg-img::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background: rgb(181, 0, 0);
+    background: linear-gradient(
+        0deg,
+        rgb(78, 1, 14) 30%,
+        rgba(9, 9, 121, 0) 100%
+    );
+}
+.bg-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.isian {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.opening {
+    margin-top: 300px;
+    color: #d2b58d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.opening h1 {
+    font-size: 35px;
+    font-family: "Alex Brush", cursive;
+    font-weight: bold;
+}
+.opening h2 {
+    font-size: 40px;
+    font-family: "Alex Brush", cursive;
+    font-weight: bold;
+}
+h3 {
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #d2b58d;
+}
+
+.button-39 {
+    margin-top: 100px;
+    background-color: rgba(181, 0, 0, 0);
+    border: 1px solid #d2b58d;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    color: #d2b58d;
+    font-family: "nyc", serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-39:hover {
+    background-color: #d2b58d;
+    color: aliceblue;
+}
+
+.button-39:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.button-39:focus-visible {
+    box-shadow: none;
+}
+
+.isi {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    color: #d2b58d;
+}
+.isi2 h1 {
+    font-family: "Alex Brush", cursive;
+    color: #cfb975;
+}
+.mari {
+    font-family: "", serif;
+    font-size: 60px;
+}
+.tnk {
+    font-family: "robotl";
+}
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #cfb975;
+}
+
+.countdown-label {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #ebdcb9;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid #cfb975;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ebdcb9;
+}
+
+.card p {
+    margin-bottom: 10px;
+    font-family: "robotm";
+}
+
+.card .date {
+    font-size: 24px;
+    color: #cfb975;
+}
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    height: 200px;
+}
+
+.gmap_iframe {
+    height: 200px !important;
+}
+
+form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 70%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    width: 70%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #cfb975;
+    color: #333;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #cfb975;
+}
+
+.comment-layout {
+    display: none;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    overflow: auto;
+}
+
+#closeButton {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #cfb975;
+    color: #333;
+    border: none;
+    cursor: pointer;
+}
+
+#closeButton:hover {
+    background-color: #cfb975;
+}
+
+.comment-container {
+    max-height: 190px;
+    overflow-y: auto;
+}
+
+.comment {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #ccc;
+}
+
+.bg-navbar-template {
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    ); /* Transparansi 50% untuk warna putih */
+}

@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+.masthead {
+    height: 100vh;
+    background-image: url("https://github.com/bakaroti/resource/blob/main/bgliq8.png?raw=true");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text-lead {
+    font-family: "Pinyon Script", cursive;
+}
+
+.text-lead2 {
+    font-family: "Playfair Display", serif;
+}
+
+.bg-warna1 {
+    background-color: #e1e2da;
+}
+
+.bg-custom {
+    background-color: #658864;
+}
+
+.bg-warna2 {
+    background-color: #658864;
+}
+
+.btn-border-bottom {
+    border: bottom;
+    border-bottom: 2px solid;
+}
+
+.bg-navbar-template {
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    ); /* Transparansi 50% untuk warna putih */
+}

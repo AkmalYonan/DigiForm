@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Parisienne&family=Playfair+Display:ital,wght@1,600&family=Unbounded:wght@300&display=swap");
+
+.banner {
+    background: rgba(0, 0, 0, 0.6) url(./gambar2.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+    height: 100%;
+    color: #eaeaea;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#Nama {
+    font-family: "Merriweather", serif;
+    font-family: "Parisienne", cursive;
+}
+
+#Nama1 {
+    font-family: "Merriweather", serif;
+    font-family: "Parisienne", cursive;
+}
+
+.tulis {
+    font-family: "Merriweather", serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e1d4bb;
+}
+
+.center {
+    text-align: center;
+}
+
+header {
+    background-color: #e1d4bb;
+    text-align: center;
+}
+
+.text-mempelai {
+    text-align: center;
+    color: #a4907c;
+}
+
+#mempelai {
+    font-family: "Merriweather", serif;
+    background-color: #e1d4bb;
+}
+
+main {
+    background-color: #e1d4bb;
+}
+
+form {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.text-foto {
+    text-align: center;
+    color: #f8f9fa;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url("gambar2.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: transform 0.5s ease-in-out;
+}
+
+.overlay-content {
+    text-align: center;
+    color: #fff;
+}
+
+#enterButton {
+    color: #fff;
+    background-color: #a4907c;
+    border-color: #a4907c;
+}
+
+#enterButton:hover {
+    background-color: #8d7b68;
+    border-color: #8d7b68;
+}
+
+.fas fa-pause,
+.fas fa-music,
+.fas fa-music,
+#playPauseButton {
+    border: none;
+    background-color: transparent;
+    color: brown;
+}
+
+.fas fa-pause,
+.fas fa-music,
+.fas fa-music,
+#playPauseButton i {
+    border: none;
+    background-color: transparent;
+    color: brown;
+}
+
+.fas fa-pause,
+.fas fa-music,
+.fas fa-music,
+#playPauseButton::after {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+#details {
+    background-color: #eaeaea;
+}
+
+.text-acara {
+    text-align: center;
+    color: #a4907c;
+}
+
+.card-text,
+.card-title {
+    color: #a4907c;
+    font-family: "Merriweather", serif;
+}
+
+.btn-primary {
+    background-color: #a4907c;
+    border-color: #a4907c;
+}
+
+.btn-primary:hover {
+    background-color: #8d7b68;
+    border-color: #8d7b68;
+}
+
+.sender-info {
+    margin-top: 5%;
+}
+
+.sender-info h3 {
+    margin-bottom: 2%;
+}
+
+.sender-info p {
+    margin-bottom: 1%;
+}
+
+.sender-message {
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.pagination {
+    margin-top: 2%;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #a4907c;
+    border-color: #a4907c;
+}
+
+@media only screen and (max-width: 600px) {
+    iframe {
+        width: 80%;
+        height: 80%;
+    }
+}

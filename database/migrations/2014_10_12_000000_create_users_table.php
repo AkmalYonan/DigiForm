@@ -18,6 +18,8 @@ return new class extends Migration
             $table->boolean('is_activated')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('paket_id');
+            $table->enum('level', ['0', '1'])->default('0');
             $table->rememberToken();
             $table->timestamps();
         });
