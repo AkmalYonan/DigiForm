@@ -12,7 +12,7 @@ class AdminSettingController extends Controller
     {
 
         $request->validate([
-            'noHp' => 'required',
+            'noHp' => 'required|max:16',
         ]);
 
         $hp = Admin::first();

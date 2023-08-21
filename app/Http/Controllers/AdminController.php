@@ -9,6 +9,7 @@ use App\Models\Paket;
 use App\Models\pesan;
 use App\Models\Template;
 use App\Models\User;
+use ErrorException;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -35,6 +36,23 @@ class AdminController extends Controller
         return view('admin.detailPesan', [
             'pesan' => pesan::find($pesan)
         ]);
+    }
+
+    public function updateMapsUser(Request $request, $id)
+    {
+        try {
+            $user = auth()->user()->id;
+            $id = pesan::where('id_user', $user)->get()[0]; // Mengeksekusi kueri dan mendapatkan model
+            $id_pesan = $id->id;
+
+            Data::where('id_pesan', $id_pesan)->update([
+                'iframeMaps' => $request->input('updateMapsUser'),
+            ]);
+
+            return redirect()->back()->with('success', 'Link Maps Pesanan berhasil diperbarui.');
+        } catch (ErrorException $e) {
+            return redirect()->back()->with('failed', 'Link Maps Pesanan Gagal diperbarui.');
+        }
     }
 
 

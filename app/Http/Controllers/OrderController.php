@@ -9,8 +9,12 @@ use App\Models\Paket;
 use App\Models\pesan;
 use App\Models\Template;
 use App\Models\Detail_fitur;
+use App\Models\GalleryUser;
 use App\Models\Mempelai_pria;
 use App\Models\Mempelai_wanita;
+use App\Models\User;
+use Carbon\Carbon;
+use ErrorException;
 use finfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,9 +23,152 @@ class OrderController extends Controller
 {
     public function index()
     {
-        // $pakets = Paket::all();
-        // $templates = Template::all();
-        // return view('home.order', compact('pakets', 'templates'));
+        $order = auth()->user()->is_order;
+        if ($order) {
+            $Id = auth()->user()->id;
+            $pesan = pesan::where('id_user', $Id)->get()[0];
+            $fiturs = Detail_fitur::where('id_pesan', $pesan->id)->get();
+
+            $lastUpdated = $pesan->updated_at ?? Carbon::now()->subHours(1);
+            $cooldownTime = Carbon::parse($lastUpdated)->addHour();
+            $currentTime = Carbon::now();
+            $cooldownRemaining = max(0, $cooldownTime->diffInMinutes($currentTime));
+
+            return view('home.userOrder', compact('pesan', 'fiturs', 'cooldownRemaining'));
+        } else {
+            $paketId = auth()->user()->paket_id;
+
+            if ($paketId) {
+                $templates = Template::whereHas('pakets', function ($query) use ($paketId) {
+                    $query->where('paket_id', $paketId);
+                })->get();
+
+                $fiturs = fitur::whereHas('pakets', function ($query) use ($paketId) {
+                    $query->where('paket_id', $paketId);
+                })->get();
+
+                $user = Auth::user();
+                $namaPaket = $user->paket->nama;
+
+                return view('home.order', ['templates' => $templates, 'fiturs' => $fiturs, 'namaPaket' => $namaPaket]);
+            } else {
+                return redirect()->route('home.order');
+            }
+        }
+    }
+
+    public function pesan(Request $request)
+    {
+
+        // dd($request->all());
+
+        try {
+            $request->validate([
+                'fotoPria' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'fotoWanita' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'fotoBanner' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'fotoGallery' => 'required|array',
+                'fotoGallery.*' => 'mimes:png,jpeg,jpg,pdf',
+                'fotoThumbnail' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'fotoCouple' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+            ]);
+
+
+            $user_id = auth()->user()->id;
+            $lastId = Pesan::max('id');
+            $id = $lastId ? $lastId + 1 : 1;
+
+            User::where('id', $user_id)->update(['is_order' => 1]);
+
+            $pesan = new pesan;
+            if ($pesan) {
+                $pesan->id = $id;
+                $pesan->id_user = $user_id;
+                $pesan->id_template = $request->input('template_id');
+                $pesan->save();
+            }
+            // Simpan data ke tabel kedua
+            $mempelai_pria = new Mempelai_pria;
+            if ($mempelai_pria) {
+                $mempelai_pria->id_pesan = $id;
+                $mempelai_pria->nama_pria = $request->input('nama_mempelai_pria');
+                $mempelai_pria->anak_ke = $request->input('anak_ke_pria');
+                $mempelai_pria->nama_ayah = $request->input('nama_ayah_pria');
+                $mempelai_pria->nama_ibu = $request->input('nama_ibu_pria');
+                $mempelai_pria->username_ig = $request->input('username_ig_pria');
+                $fileName = now()->timestamp . '.' . $request->file('fotoPria')->getClientOriginalExtension();
+                $mempelai_pria->image = $request->file('fotoPria')->storeAs('fotoPria', $fileName);
+                $mempelai_pria->save();
+            }
+            $mempelai_wanita = new Mempelai_wanita;
+            if ($mempelai_wanita) {
+                $mempelai_wanita->id_pesan = $id;
+                $mempelai_wanita->nama_wanita = $request->input('nama_mempelai_wanita');
+                $mempelai_wanita->anak_ke = $request->input('anak_ke_wanita');
+                $mempelai_wanita->nama_ayah = $request->input('nama_ayah_wanita');
+                $mempelai_wanita->nama_ibu = $request->input('nama_ibu_wanita');
+                $mempelai_wanita->username_ig = $request->input('username_ig_wanita');
+                $fileName = now()->timestamp . '.' . $request->file('fotoWanita')->getClientOriginalExtension();
+                $mempelai_wanita->image = $request->file('fotoWanita')->storeAs('fotoWanita', $fileName);
+                $mempelai_wanita->save();
+            }
+
+
+            $data = new Data;
+            $data->id_pesan = $id;
+            $data->salam_pembuka = $request->input('salam');
+            $data->lokasi_acara = $request->input('lokasi_acara');
+            $data->tgl_resepsi = $request->input('tgl_akad');
+            $data->tgl_akad = $request->input('tgl_resepsi');
+            $data->jam_acara = $request->input('jam_acara');
+            $data->email = $request->input('email');
+            $data->no_wa = $request->input('no_wa');
+            $data->nama_panggilan = $request->input('nama_panggilan');
+            $fileNameThumbnail = now()->timestamp . '.' . $request->file('fotoThumbnail')->getClientOriginalExtension();
+            $data->imgThumbnail = $request->file('fotoThumbnail')->storeAs('fotoThumbnail', $fileNameThumbnail);
+            $fileNameBanner = now()->timestamp . '.' . $request->file('fotoBanner')->getClientOriginalExtension();
+            $data->imgBanner = $request->file('fotoBanner')->storeAs('fotoBanner', $fileNameBanner);
+            $fileNameCouple = now()->timestamp . '.' . $request->file('fotoCouple')->getClientOriginalExtension();
+            $data->imgCouple = $request->file('fotoCouple')->storeAs('fotoCouple', $fileNameCouple);
+            $data->iframeMaps = $request->input('iframeMaps');
+            $data->save();
+
+            foreach ($request->file('fotoGallery') as $uploadedFile) {
+                $gallery = new GalleryUser;
+                $gallery->id_pesan = $id;
+                $fileName = now()->timestamp . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
+                $gallery->nameFile = $uploadedFile->storeAs('fotoGallery', $fileName);
+                $gallery->save();
+            }
+
+            // var_dump($request);
+            // die;
+            $id_pesan = $id; //sudah ada id yang disediakan
+            $id_fiturs_selected = $request->input('selected_fiturs');
+            if (!empty($id_fiturs_selected)) {
+                $dataToInsert = [];
+                foreach ($id_fiturs_selected as $id_fitur) {
+                    $dataToInsert[] = [
+                        'id_pesan' => $id_pesan,
+                        'id_fitur' => $id_fitur
+                    ];
+                }
+
+                Detail_fitur::insert($dataToInsert);
+            }
+
+            // Redirect atau berikan respons sesuai kebutuhan
+            return redirect()->route('homeorder')->with('success', 'Data berhasil disimpan!');
+        } catch (ErrorException $e) {
+            return redirect()->back()->with('Failed', 'Data Gagal disimpan!');
+        }
+    }
+
+    public function edit()
+    {
+        $Id = auth()->user()->id;
+        $pesan = pesan::where('id_user', $Id)->get()[0];
+        $fitur_pilih = Detail_fitur::where('id_pesan', $pesan->id)->get();
         $paketId = auth()->user()->paket_id;
 
         if ($paketId) {
@@ -37,73 +184,95 @@ class OrderController extends Controller
             $user = Auth::user();
             $namaPaket = $user->paket->nama;
 
-            return view('home.order', ['templates' => $templates, 'fiturs' => $fiturs, 'namaPaket' => $namaPaket]);
-        } else {
-            return redirect()->route('home.order');
+            return view('home.userEdit', compact('pesan', 'fiturs', 'namaPaket', 'templates', 'fitur_pilih'));
         }
     }
 
-    public function pesan(Request $request)
+    public function ubah(Request $request)
     {
+        try {
 
-        $user_id = auth()->user()->id;
-        $lastId = Pesan::max('id');
-        $id = $lastId ? $lastId + 1 : 1;
+            $user = auth()->user()->id;
+            $id = pesan::where('id_user', $user)->get()[0]; // Mengeksekusi kueri dan mendapatkan model
+            $id_pesan = $id->id;
 
-        $pesan = new pesan;
-        $pesan->id = $id;
-        $pesan->id_user = $user_id;
-        $pesan->id_template = $request->input('template_id');
-        $pesan->save();
+            pesan::where('id', $id_pesan)->update([
+                'id_template' => $request->input('template_id')
+            ]);
 
-        // Simpan data ke tabel kedua
-        $mempelai_pria = new Mempelai_pria;
-        $mempelai_pria->id_pesan = $id;
-        $mempelai_pria->nama_pria = $request->input('nama_mempelai_pria');
-        $mempelai_pria->anak_ke = $request->input('anak_ke_pria');
-        $mempelai_pria->nama_ayah = $request->input('nama_ayah_pria');
-        $mempelai_pria->nama_ibu = $request->input('nama_ibu_pria');
-        $mempelai_pria->username_ig = $request->input('username_ig_pria');
-        $mempelai_pria->save();
+            Mempelai_pria::where('id_pesan', $id_pesan)->update([
+                'nama_pria' => $request->input('nama_mempelai_pria'),
+                'anak_ke' => $request->input('anak_ke_pria'),
+                'nama_ayah' => $request->input('nama_ayah_pria'),
+                'nama_ibu' => $request->input('nama_ibu_pria'),
+                'username_ig' => $request->input('username_ig_pria')
+            ]);
 
-        $mempelai_wanita = new Mempelai_wanita;
-        $mempelai_wanita->id_pesan = $id;
-        $mempelai_wanita->nama_wanita = $request->input('nama_mempelai_wanita');
-        $mempelai_wanita->anak_ke = $request->input('anak_ke_wanita');
-        $mempelai_wanita->nama_ayah = $request->input('nama_ayah_wanita');
-        $mempelai_wanita->nama_ibu = $request->input('nama_ibu_wanita');
-        $mempelai_wanita->username_ig = $request->input('username_ig_wanita');
-        $mempelai_wanita->save();
+            Mempelai_wanita::where('id_pesan', $id_pesan)->update([
+                'nama_wanita' => $request->input('nama_mempelai_wanita'),
+                'anak_ke' => $request->input('anak_ke_wanita'),
+                'nama_ayah' => $request->input('nama_ayah_wanita'),
+                'nama_ibu' => $request->input('nama_ibu_wanita'),
+                'username_ig' => $request->input('username_ig_wanita')
+            ]);
 
-        $data = new Data;
-        $data->id_pesan = $id;
-        $data->salam_pembuka = $request->input('salam');
-        $data->lokasi_acara = $request->input('lokasi_acara');
-        $data->tgl_resepsi = $request->input('tgl_akad');
-        $data->tgl_akad = $request->input('tgl_resepsi');
-        $data->jam_acara = $request->input('jam_acara');
-        $data->email = $request->input('email');
-        $data->no_wa = $request->input('no_wa');
-        $data->nama_panggilan = $request->input('nama_panggilan');
-        $data->save();
+            Data::where('id_pesan', $id_pesan)->update([
+                'salam_pembuka' => $request->input('salam'),
+                'lokasi_acara' => $request->input('lokasi_acara'),
+                'tgl_resepsi' => $request->input('tgl_resepsi'),
+                'tgl_akad' => $request->input('tgl_akad'),
+                'jam_acara' => $request->input('jam_acara'),
+                'email' => $request->input('email'),
+                'no_wa' => $request->input('no_wa'),
+                'nama_panggilan' => $request->input('nama_panggilan')
+            ]);
 
-        // var_dump($request);
-        // die;
-        $id_pesan = $id; //sudah ada id yang disediakan
-        $id_fiturs_selected = $request->input('selected_fiturs');
-        if (!empty($id_fiturs_selected)) {
-            $dataToInsert = [];
-            foreach ($id_fiturs_selected as $id_fitur) {
-                $dataToInsert[] = [
-                    'id_pesan' => $id_pesan,
-                    'id_fitur' => $id_fitur
-                ];
+            $id_fiturs_selected = $request->input('selected_fiturs');
+            if (!empty($id_fiturs_selected)) {
+                $dataToInsert = [];
+                foreach ($id_fiturs_selected as $id_fitur) {
+                    $dataToInsert[] = [
+                        'id_pesan' => $id_pesan,
+                        'id_fitur' => $id_fitur
+                    ];
+                }
+                // Hapus detail fitur yang sudah ada untuk id_pesan tertentu sebelum menambahkan yang baru
+                Detail_fitur::where('id_pesan', $id_pesan)->delete();
+                // Masukkan detail fitur yang baru
+                Detail_fitur::insert($dataToInsert);
             }
 
-            Detail_fitur::insert($dataToInsert);
+            return redirect()->route('homeorder')->with('success', 'Data berhasil disimpan!');
+        } catch (ErrorException $e) {
+            return redirect()->back()->with('Failed', 'Data Gagal disimpan!');
         }
+    }
 
-        // Redirect atau berikan respons sesuai kebutuhan
-        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+    public function preview(Request $request)
+    {
+        $id = $request->input('id');
+
+        $pesan = pesan::where('id', $id)->get()[0];
+
+        $fitur = [];
+
+        foreach ($pesan->fitur as $fit) {
+            $fitur[] = $fit->fitur_name->nama;
+        }
+        // return $pesan->template->nama;
+        return view('preview.' . strtolower($pesan->template->nama), compact('pesan', 'fitur'));
+    }
+
+    public function confirm()
+    {
+        $user = auth()->user()->id;
+        $id = pesan::where('id_user', $user)->get()[0];
+        $id_pesan = $id->id;
+
+        Pesan::where('id', $id_pesan)->update([
+            'status' => '1'
+        ]);
+
+        return redirect()->route('homeorder')->with('success', 'Pesanan Sudah di Confirm! Harap Tunggu!');
     }
 }

@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="{{ asset('css/dawa.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Merriweather:ital,wght@0,300;1,300&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 
 <body>
+    @include('layouts.navbartemplate')
     <div class="wrapper" id="page1" style=" background-image: url('{{ asset('img/dawa/resource/images/bg.jpg')}}')">
         <section class="hidden">
             <div class="container" id="invitationContent">
@@ -71,8 +70,7 @@
         <section class="hidden">
             <div class="container2">
                 <div class="logo">
-                    <img src="{{ asset('img/dawa/resource/images/logo.png') }}" alt="" alt="" width="105"
-                        height="115.5">
+                    <img src="{{ asset('img/dawa/resource/images/logo.png') }}" alt="" alt="" width="105" height="115.5">
                 </div>
                 <p>"Dan diantara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari
                     jenismu sendiri, agar kamu cenderung merasa tentram kepadanya, dan Dia menjadikan diantaramu rasa
@@ -118,8 +116,7 @@
                             Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</p>
                     </div>
                     <div class="rsvp">
-                        <a id="bukaUndanganButton"
-                            href="https://www.google.com/maps/place/Masjid+Istiqlal/@-6.17017,106.8292013,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f5ce68b5e01d:0xcafaf042d5840c6c!8m2!3d-6.17017!4d106.83139!16zL20vMDRzam1q?entry=ttu">Buka
+                        <a id="bukaUndanganButton" href="https://www.google.com/maps/place/Masjid+Istiqlal/@-6.17017,106.8292013,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f5ce68b5e01d:0xcafaf042d5840c6c!8m2!3d-6.17017!4d106.83139!16zL20vMDRzam1q?entry=ttu">Buka
                             Lokasi</a>
                     </div>
                 </div>
@@ -160,9 +157,7 @@
                 <h3>Lokasi</h3>
                 <div class="mapouter">
                     <div class="gmap_canvas">
-                        <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0"
-                            marginwidth="0"
-                            src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=Taman senkein&amp;t=&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=Taman senkein&amp;t=&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
                         <a href="https://connectionsgame.org/">Connections Game</a>
                     </div>
                 </div>

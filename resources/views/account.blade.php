@@ -53,30 +53,30 @@
           <div class="card-body py-5 px-md-5">
             <p class="fs-3 fw-bolder">Account Information</p>
             <form action="{{ route('account.change_password') }}" method="post">
-              <div class="form-outline mb-2">
-                <label class="form-label mt-2 ms-1" for="form3Example3">Username</label>
-                <input type="text" id="form3Example3" class="form-control" name="username"
-                  value="{{ Auth::user()->name }}" disabled />
+              <div class="form-floating mb-2">
+                <input type="text" class="form-control" name="username" value="{{ Auth::user()->name }}" disabled />
+                <label for="username">Username</label>
               </div>
 
-              <div class="form-outline">
-                <label class="form-label mt-2 ms-1" for="form3Example4">Gmail</label>
-                <input type="text" id="form3Example4" class="form-control" name="gmail"
-                  value="{{ Auth::user()->email }}" disabled />
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="gmail" value="{{ Auth::user()->email }}" disabled />
+                <label for="gmail">Gmail</label>
+
               </div>
-              <div class="form-outline">
-                <label class="form-label mt-2 ms-1" for="form3Example4">Gender</label>
-                <input type="text" id="form3Example4" class="form-control" name="gender"
-                  value="{{ Auth::user()->gender }}" disabled />
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="gender" value="{{ Auth::user()->gender }}" disabled />
+                <label for="gender">Gender</label>
+
               </div>
-              <div class="form-outline">
-                <label class="form-label mt-2 ms-1" for="form3Example4">Account Created</label>
-                <input type="text" id="form3Example4" class="form-control" name="created_at"
-                  value="{{ Auth::user()->created_at }}" disabled />
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="created_at" value="{{ Auth::user()->created_at }}"
+                  disabled />
+                <label for="created_at">Account Created</label>
+
               </div>
-              {{-- <div class="form-outline">
+              {{-- <div class="form-floating">
                 <label class="form-label mt-2 ms-1" for="form3Example4">New Password</label>
-                <input type="text" id="form3Example4" class="form-control" name="newpassword" placeholder="XYZ...." />
+                <input type="text" class="form-control" name="newpassword" placeholder="XYZ...." />
               </div>
               <button type="button" class="btn btn-primary mt-4">Submit</button> --}}
             </form>

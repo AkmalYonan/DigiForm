@@ -15,7 +15,10 @@ class Detail_fitur extends Model
         'id_fitur',
     ];
 
-    public function nama(){
-        return $this->belongsTo(Fitur::class, 'id');
+    protected $with = ['fitur_name'];
+
+    public function fitur_name()
+    {
+        return $this->belongsTo(Fitur::class, 'id_fitur');
     }
 }

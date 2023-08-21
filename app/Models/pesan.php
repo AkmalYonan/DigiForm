@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pesan extends Model
+class Pesan extends Model
 {
     use HasFactory;
 
@@ -20,11 +20,11 @@ class pesan extends Model
 
     public function template()
     {
-        return $this->belongsTo(Template::class, 'id');
+        return $this->belongsTo(Template::class, 'id_template');
     }
     public function user()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'id_user');
     }
     public function fitur()
     {
@@ -41,5 +41,9 @@ class pesan extends Model
     public function data()
     {
         return $this->hasOne(Data::class, 'id_pesan');
+    }
+    public function gallery()
+    {
+        return $this->hasMany(GalleryUser::class, 'id');
     }
 }

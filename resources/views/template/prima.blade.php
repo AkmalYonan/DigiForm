@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -49,8 +48,7 @@
             <p class="fs-2 mt-5" style="font-family: 'IM Fell Great Primer'; color: #C1A3A3;" data-aos="fade-up">
                 Countdown
                 Pernikahan</p>
-            <p id="countdown" class="fs-1 m-2" style="font-family: 'IM Fell Great Primer'; color: #C1A3A3;"
-                data-aos="fade-up"></p>
+            <p id="countdown" class="fs-1 m-2" style="font-family: 'IM Fell Great Primer'; color: #C1A3A3;" data-aos="fade-up"></p>
         </div>
 
         <div class="quote text-center mb-5 p-5">
@@ -66,33 +64,28 @@
                 Ar-Rum: 21.</p>
         </div>
 
-        <div class="mempelai text-center m-4">
-            <div class="row">
-                <div class="col">
-                    <img src="{{ asset('img/prima/foto3.jpg') }}" width="250px" height="500px" class="border-warna mb-4"
-                        data-aos="zoom-in-down">
-                </div>
-                <div class="col">
-                    <h1 class="display-5" style="font-family: 'Great Vibes', cursive; color: #886F6F;"
-                        data-aos="fade-down">
+        <div class="mempelai text-center m-5">
+            <div class="row justify-content-md-center align-items-center">
+                <div class="col col-lg-2">
+                    <h1 class="display-5" style="font-family: 'Great Vibes', cursive; color: #886F6F;" data-aos="fade-down">
                         Arya</h1>
                     <h1 class="fs-3" style="font-family: 'Merriweather', serif;
                 font-family: 'Parisienne', cursive;color: #C1A3A3;" data-aos="fade-down">Muhammad Tauriq Arya
                         Pradita</h1>
-                    <p class="fs-6 m-3" style="font-family: 'IM Fell Great Primer', serif;color: #C1A3A3;"
-                        data-aos="fade-down">Putra Pertama Dari
+                    <p class="fs-6 m-3" style="font-family: 'IM Fell Great Primer', serif;color: #C1A3A3;" data-aos="fade-down">Putra Pertama Dari
                         Pasangan
                         <br>Bapak Aris Siswanto & Ibu Sinta Dewi
                     </p>
-                    <br>
-                    <br>
-                    <h1 class="display-5" style="font-family: 'Great Vibes', cursive; color: #886F6F;"
-                        data-aos="fade-down">
+                </div>
+                <div class="col-md-auto">
+                    <img src="{{ asset('img/prima/foto3.jpg') }}" width="250px" height="500px" class="border-warna mb-4 " data-aos="zoom-in-down">
+                </div>
+                <div class="col col-lg-2">
+                    <h1 class="display-5" style="font-family: 'Great Vibes', cursive; color: #886F6F;" data-aos="fade-down">
                         Salamah</h1>
                     <h1 class="fs-3" style="font-family: 'Merriweather', serif;
                 font-family: 'Parisienne', cursive;color: #C1A3A3;" data-aos="fade-down">Salamah</h1>
-                    <p class="fs-6 m-3" style="font-family: 'IM Fell Great Primer', serif;color: #C1A3A3;"
-                        data-aos="fade-down">Putri Kedua Dari
+                    <p class="fs-6 m-3" style="font-family: 'IM Fell Great Primer', serif;color: #C1A3A3;" data-aos="fade-down">Putri Kedua Dari
                         Pasangan<br>
                         Bapak Asep Nandang N.S.
                         & Ibu Yuli
@@ -102,14 +95,14 @@
             </div>
         </div>
 
-        <div class="detail-acara text-center m-3">
-            <h2 class="display-4 mb-5" style="font-family: 'Parisienne', cursive; color: #886F6F"
-                data-aos="zoom-in-down">
+        <div class="detail-acara text-center m-4 p-4 rounded" style="background: rgb(255,230,230);
+    background: linear-gradient(198deg, rgba(255,230,230,1) 0%, rgba(232,191,191,1) 100%);">
+            <h2 class="display-4 mb-5" style="font-family: 'Parisienne', cursive; color: #886F6F" data-aos="zoom-in-down">
                 Detail
                 Acara
             </h2>
             <div class="row">
-                <div class="col-sm-6 mb-5" data-aos="fade-up">
+                <div class="col-sm-6 mb-4" data-aos="fade-up">
                     <h5 class="fs-3" style="font-family: 'IM Fell Great Primer', serif;color: #886F6F;">Akad</h5>
                     <p class="fs-5" style="font-family: 'IM Fell Great Primer', serif;color: #C1A3A3;">Sabtu,16 Desember
                         2023<br>08.00 WIB - Selesai
@@ -117,16 +110,12 @@
                     <p class="fs-6" style="font-family: 'IM Fell Great Primer', serif;color: #C1A3A3;">Cileungsi,Jawa
                         Barat<br>Jln.Pahlawan Kp.Tengah No.78 Rt02/005</p>
                     <div class="ratio ratio-21x9">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4261.603558627242!2d107.03903174290105!3d-6.426194211744445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6996454b474c75%3A0x1591b8de6b47851d!2sJl.%20Kp.%20Tengah%20No.78%2C%20Cipeucang%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016820!5e0!3m2!1sid!2sid!4v1689219496412!5m2!1sid!2sid"
-                            style="border:0; background: rgb(255,230,230);
-                        background: linear-gradient(198deg, rgba(255,230,230,1) 0%, rgba(232,191,191,1) 100%);"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                            class="shadow p-2 mb-5 rounded"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4261.603558627242!2d107.03903174290105!3d-6.426194211744445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6996454b474c75%3A0x1591b8de6b47851d!2sJl.%20Kp.%20Tengah%20No.78%2C%20Cipeucang%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016820!5e0!3m2!1sid!2sid!4v1689219496412!5m2!1sid!2sid" style="border:0; background: rgb(255,230,230);
+                        background: linear-gradient(198deg, rgba(255,230,230,1) 0%, rgba(232,191,191,1) 100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="shadow p-2 mb-5 rounded"></iframe>
                     </div>
                 </div>
                 <!-- <div class="garis_verikal"></div> -->
-                <div class="col-sm-6 mb-5" data-aos="fade-down">
+                <div class="col-sm-6 mb-4" data-aos="fade-down">
                     <h5 class="fs-3" style="font-family: 'IM Fell Great Primer', serif;color: #886F6F;">Resepsi</h5>
                     <p class="fs-5" style="font-family: 'IM Fell Great Primer', serif;color: #C1A3A3;">Minggu,17
                         Desember
@@ -136,12 +125,8 @@
                         TMII,Kota Jakarta Timur<br>Taman Mini,
                         Kota Jakarta Timur</p>
                     <div class="ratio ratio-21x9">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.836143860097!2d106.87298148248746!3d-6.301909547142641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5e7fb7ab01%3A0xb11aa6aaa3800434!2sSasono%20Adiguno%20TMII!5e0!3m2!1sid!2sid!4v1689219714379!5m2!1sid!2sid"
-                            style="border:0; background: rgb(255,230,230);
-                        background: linear-gradient(198deg, rgba(255,230,230,1) 0%, rgba(232,191,191,1) 100%);"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                            class="shadow p-2 mb-5 rounded"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.836143860097!2d106.87298148248746!3d-6.301909547142641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5e7fb7ab01%3A0xb11aa6aaa3800434!2sSasono%20Adiguno%20TMII!5e0!3m2!1sid!2sid!4v1689219714379!5m2!1sid!2sid" style="border:0; background: rgb(255,230,230);
+                        background: linear-gradient(198deg, rgba(255,230,230,1) 0%, rgba(232,191,191,1) 100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="shadow p-2 mb-5 rounded"></iframe>
                     </div>
                 </div>
             </div>
@@ -149,33 +134,26 @@
 
         <div class="galeri shadow p-3 m-4 rounded" style="background: rgb(255,230,230);
     background: linear-gradient(198deg, rgba(255,230,230,1) 0%, rgba(232,191,191,1) 100%);">
-            <h2 class="text-center display-4  mb-4" style="font-family: 'Parisienne', cursive; color: #886F6F"
-                data-aos="fade-up">
+            <h2 class="text-center display-4  mb-4" style="font-family: 'Parisienne', cursive; color: #886F6F" data-aos="fade-up">
                 Galeri
                 Foto</h2>
             <div class="row m-3">
                 <div class="col-lg-4 col-md-12 mb-2 mb-lg-0">
-                    <img src="{{ asset('img/prima/foto2.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
-                        alt="Boat on Calm Water" data-aos="fade-down" />
+                    <img src="{{ asset('img/prima/foto2.jpg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" data-aos="fade-down" />
 
-                    <img src="{{ asset('img/prima/foto9.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
-                        alt="Wintry Mountain Landscape" data-aos="fade-up" />
+                    <img src="{{ asset('img/prima/foto9.jpg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" data-aos="fade-up" />
                 </div>
 
                 <div class="col-lg-4 mb-2 mb-lg-0">
-                    <img src="{{ asset('img/prima/foto8.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
-                        alt="Mountains in the Clouds" data-aos="zoom-in-down" />
+                    <img src="{{ asset('img/prima/foto8.jpg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" data-aos="zoom-in-down" />
 
-                    <img src="{{ asset('img/prima/foto10.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
-                        alt="Boat on Calm Water" data-aos="zoom-in-up" />
+                    <img src="{{ asset('img/prima/foto10.jpg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" data-aos="zoom-in-up" />
                 </div>
 
                 <div class="col-lg-4 mb-2 mb-lg-0">
-                    <img src="{{ asset('img/prima/foto7.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
-                        alt="Waves at Sea" data-aos="fade-down" />
+                    <img src="{{ asset('img/prima/foto7.jpg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" data-aos="fade-down" />
 
-                    <img src="{{ asset('img/prima/foto12.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
-                        alt="Yosemite National Park" data-aos="fade-up" />
+                    <img src="{{ asset('img/prima/foto12.jpg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" data-aos="fade-up" />
                 </div>
             </div>
         </div>
@@ -190,29 +168,23 @@
             <div class="row">
                 <div class="col-sm-6">
                     <form id="greetingForm">
-                        <h2 class="text-center fs-2  mb-4" style="font-family: 'Parisienne', cursive; color: #886F6F"
-                            data-aos="zoom-in">Kartu Ucapan</h2>
+                        <h2 class="text-center fs-2  mb-4" style="font-family: 'Parisienne', cursive; color: #886F6F" data-aos="zoom-in">Kartu Ucapan</h2>
                         <div class="form-group" data-aos="zoom-in-down">
-                            <label class="fs-5 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;"
-                                for="name">Nama Anda:</label>
+                            <label class="fs-5 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;" for="name">Nama Anda:</label>
                             <input type="text" class="form-control" id="name" required>
                         </div>
                         <div class="form-group" data-aos="zoom-in-down">
-                            <label class="fs-5 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;"
-                                for="message">Kata Ucapan:</label>
+                            <label class="fs-5 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;" for="message">Kata Ucapan:</label>
                             <textarea class="form-control" id="message" required></textarea>
                         </div>
                         <div class="form-group" data-aos="zoom-in-up">
-                            <label class="fs-5 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;"
-                                for="attendance">Keterangan Hadir:</label>
+                            <label class="fs-5 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;" for="attendance">Keterangan Hadir:</label>
                             <select class="form-control" id="attendance" required>
-                                <option class="fs-6 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;"
-                                    value="Hadir">Hadir</option>
-                                <option class="fs-6 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;"
-                                    value="Tidak Hadir">Tidak Hadir</option>
+                                <option class="fs-6 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;" value="Hadir">Hadir</option>
+                                <option class="fs-6 m-3" style="font-family: 'IM Fell Great Primer';color: #C1A3A3;" value="Tidak Hadir">Tidak Hadir</option>
                             </select>
                         </div>
-                        <button data-aos="zoom-in-up" type="submit" class="btn btn-primary m-5">Kirim Kartu
+                        <button data-aos="zoom-in-up" type="submit" id="btn-pink" class="btn btn-primary m-5">Kirim Kartu
                             Ucapan</button>
                     </form>
                 </div>
@@ -243,8 +215,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

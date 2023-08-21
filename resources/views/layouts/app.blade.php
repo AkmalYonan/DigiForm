@@ -10,12 +10,16 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="icon" href="{{ asset('img/logo_110.png') }}">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     {{-- css --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -26,7 +30,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-warna1 fixed-top">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="{{ url('/') }}">
+                <a class="navbar-brand fw-bold text-lead2" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -45,36 +49,62 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                        @if (Route::has('login'))
+                        @if (Route::currentRouteName() !== 'login')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link fw-semibold" style="font-family: 'Roboto', sans-serif;"
+                                href="#benefit">Benefit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" style="font-family: 'Roboto', sans-serif;"
+                                href="#price">Paket</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" style="font-family: 'Roboto', sans-serif;"
+                                href="#contoh">Contoh</a>
                         </li>
                         @endif
 
-                        @if (Route::has('register'))
+
+                        @if (Route::currentRouteName() == 'login')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link fw-semibold" style="font-family: 'Roboto', sans-serif;"
+                                href="{{ route('home') }}">{{ __('Home') }}</a>
                         </li>
                         @endif
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" style="font-family: 'Roboto', sans-serif;"
+                                href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
+
                         @else
                         @if (Route::has('home'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            <a class="nav-link fw-semibold {{ Request::is('/') ? 'active' : '' }}"
+                                style="font-family: 'Roboto', sans-serif;" href="{{ route('home') }}">{{ __('Home')
+                                }}</a>
                         </li>
                         @endif
                         @if (Route::has('hometemplate'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('hometemplate') }}">{{ __('Template') }}</a>
+                            <a class="nav-link fw-semibold {{ Request::is('template') ? 'active' : '' }}"
+                                style="font-family: 'Roboto', sans-serif;" href="{{ route('hometemplate') }}">{{
+                                __('Template') }}</a>
                         </li>
                         @endif
                         @if (Route::has('homepricelist'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('homepricelist') }}">{{ __('Price List') }}</a>
+                            <a class="nav-link fw-semibold {{ Request::is('pricelist') ? 'active' : '' }}"
+                                style="font-family: 'Roboto', sans-serif;" href="{{ route('homepricelist') }}">{{
+                                __('Pricing') }}</a>
                         </li>
                         @endif
                         @if (Route::has('homeorder'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('homeorder') }}">{{ __('Order') }}</a>
+                            <a class="nav-link fw-semibold {{ Request::is('order') ? 'active' : '' }}"
+                                style="font-family: 'Roboto', sans-serif;" href="{{ route('homeorder') }}">{{
+                                __('Order') }}</a>
                         </li>
                         @endif
                         @if(auth()->check() && auth()->user()->level == 1 && Route::has('admindashboard'))
@@ -84,7 +114,8 @@
                         </li>
                         @endif
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle fw-bolder"
+                                style="font-family: 'Roboto', sans-serif;" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
@@ -111,8 +142,14 @@
 
         <main class="">
             @yield('content')
+            @yield('footer')
         </main>
     </div>
+    @include('sweetalert::alert')
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 

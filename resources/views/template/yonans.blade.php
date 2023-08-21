@@ -5,23 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/yonans/yonans.css' )}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script&family=Parisienne&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script&family=Parisienne&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+    @include('layouts.navbartemplate')
     <nav class="navbar navbar-expand-md bg-navbar-template  py-4 fixed-top">
         <div class="container">
             {{-- <a class="navbar-brand fw-bold" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+            {{ config('app.name', 'Laravel') }}
             </a> --}}
             <p class="navbar-brand fw-bold mt-3">Preview Template</p>
 
@@ -123,8 +120,7 @@
                     <p class="mb-5"><span><b>Masjid Istiqlal</b></span> <br>Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan
                         Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</p>
                 </div>
-                <a class="button-39"
-                    href="https://www.google.com/maps/place/Masjid+Istiqlal/@-6.17017,106.8292013,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f5ce68b5e01d:0xcafaf042d5840c6c!8m2!3d-6.17017!4d106.83139!16zL20vMDRzam1q?entry=ttu">BUKA
+                <a class="button-39" href="https://www.google.com/maps/place/Masjid+Istiqlal/@-6.17017,106.8292013,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f5ce68b5e01d:0xcafaf042d5840c6c!8m2!3d-6.17017!4d106.83139!16zL20vMDRzam1q?entry=ttu">BUKA
                     LOKASI</a>
             </div>
         </section>
@@ -154,9 +150,7 @@
                 <h3>Lokasi</h3>
                 <div class="mapouter">
                     <div class="gmap_canvas">
-                        <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0"
-                            marginwidth="0"
-                            src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=Taman senkein&amp;t=&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=Taman senkein&amp;t=&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
                     </div>
                 </div>
                 <p><span><b>Sankeien Garden, Yokohama</b></span> <br>58-1 Honmokusannotani, Naka Ward, Yokohama,
@@ -228,8 +222,7 @@
     </div>
     <script src="{{ asset('js/yonans.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

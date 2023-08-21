@@ -126,6 +126,20 @@
                                             <td>Lokasi Acara</td>
                                             <td>{{ $pesan->data->lokasi_acara }}</td>
                                         </tr>
+
+                                        <tr>
+                                            <td>Link G-Maps</td>
+                                            <td>
+                                                <form action="{{ route('updateMapsUser', ['id' =>  $pesan->id])  }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="text" name="updateMapsUser" id="updateMapsUser"
+                                                        value="{{ $pesan->data->iframeMaps }}"
+                                                        class="form-control-plaintext" onchange="this.form.submit()">
+                                                </form>
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td>Tanggal Akad</td>
                                             <td>{{ $pesan->data->tgl_akad }}</td>

@@ -16,6 +16,7 @@ class Mempelai_wanita extends Model
         'anak_ke',
         'nama_ayah',
         'nama_ibu',
-        'username_ig'
+        'username_ig',
+        'image'
     ];
 }

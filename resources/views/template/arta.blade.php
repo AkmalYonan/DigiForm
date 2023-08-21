@@ -5,16 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Undangan Pernikahan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/arta/arta.css') }}">
 </head>
 
-<body>
+<body class="background-utama">
     @include('layouts.navbartemplate')
     <div id="overlay">
         <div class="overlay-content" data-aos="fade-up">
@@ -52,8 +50,7 @@
         <h3 class="text-mempelai display-5 mb-4" style="font-family: 'Parisienne', cursive;" data-aos="fade-up">Sang
             Mempelai
         </h3>
-        <div class="row align-items-center center rounded m-2" style="background-color: #A4907C;"
-            data-aos="zoom-in-down">
+        <div class="row align-items-center center rounded m-2" style="background-color: #A4907C;" data-aos="zoom-in-down">
             <div class="col-12 col-md-4">
                 <h1 class="fs-3" style="color: #eaeaea;" data-aos="zoom-in-down">Muhammad Tauriq Arya Pradita</h1>
                 <br>
@@ -62,8 +59,7 @@
                 </p>
             </div>
             <div class="col-12 col-md-4">
-                <img src="{{ asset('img/arta/BOX11440.JPG') }}" width="100%" height="100%"
-                    class="rounded mx-auto d-block shadow-lg" alt="">
+                <img src="{{ asset('img/arta/BOX11440.JPG') }}" width="100%" height="100%" class="rounded mx-auto d-block shadow-lg" alt="">
             </div>
             <div class="col-12 col-md-4">
                 <h1 class="fs-3" style="color: #eaeaea;" data-aos="zoom-in-up">Salamah</h1><br>
@@ -81,24 +77,19 @@
                 Foto</h2>
             <div class="row">
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11442.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" data-aos="fade-up">
+                    <img src="{{ asset('img/arta/BOX11442.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" data-aos="fade-up">
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11444.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" data-aos="fade-down">
+                    <img src="{{ asset('img/arta/BOX11444.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" data-aos="fade-down">
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11445.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" data-aos="fade-up">
+                    <img src="{{ asset('img/arta/BOX11445.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" data-aos="fade-up">
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11447.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" data-aos="fade-down">
+                    <img src="{{ asset('img/arta/BOX11447.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" data-aos="fade-down">
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11440.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" data-aos="fade-up">
+                    <img src="{{ asset('img/arta/BOX11440.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" data-aos="fade-up">
                 </div>
             </div>
             <div class="shadow p-3 mb-5 bg-body rounded" data-aos="fade-up">
@@ -124,10 +115,7 @@
                             <p class="card-text">Sabtu,16 Desember 2023<br>08.00 WIB - Selesai
                             </p>
                             <p class="card-text">Cileungsi,Jawa Barat<br>Jln.Pahlawan Kp.Tengah No.78 Rt02/005</p>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4261.603558627242!2d107.03903174290105!3d-6.426194211744445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6996454b474c75%3A0x1591b8de6b47851d!2sJl.%20Kp.%20Tengah%20No.78%2C%20Cipeucang%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016820!5e0!3m2!1sid!2sid!4v1689219496412!5m2!1sid!2sid"
-                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4261.603558627242!2d107.03903174290105!3d-6.426194211744445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6996454b474c75%3A0x1591b8de6b47851d!2sJl.%20Kp.%20Tengah%20No.78%2C%20Cipeucang%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016820!5e0!3m2!1sid!2sid!4v1689219496412!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -140,10 +128,7 @@
                             <p class="card-text">Sasono Adiguno TMII,Kota Jakarta Timur<br>Taman Mini, Jl. Malaka,
                                 Ceger, Kec. Cipayung,
                                 Kota Jakarta Timur</p>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.836143860097!2d106.87298148248746!3d-6.301909547142641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5e7fb7ab01%3A0xb11aa6aaa3800434!2sSasono%20Adiguno%20TMII!5e0!3m2!1sid!2sid!4v1689219714379!5m2!1sid!2sid"
-                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.836143860097!2d106.87298148248746!3d-6.301909547142641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5e7fb7ab01%3A0xb11aa6aaa3800434!2sSasono%20Adiguno%20TMII!5e0!3m2!1sid!2sid!4v1689219714379!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -175,7 +160,7 @@
                                 <option class="card-text" value="Tidak Hadir">Tidak Hadir</option>
                             </select>
                         </div>
-                        <button data-aos="zoom-in-up" type="submit" class="btn btn-primary mt-3">Kirim Kartu
+                        <button data-aos="zoom-in-up" type="submit" id="btn-coklat" class="btn btn-primary mt-3">Kirim Kartu
                             Ucapan</button>
                     </form>
                 </div>
@@ -185,11 +170,10 @@
                     <nav id="pagination" class="pagination"></nav>
                 </div>
             </div>
-
+        </section>
     </main>
 
-    <footer class="center shadow p-3 m-4 bg-body rounded" style="font-family: 'Parisienne', cursive; color: #A4907C;"
-        data-aos="fade-up">
+    <footer class="center shadow p-3 m-4 bg-body rounded" style="font-family: 'Parisienne', cursive; color: #A4907C;" data-aos="fade-up">
         <button id="playPauseButton" class="play">
             <i class="fas fa-music"></i>
         </button>
@@ -202,8 +186,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/arta.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

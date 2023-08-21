@@ -45,17 +45,6 @@ class HomeController extends Controller
         }
 
         return view('index', compact('whatsappNumber', 'admin', 'Fiturs', 'Templates', 'Pakets'));
-
-        // $get_user = User::where('email', auth()->user()->email)->first();
-        // if ($get_user->is_activated == 1) {
-        //     if ($get_user->level == 1) {
-        //         return view('index', compact('whatsappNumber'));
-        //     } else {
-        //         return view('index', compact('whatsappNumber'));
-        //     }
-        // } else {
-        //     return redirect('/verify-account');
-        // }
     }
 
     public function verifyaccount()
@@ -81,9 +70,9 @@ class HomeController extends Controller
             $user->save();
             $getting_token = Verifytoken::where('token', $get_token->token)->first();
             $getting_token->delete();
-            return redirect('/')->with('activated', 'Your account has been Activated');
+            return redirect('/')->with('success', 'Your account has been Activated');
         } else {
-            return redirect('/verify-account')->with('incorrect', 'SALAH OTP');
+            return redirect('/verify-account')->with('error', 'SALAH OTP');
         }
     }
 
@@ -107,7 +96,7 @@ class HomeController extends Controller
         }
         Mail::to($user->email)->send(new OtpEmail($newToken, $get_user_name));
 
-        return redirect('/verify-account')->with('resent', 'OTP telah dikirim ulang.');
+        return redirect('/verify-account')->with('success', 'OTP telah dikirim ulang.');
     }
 
     public function changePlan()
@@ -127,13 +116,11 @@ class HomeController extends Controller
     public function priceList()
     {
         $Pakets = Paket::all();
-        $Templates = Template::all();
-        $Fiturs = Fitur::all();
 
         foreach ($Pakets as $paket) {
             $paket->harga = 'Rp ' . number_format($paket->harga, 0, ',', '.');
         }
-        return view('home.pricelist', compact('Pakets', 'Templates', 'Fiturs'));
+        return view('home.pricelist', compact('Pakets'));
     }
 
     public function tempAmara()
@@ -165,5 +152,10 @@ class HomeController extends Controller
     {
 
         return view('template.dawa');
+    }
+    public function tempEmim()
+    {
+
+        return view('template.Emim');
     }
 }

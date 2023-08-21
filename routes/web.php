@@ -27,7 +27,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('indexUtama');
 // Route::get('/home', function () {
@@ -55,6 +54,10 @@ Route::middleware(['auth', 'verifiedUser'])->group(function () {
     //order
     Route::get('/order', [OrderController::class, 'index'])->name('homeorder');
     Route::post('/order-pesan', [OrderController::class, 'pesan']);
+    Route::get('/order-edit', [OrderController::class, 'edit'])->name('order-edit');
+    Route::post('/order-update', [OrderController::class, 'ubah'])->name('order-update');
+    Route::post('/preview-order', [OrderController::class, 'preview'])->name('preview-order');
+    Route::post('/confirm-order', [OrderController::class, 'confirm'])->name('confirm-order');
 
     //template
     Route::get('/template-amara', [HomeController::class, 'tempAmara'])->name('temp_amara');
@@ -63,6 +66,7 @@ Route::middleware(['auth', 'verifiedUser'])->group(function () {
     Route::get('/template-arta', [HomeController::class, 'tempArta'])->name('temp_arta');
     Route::get('/template-yonans', [HomeController::class, 'tempYonans'])->name('temp_yonans');
     Route::get('/template-dawa', [HomeController::class, 'tempDawa'])->name('temp_dawa');
+    Route::get('/template-emim', [HomeController::class, 'tempEmim'])->name('temp_emim');
 
 
     Route::get('/account', [AccountController::class, 'showProfile'])->name('homeaccount');
@@ -78,6 +82,7 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
     Route::get('/dashboard-admin', [AdminController::class, 'index'])->name('admindashboard');
     Route::get('/admin-viewPesan', [AdminController::class, 'viewPesanan'])->name('admin-viewPesan');
     Route::get('/admin-viewPesan/{data:id}', [AdminController::class, 'detailPesanan']);
+    Route::put('/admin-updateMaps/{id}', [AdminController::class, 'updateMapsUser'])->name('updateMapsUser');
 
 
     //ADMIN USER

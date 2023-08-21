@@ -10,7 +10,7 @@
         </div>
         <div class="card shadow-lg">
           <div class="card-body p-5">
-            <h1 class="fs-4 card-title fw-bold mb-4">Log-in</h1>
+            <h1 class="fs-4 card-title fw-bolder mb-4 text-lead2">Log-in</h1>
             <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="" autocomplete="off">
               @csrf
               <div class="mb-3">
@@ -41,7 +41,7 @@
                   <input type="checkbox" name="remember" id="remember" class="form-check-input">
                   <label for="remember" class="form-check-label">Remember Me</label>
                 </div>
-                <button type="submit" class="btn btn-primary ms-auto">
+                <button type="submit" class="btn btn-primary ms-auto fw-bold text-roboto">
                   Login
                 </button>
               </div>
@@ -61,5 +61,16 @@
   </div>
 </section>
 
+<script>
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+
+  emailInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      passwordInput.focus();
+    }
+  });
+</script>
 
 @endsection

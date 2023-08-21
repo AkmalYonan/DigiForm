@@ -1,4 +1,4 @@
-var countDownDate = new Date("December 31, 2030 23:59:59").getTime();
+var countDownDate = new Date("December 31, 2025 23:59:59").getTime();
 
 // Update the countdown every 1 second
 var countdown = setInterval(function () {
@@ -28,11 +28,3 @@ var countdown = setInterval(function () {
         document.getElementById("countdown").innerHTML = "Countdown Finished";
     }
 }, 1000);
-
-document.addEventListener("DOMContentLoaded", function () {
-    document
-        .getElementById("update-paket-form")
-        .addEventListener("change", function () {
-            this.submit();
-        });
-});

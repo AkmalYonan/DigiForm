@@ -18,11 +18,11 @@ class Paket extends Model
 
     public function detailPaketTemplate()
     {
-        return $this->hasMany(Detail_paket_template::class, 'paket_id', 'id');
+        return $this->hasMany(Detail_paket_template::class, 'paket_id');
     }
 
     public function detailPaketFitur()
     {
-        return $this->hasMany(Detail_paket_fitur::class, 'fitur_id', 'id');
+        return $this->hasMany(Detail_paket_fitur::class, 'paket_id');
     }
 }

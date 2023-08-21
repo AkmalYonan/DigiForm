@@ -72,7 +72,7 @@
         </div>
         <h1>Thanks for registering!</h1>
         <p>Hello, {{ $get_user_name }}</p>
-        <p>Your validation token is: {{ $token }}</p>
+        <p>Your validation token is: {{ $validToken }}</p>
     </div>
 </body>
 
