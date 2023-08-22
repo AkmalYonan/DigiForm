@@ -97,8 +97,8 @@ Configure **.env** , copy paste .env.example and remove **.example**
 
 at .env you can edit the database and mailing
 
--   setting database in .env
-    ![database](https://github.com/bakaroti/resource/blob/main/database.jpeg?raw=true)
+setting database in .env
+![database](https://github.com/bakaroti/resource/blob/main/database.jpeg?raw=true)
 
--   edit mailing in .env
-    ![mailing](https://github.com/bakaroti/resource/blob/main/mail.jpeg?raw=true)
+edit mailing in .env
+![mailing](https://github.com/bakaroti/resource/blob/main/mail.jpeg?raw=true)
