@@ -94,7 +94,22 @@ class AdminController extends Controller
 
         $users->level = $request->input('level');
         $users->save();
-
         return redirect()->route('admin-user')->with('success', 'Level ID pengguna berhasil diperbarui.');
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
+        if (!$user) {
+            return redirect()->route('admin-user')->with('error', 'Data User tidak ditemukan.');
+        }
+        $user->delete();
+
+        return redirect()->route('admin-user')->with('success', 'Data User berhasil dihapus.');
     }
 }

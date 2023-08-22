@@ -54,7 +54,7 @@ Route::middleware(['auth', 'verifiedUser'])->group(function () {
 
     //order
     Route::get('/order', [OrderController::class, 'index'])->name('homeorder');
-    Route::post('/order-pesan', [OrderController::class, 'pesan']);
+    Route::post('/order-pesan', [OrderController::class, 'pesan'])->name('order-pesan');
     Route::get('/order-edit', [OrderController::class, 'edit'])->name('order-edit');
     Route::post('/order-update', [OrderController::class, 'ubah'])->name('order-update');
     Route::post('/preview-order', [OrderController::class, 'preview'])->name('preview-order');
@@ -90,6 +90,7 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
     Route::get('/admin-user', [AdminController::class, 'viewUser'])->name('admin-user');
     Route::put('/update-paket-user/{id}', [AdminController::class, 'updatePaket'])->name('update-paket-user');
     Route::put('/update-level-user/{id}', [AdminController::class, 'updateLevel'])->name('update-level-user');
+    Route::delete('/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('delete-user');
 
 
     //ADMIN CRUD PAKET

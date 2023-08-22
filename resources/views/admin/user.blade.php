@@ -19,6 +19,9 @@
                                     <th scope="col">Gender</th>
                                     <th scope="col">Paket_ID</th>
                                     <th scope="col">Level Account</th>
+                                    <th scope="col">Is Order ?</th>
+                                    <th scope="col">Created At</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,6 +64,20 @@
                                                 </option>
                                                 @endforeach
                                             </select>
+                                        </form>
+                                    </td>
+                                    <td>@if ($user->is_order == 1) <span class="text-success fw-bolder">Sudah
+                                            Order!</span>@else Belum @endif</td>
+                                    <td>{{ $user->created_at }}</td>
+                                    <td>
+                                        <form action="{{ route('delete-user', ['id' => $user->id]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="ps-2 text-danger btn btn-link"
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"
+                                                @if ($user->id ==
+                                                auth()->user()->id) disabled @endif><i
+                                                    class="fa-solid fa-trash fa-lg"></i></button>
                                         </form>
                                     </td>
                                 </tr>

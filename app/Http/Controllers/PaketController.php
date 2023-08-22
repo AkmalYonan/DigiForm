@@ -22,7 +22,7 @@ class PaketController extends Controller
     public function store(Request $request)
     {
         $paket = new Paket();
-        $paket->nama = $request->input('namaTemplate');
+        $paket->nama = $request->input('namaPaket');
         $paket->save();
 
         return redirect()->route('admin-addpaket')->with('success', 'Fitur baru berhasil ditambahkan.');

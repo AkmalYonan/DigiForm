@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container pt-5 mt-5 pb-4">
-    <div class="row">
+    <div class="row justify-content-center g-2">
         <div class="col-12 col-md-3">
             <div class="card bg-dark-subtle" onclick="location.href='{{ route('admin-addtemplate') }}'">
                 <div class="card-body">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-12 col-md-3">
-            <div class="card bg-info" onclick="location.href='{{ route('admin-addpaket') }}'">
+            <div class="card bg-info-subtle" onclick="location.href='{{ route('admin-addpaket') }}'">
                 <div class="card-body">
                     <h5 class="card-title">Total Paket</h5>
                     <p class="card-text fs-1 fw-bolder">{{ $totalPakets }}</p>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-12 col-md-3">
-            <div class="card bg-danger" onclick="location.href='{{ route('admin-user') }}'">
+            <div class="card bg-danger-subtle" onclick="location.href='{{ route('admin-user') }}'">
                 <div class="card-body">
                     <h5 class="card-title">Total User</h5>
                     <p class="card-text fs-1 fw-bolder">{{ $totalUser }}</p>
@@ -28,25 +28,41 @@
             </div>
         </div>
         <div class="col-12 col-md-3">
-            <div class="card bg-warning" onclick="location.href='{{ route('admin-addfitur') }}'">
+            <div class="card bg-warning-subtle" onclick="location.href='{{ route('admin-addfitur') }}'">
                 <div class="card-body">
                     <h5 class="card-title">Total Fitur</h5>
                     <p class="card-text fs-1 fw-bolder">{{ $totalFitur }}</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3 mt-4">
-            <div class="card bg-warning" onclick="location.href='{{ route('admin-viewPesan') }}'">
+        <div class="col-12 col-md-3">
+            <div class="card bg-warning-subtle" onclick="location.href='{{ route('admin-viewPesan') }}'">
                 <div class="card-body">
                     <h5 class="card-title">Total Pesanan</h5>
                     <p class="card-text fs-1 fw-bolder">{{ $totalPesan }}</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3 mt-4">
-            <div class="card bg-danger" onclick="location.href='{{ route('admin-addlevel') }}'">
+        <div class="col-12 col-md-3">
+            <div class="card bg-danger-subtle" onclick="location.href='{{ route('admin-addlevel') }}'">
                 <div class="card-body">
                     <h5 class="card-title">Total Level</h5>
+                    <p class="card-text fs-1 fw-bolder">{{ $totalLevel }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3">
+            <div class="card bg-primary-subtle" onclick="location.href='{{ route('admin-addlevel') }}'">
+                <div class="card-body">
+                    <h5 class="card-title">Detail Paket Template</h5>
+                    <p class="card-text fs-1 fw-bolder">{{ $totalLevel }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3">
+            <div class="card bg-info-subtle" onclick="location.href='{{ route('admin-addlevel') }}'">
+                <div class="card-body">
+                    <h5 class="card-title">Detail Paket Fitur</h5>
                     <p class="card-text fs-1 fw-bolder">{{ $totalLevel }}</p>
                 </div>
             </div>

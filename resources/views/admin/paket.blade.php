@@ -14,16 +14,16 @@
                 <div class="col-12 col-md-12">
                     <div class="container shadow-lg py-3 my-3 rounded-3">
                         <p class="lead">Input Paket Baru</p>
-                        <form action="">
+                        <form action="{{ route('store-paket') }}" method="POST">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput">
+                                <input type="text" class="form-control" id="floatingInput" name="namaPaket">
                                 <label for="floatingInput">Nama Paket</label>
                             </div>
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword">
+                                <input type="text" class="form-control" id="floatingPassword" name="hargaPaket">
                                 <label for="floatingPassword">Harga</label>
                             </div>
-                            <button type="button" class="btn btn-sm btn-success w-100 mt-2">Submit</button>
+                            <button type="submit" class="btn btn-sm btn-success w-100 mt-2">Submit</button>
                         </form>
                     </div>
                     <button type="button" class="btn btn-sm btn-danger mt-2"

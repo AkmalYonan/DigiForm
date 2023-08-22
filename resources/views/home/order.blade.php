@@ -37,7 +37,7 @@
         <div class="card shadow-lg mt-5">
           <p class="fs-3 pt-4 fw-bold text-center text-lead2">Form Order Pesanan</p>
           <div class="card-body">
-            <form action="/order-pesan" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('order-pesan') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="row justify-content-center text-center">
                 <div class="col-md-11">
