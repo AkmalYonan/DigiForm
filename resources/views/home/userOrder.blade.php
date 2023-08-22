@@ -157,7 +157,6 @@
                                                         target="_blank">Preview</button>
                                                 </form>
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 </table>
