@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminSettingController;
 use App\Http\Controllers\FiturController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LevelController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaketController;
@@ -88,6 +89,8 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
     //ADMIN USER
     Route::get('/admin-user', [AdminController::class, 'viewUser'])->name('admin-user');
     Route::put('/update-paket-user/{id}', [AdminController::class, 'updatePaket'])->name('update-paket-user');
+    Route::put('/update-level-user/{id}', [AdminController::class, 'updateLevel'])->name('update-level-user');
+
 
     //ADMIN CRUD PAKET
     Route::get('/admin-addpaket', [PaketController::class, 'index'])->name('admin-addpaket');
@@ -109,6 +112,13 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
     Route::get('/edit-template/{id}', [TemplateController::class, 'edit'])->name('edit-template');
     Route::put('/update-template/{id}', [TemplateController::class, 'update'])->name('update-template');
     Route::delete('/delete-template/{id}', [TemplateController::class, 'delete'])->name('delete-template');
+
+    //ADMIN CRUD LEVEL
+    Route::get('/admin-addlevel', [LevelController::class, 'index'])->name('admin-addlevel');
+    Route::post('/store-level', [LevelController::class, 'store'])->name('store-level');
+    Route::get('/edit-level/{id}', [LevelController::class, 'edit'])->name('edit-level');
+    Route::put('/update-level/{id}', [LevelController::class, 'update'])->name('update-level');
+    Route::delete('/delete-level/{id}', [LevelController::class, 'delete'])->name('delete-level');
 
     //SETTING PAKET - FITUR
     // Route::get('/setting-paket', [AdminSettingController::class, 'index'])->name('setting-paket');

@@ -107,7 +107,7 @@
                                 __('Order') }}</a>
                         </li>
                         @endif
-                        @if(auth()->check() && auth()->user()->level == 1 && Route::has('admindashboard'))
+                        @if(auth()->check() && auth()->user()->level == 2 && Route::has('admindashboard'))
                         <li class="nav-item">
                             <a class="nav-link text-danger" href="{{ route('admindashboard') }}">{{ __('Dasboard')
                                 }}</a>

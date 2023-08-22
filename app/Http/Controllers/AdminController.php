@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\Data;
 use App\Models\Fitur;
+use App\Models\level;
 use App\Models\Paket;
 use App\Models\pesan;
 use App\Models\Template;
@@ -22,7 +23,8 @@ class AdminController extends Controller
         $totalUser = User::count();
         $totalFitur = Fitur::count();
         $totalPesan = Data::count();
-        return view('admin.index', compact('admins', 'totalPakets', 'totalTemplates', 'totalUser', 'totalFitur', 'totalPesan'));
+        $totalLevel = level::count();
+        return view('admin.index', compact('admins', 'totalPakets', 'totalTemplates', 'totalUser', 'totalFitur', 'totalPesan', 'totalLevel'));
     }
 
     public function viewPesanan()
@@ -61,11 +63,11 @@ class AdminController extends Controller
 
     public function viewUser()
     {
-
+        $levels = level::all();
         $pakets = Paket::all();
         $users = User::all();
         $totalUsers = User::count();
-        return view('admin.user', compact('users', 'totalUsers', 'pakets'));
+        return view('admin.user', compact('users', 'totalUsers', 'pakets', 'levels'));
     }
 
     public function edit($id)
@@ -84,5 +86,15 @@ class AdminController extends Controller
         $users->save();
 
         return redirect()->route('admin-user')->with('success', 'Paket ID pengguna berhasil diperbarui.');
+    }
+
+    public function updateLevel(Request $request, $id)
+    {
+        $users = User::find($id);
+
+        $users->level = $request->input('level');
+        $users->save();
+
+        return redirect()->route('admin-user')->with('success', 'Level ID pengguna berhasil diperbarui.');
     }
 }

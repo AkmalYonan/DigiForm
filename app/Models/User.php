@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Paket::class, 'paket_id');
     }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
 }

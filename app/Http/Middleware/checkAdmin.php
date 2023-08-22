@@ -18,7 +18,7 @@ class checkAdmin
         if (auth()->check()) {
             $user = auth()->user();
 
-            if ($user->is_activated == 1 && $user->level == 1) {
+            if ($user->is_activated == 1 && $user->level == 2) {
                 return $next($request);
             }
         }

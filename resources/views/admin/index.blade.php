@@ -43,6 +43,14 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 col-md-3 mt-4">
+            <div class="card bg-danger" onclick="location.href='{{ route('admin-addlevel') }}'">
+                <div class="card-body">
+                    <h5 class="card-title">Total Level</h5>
+                    <p class="card-text fs-1 fw-bolder">{{ $totalLevel }}</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row mt-3">
         <div class="col-12 col-md-6">
