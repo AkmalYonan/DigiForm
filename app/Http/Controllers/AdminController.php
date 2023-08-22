@@ -29,7 +29,8 @@ class AdminController extends Controller
     {
         $datas = Data::all();
         $pesans = pesan::all();
-        return view('admin.viewPesan', compact('datas', 'pesans'));
+        $users = User::all();
+        return view('admin.viewPesan', compact('datas', 'pesans', 'users'));
     }
     public function detailPesanan($pesan)
     {

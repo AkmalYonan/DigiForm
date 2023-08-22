@@ -74,7 +74,7 @@
               </div>
               <div class="row justify-content-center pt-5 gap-5">
                 <div class="col-md-11">
-                  <p>Data Pria</p>
+                  <p class="text-lead2 fs-4 fw-bolder">Data Pria</p>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama_mempelai_pria" name="nama_mempelai_pria"
                       value="{{ old('nama_mempelai_pria') }}" required>
@@ -107,7 +107,9 @@
                   </div>
                 </div>
 
+
                 <div class="col-md-11">
+                  <p class="text-lead2 fs-4 fw-bolder">Data Wanita</p>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama_mempelai_wanita" name="nama_mempelai_wanita"
                       value="{{ old('nama_mempelai_wanita') }}" required>
@@ -142,6 +144,7 @@
               </div>
               <div class="row justify-content-center gap-5">
                 <div class="col-md-11">
+                  <p class="text-lead2 fs-4 fw-bolder">Data Acara</p>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="lokasi_acara" name="lokasi_acara" required>
                     <label for="lokasi_acara">Lokasi Acara:</label>
@@ -161,6 +164,7 @@
                   </div>
                 </div>
                 <div class="col-md-11">
+                  <p class="text-lead2 fs-4 fw-bolder">Data Kontak</p>
                   <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="email" name="email" required>
                     <label for="email">Email:</label>
