@@ -16,7 +16,7 @@
     </div>
 
     <div class="container mt-4">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center g-5">
             <div class="col-md-3">
                 <div class="card card-sm h-100 shadow img-hover">
                     <div class="gambar">
@@ -103,10 +103,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container mt-4">
-        <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="card card-sm h-100 shadow img-hover">
                     <div class="gambar">
