@@ -95,7 +95,7 @@ Configure **.env** , copy paste .env.example and remove **.example**
 
 ![.env](https://github.com/bakaroti/resource/blob/main/env.jpeg?raw=true)
 
-# at .env you can edit the database and mailing <br>
+#### at .env you can edit the database and mailing <br>
 
 -   setting database in .env <br>
     ![database](https://github.com/bakaroti/resource/blob/main/database.jpeg?raw=true)
