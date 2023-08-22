@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\notifConfirm;
 use App\Models\Data;
 use App\Models\Detail_paket_template;
 use App\Models\fitur;
@@ -18,6 +19,7 @@ use ErrorException;
 use finfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -267,13 +269,16 @@ class OrderController extends Controller
     public function confirm()
     {
         $user = auth()->user()->id;
-        $id = pesan::where('id_user', $user)->get()[0];
-        $id_pesan = $id->id;
-
+        $pesan = pesan::where('id_user', $user)->get()[0];
+        $id_pesan = $pesan->id;
+        $manager = User::where('level', '1')->get();
+        // var_dump($manager);
         Pesan::where('id', $id_pesan)->update([
             'status' => '1'
         ]);
-
+        foreach ($manager as $manager) {
+            Mail::to($manager->email)->send(new notifConfirm($pesan));
+        }
         return redirect()->route('homeorder')->with('success', 'Pesanan Sudah di Confirm! Harap Tunggu!');
     }
 }
