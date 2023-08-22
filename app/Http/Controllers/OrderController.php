@@ -37,7 +37,6 @@ class OrderController extends Controller
             return view('home.userOrder', compact('pesan', 'fiturs', 'cooldownRemaining'));
         } else {
             $paketId = auth()->user()->paket_id;
-            $namaUser = auth()->user();
 
             if ($paketId) {
                 $templates = Template::whereHas('pakets', function ($query) use ($paketId) {
@@ -51,7 +50,7 @@ class OrderController extends Controller
                 $user = Auth::user();
                 $namaPaket = $user->paket->nama;
 
-                return view('home.order', ['templates' => $templates, 'fiturs' => $fiturs, 'namaPaket' => $namaPaket, 'namaUser' => $namaUser]);
+                return view('home.order', ['templates' => $templates, 'fiturs' => $fiturs, 'namaPaket' => $namaPaket]);
             } else {
                 return redirect()->route('home.order');
             }
