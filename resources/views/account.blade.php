@@ -46,6 +46,8 @@
           {{-- <button type="button" class="btn btn-success">Order History</button>
           <button type="button" class="btn btn-info">Order Status</button> --}}
           <a href="{{ route('homechangeplan') }}"><button type="button" class="btn btn-warning">Change Plan</button></a>
+          <a href=""><button type="button" class="btn btn-success">Order
+              History</button></a>
         </div>
       </div>
       <div class="col-lg-6 mb-3 mb-lg-0">
