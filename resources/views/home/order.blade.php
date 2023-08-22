@@ -180,6 +180,7 @@
                   </div>
                   @endif
                   @endforeach
+                  @endif
                 </div>
               </div>
               <div class="row justify-content-center py-5 gap-5">
