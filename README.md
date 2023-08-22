@@ -65,7 +65,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-### Cloning Repository
+## Cloning Repository
 
 ```bash
 # clone
@@ -92,12 +92,13 @@ $ php artisan serve
 ```
 
 Configure **.env** , copy paste .env.example and remove **.example**
-<a><img src="https://github.com/bakaroti/resource/blob/main/env.jpeg?raw=true" width="250" alt="img"></a>
+
+![.env](https://github.com/bakaroti/resource/blob/main/env.jpeg?raw=true)
 
 at .env you can edit the database and mailing
 
 -   setting database in .env
-    <img src="https://github.com/bakaroti/resource/blob/main/database.jpeg?raw=true" alt="img">
+    ![database](https://github.com/bakaroti/resource/blob/main/database.jpeg?raw=true)
 
 -   edit mailing in .env
-    <img src="https://github.com/bakaroti/resource/blob/main/mail.jpeg?raw=true" alt="img">
+    ![mailing](https://github.com/bakaroti/resource/blob/main/mail.jpeg?raw=true)
