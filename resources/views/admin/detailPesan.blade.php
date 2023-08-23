@@ -165,7 +165,8 @@
                                         </tr>
                                         <tr>
                                             <td>No. WhatsApp</td>
-                                            <td>{{ $pesan->data->no_wa }}</td>
+                                            <td><a class="text-dark" href="https://wa.me/{{ $pesan->data->no_wa }}">{{
+                                                    $pesan->data->no_wa }}</a></td>
                                         </tr>
                                         <tr>
                                             <td>Nama Panggilan</td>
@@ -174,7 +175,14 @@
                                         <tr>
                                             <td colspan="2">
                                                 <a href="{{ route('admin-viewPesan')}}"
-                                                    class="btn btn-primary btn-m w-100">Back</a>
+                                                    class="btn btn-primary btn-sm w-100">Back</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <a href="{{ route('admin-deletePesan', [ 'id' => $pesan->id])}}"
+                                                    class="btn btn-danger btn-sm w-100"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</a>
                                             </td>
                                         </tr>
                                     </tbody>

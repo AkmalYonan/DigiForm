@@ -173,6 +173,7 @@ class OrderController extends Controller
         $pesan = pesan::where('id_user', $Id)->get()[0];
         $fitur_pilih = Detail_fitur::where('id_pesan', $pesan->id)->get();
         $paketId = auth()->user()->paket_id;
+        $namaUser = auth()->user();
 
         if ($paketId) {
             // Dapatkan template yang terkait dengan `paket_id` pengguna
@@ -187,7 +188,7 @@ class OrderController extends Controller
             $user = Auth::user();
             $namaPaket = $user->paket->nama;
 
-            return view('home.userEdit', compact('pesan', 'fiturs', 'namaPaket', 'templates', 'fitur_pilih'));
+            return view('home.userEdit', compact('pesan', 'fiturs', 'namaPaket', 'templates', 'fitur_pilih', 'namaUser'));
         }
     }
 
@@ -264,6 +265,22 @@ class OrderController extends Controller
         }
         // return $pesan->template->nama;
         return view('preview.' . strtolower($pesan->template->nama), compact('pesan', 'fitur'));
+    }
+
+    public function deleteUser($id)
+    {
+        $user = Pesan::find($id);
+
+        $title = 'Delete Pesan!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
+        if (!$user) {
+            return redirect()->route('admin-user')->with('error', 'Data User tidak ditemukan.');
+        }
+        $user->delete();
+
+        return redirect()->route('admin-user')->with('success', 'Data User berhasil dihapus.');
     }
 
     public function confirm()

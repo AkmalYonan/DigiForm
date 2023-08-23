@@ -97,19 +97,19 @@ class AdminController extends Controller
         return redirect()->route('admin-user')->with('success', 'Level ID pengguna berhasil diperbarui.');
     }
 
-    public function deleteUser($id)
+    public function deletePesan($id)
     {
-        $user = User::find($id);
+        $pesan = pesan::find($id);
 
-        $title = 'Delete User!';
-        $text = "Are you sure you want to delete?";
-        confirmDelete($title, $text);
-
-        if (!$user) {
-            return redirect()->route('admin-user')->with('error', 'Data User tidak ditemukan.');
+        if (!$pesan) {
+            return redirect()->route('admin-viewPesan')->with('error', 'Data pesan gagal ditemukan!.');
         }
-        $user->delete();
 
-        return redirect()->route('admin-user')->with('success', 'Data User berhasil dihapus.');
+        User::where('id_user', $pesan)->update([
+            'is_order' => '0'
+        ]);
+        $pesan->delete();
+
+        return redirect()->route('admin-viewPesan')->with('success', 'Data pesan berhasil dihapus.');
     }
 }
