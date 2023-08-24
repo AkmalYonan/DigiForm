@@ -38,8 +38,7 @@
                                             method="POST" id="update-paket-form">
                                             @csrf
                                             @method('PUT')
-                                            <select name="paket_id" onchange="this.form.submit()" @if ($user->id ==
-                                                auth()->user()->id) disabled @endif>
+                                            <select name="paket_id" onchange="this.form.submit()">
                                                 @foreach ($pakets as $paket)
                                                 <option value="{{ $paket->id }}" {{ $paket->id == $user->paket_id ?
                                                     'selected' : '' }}>

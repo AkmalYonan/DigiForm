@@ -11,6 +11,7 @@ use App\Models\Admin;
 use App\Models\Data;
 use App\Models\Fitur;
 use App\Models\Paket;
+use App\Models\Pesan;
 use App\Models\Template;
 use Illuminate\Support\Facades\Mail;
 
@@ -112,6 +113,14 @@ class HomeController extends Controller
             $paket->harga = 'Rp ' . number_format($paket->harga, 0, ',', '.');
         }
         return view('home.changeplan', compact('Pakets', 'Templates', 'Fiturs', 'whatsappNumber'));
+    }
+
+    public function orderHistory()
+    {
+        $user = auth()->user()->id;
+        $pesan = Pesan::where('id_user', $user)->get()[0];
+
+        return view('home.orderhistory', compact('user', 'pesan'));
     }
 
     public function priceList()
