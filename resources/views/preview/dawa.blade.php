@@ -122,6 +122,13 @@
                         <p><span><b>{{ $pesan->data->lokasi_akad }}</b></span>
                         </p>
                     </div>
+                    @if (in_array('Lokasi Acara Maps', $fitur))
+                    <div class="rsvp">
+                        <a id="bukaUndanganButton"
+                            href="https://www.google.com/maps/place/Masjid+Istiqlal/@-6.17017,106.8292013,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f5ce68b5e01d:0xcafaf042d5840c6c!8m2!3d-6.17017!4d106.83139!16zL20vMDRzam1q?entry=ttu">Buka
+                            Lokasi</a>
+                    </div>
+                    @endif
                 </div>
                 <div class="rsvp">
                     <button id="bukaUndanganButton" class="scrollButton">Next</button>
@@ -158,7 +165,8 @@
                 <div class="mapouter">
                     <div class="gmap_canvas">
                         <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0"
-                            marginwidth="0" src="{{$pesan->data->iframeMaps_resepsi}}"></iframe>
+                            marginwidth="0"
+                            src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=Taman senkein&amp;t=&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
                         <a href="https://connectionsgame.org/">Connections Game</a>
                     </div>
                 </div>
