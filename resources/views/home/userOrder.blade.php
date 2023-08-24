@@ -131,7 +131,7 @@
                                     <tbody>
                                         @foreach ($fiturs as $fitur)
                                         <tr>
-                                            <td>{{ $fitur->nama }}</td>
+                                            <td>{{ $fitur->fitur_name->nama }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

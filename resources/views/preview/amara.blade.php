@@ -97,7 +97,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-6 col-md-6">
                         <div class="container">
-                            <img src="{{ asset('img/amara/assets/card1.jpeg') }}" class="w-100 shadow-lg rounded-4"
+                            <img src="{{ url('storage/'. $pesan->mPria->image) }}" class="w-100 shadow-lg rounded-4"
                                 alt="" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif />
                             <div class="text-header text-center py-5 text-white">
                                 <p class="fw-bolder fs-1" style="font-family: 'Alex Brush', cursive">
@@ -113,8 +113,8 @@
                     </div>
                     <div class="col-12 col-sm-6 col-md-6">
                         <div class="container">
-                            <img src="{{ asset('img/amara/assets/card2.webp') }}" class="w-100 shadow-lg rounded-4"
-                                alt="" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif />
+                            <img src="{{ url('storage/'. $pesan->mWanita->image) }}" class="w-100 shadow-lg rounded-4"
+                                alt="" @if (in_array('Animasi', $fitur)) data-aos="fade-down" @endif />
                             <div class="text-header text-center py-5 text-white">
                                 <p class="fw-bolder fs-1" style="font-family: 'Alex Brush', cursive">
                                     {{ $pesan->mWanita->nama_wanita_lengkap }}
