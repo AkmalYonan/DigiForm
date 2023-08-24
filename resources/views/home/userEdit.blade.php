@@ -49,7 +49,6 @@
                                         <select name="template_id" id="template_id" class="form-control">
                                             @foreach($templates as $template)
                                             @if ($template)
-                                            <!-- Tambahkan pengecekan apakah $template ada atau tidak null -->
                                             <option value="{{ $template->id }}">{{ $template->nama }}</option>
                                             @endif
                                             @endforeach

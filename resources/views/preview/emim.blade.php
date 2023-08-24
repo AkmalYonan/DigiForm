@@ -5,15 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" integrity="sha384-PJsj/BTMqILvmcej7ulplguok8ag4xFTPryRq8xevL7eBYSmpXKcbNVuy+P0RMgq" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-PJsj/BTMqILvmcej7ulplguok8ag4xFTPryRq8xevL7eBYSmpXKcbNVuy+P0RMgq" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
     <title>{{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}</title>
-    <link rel="stylesheet" type="text/css" href="{{asset ('css/cssEmiw/style.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset ('css/cssEmiw/lightbox.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/cssEmiw/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/cssEmiw/lightbox.min.css')}}" />
 </head>
 
 <body>
@@ -33,7 +33,8 @@
         <div class="luar">
             <div class="lingkaran @if (in_array('Animasi', $fitur)) hidden @endif" id="lingkaran">
                 <div class="fullscreen-bg">
-                    <img src="{{asset('img/assetsEmiw/img/home.jpg')}}" alt="Background Image" class="fullscreen-bg-image" />
+                    <img src="{{ asset('img/assetsEmiw/img/home.jpg') }}" alt="Background Image"
+                        class="fullscreen-bg-image" />
                     @if (in_array('Countdown', $fitur))
                     <div class="welcome-text @if (in_array('Animasi', $fitur)) hidden @endif" id="hitung-hari">
                         <div class="judul">Menghitung Waktu</div>
@@ -47,7 +48,8 @@
             </div>
             <div class="tanggal">{{ $pesan->data->tgl_resepsi }}</div>
             <div class="buka-undangan">
-                <button href="" class="tombol-buka-undangan @if (in_array('Animasi', $fitur)) hidden @endif" id="tombol-buka-undangan">
+                <button href="" class="tombol-buka-undangan @if (in_array('Animasi', $fitur)) hidden @endif"
+                    id="tombol-buka-undangan">
                     Buka Undangan
                 </button>
             </div>
@@ -57,7 +59,8 @@
         <div class="luar">
             <div class="row">
                 <div class="col text-center">
-                    <h1 class="main-text @if (in_array('Animasi', $fitur)) hidden @endif">{{ $pesan->data->salam_pembuka }}</h1>
+                    <h1 class="main-text @if (in_array('Animasi', $fitur)) hidden @endif">{{ $pesan->data->salam_pembuka
+                        }}</h1>
                 </div>
             </div>
             <div class="row container">
@@ -79,14 +82,18 @@
             </div>
             <div class="konten-mempelai @if (in_array('Animasi', $fitur)) hidden @endif">
                 <div class="mempelai laki">
-                    <img src="{{asset('img/assetsEmiw/img/cowo.jpg')}}" width="100px" class="rounded-circle pic-mempelai" alt="..." />
+                    <img src="{{asset('img/assetsEmiw/img/cowo.jpg')}}" width="100px"
+                        class="rounded-circle pic-mempelai" alt="..." />
                     <h1 class="nama pt-3" id="nama">{{ $pesan->mPria->nama_pria}}</h1>
-                    <h4 class="ortu" id="ortu">Putra dari bapak {{ $pesan->mPria->nama_ayah }} & ibu {{ $pesan->mPria->nama_ibu }}</h4>
+                    <h4 class="ortu" id="ortu">Putra dari bapak {{ $pesan->mPria->nama_ayah }} & ibu {{
+                        $pesan->mPria->nama_ibu }}</h4>
                 </div>
                 <div class="mempelai perempuan">
-                    <img src="{{asset('img/assetsEmiw/img/cewe.jpg')}}" width="100px" class="rounded-circle pic-mempelai" alt="..." />
+                    <img src="{{asset('img/assetsEmiw/img/cewe.jpg')}}" width="100px"
+                        class="rounded-circle pic-mempelai" alt="..." />
                     <h1 class="nama pt-3" id="nama">{{ $pesan->mWanita->nama_wanita }}</h1>
-                    <h4 class="ortu" id="ortu">Putra dari bapak {{ $pesan->mWanita->nama_ayah }} & ibu {{ $pesan->mWanita->nama_ibu }}</h4>
+                    <h4 class="ortu" id="ortu">Putra dari bapak {{ $pesan->mWanita->nama_ayah }} & ibu {{
+                        $pesan->mWanita->nama_ibu }}</h4>
                 </div>
             </div>
         </div>
@@ -112,9 +119,13 @@
                     <p class="mt-0">{{ $pesan->data->lokasi_acara }}</p>
                     @if (in_array('Lokasi Acara (Maps)', $fitur))
                     <p>
-                        <a href="https://goo.gl/maps/11yEbKVqVgUjuo4d7" class="btn" target="_blank"><i class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
+                        <a href="https://goo.gl/maps/11yEbKVqVgUjuo4d7" class="btn" target="_blank"><i
+                                class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
                     </p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.29489953519!2d-74.0149408381984!3d40.7115241712744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a191cac2c15%3A0x7f33d7e5a45131b9!2sWorld%20Trade%20Center!5e0!3m2!1sen!2sid!4v1692094010742!5m2!1sen!2sid" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.29489953519!2d-74.0149408381984!3d40.7115241712744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a191cac2c15%3A0x7f33d7e5a45131b9!2sWorld%20Trade%20Center!5e0!3m2!1sen!2sid!4v1692094010742!5m2!1sen!2sid"
+                        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                     @endif
                 </div>
                 <div class="acara resepsi">
@@ -126,9 +137,13 @@
                     <p class="mt-0">{{ $pesan->data->lokasi_acara }}</p>
                     @if (in_array('Lokasi Acara (Maps)', $fitur))
                     <p>
-                        <a href="https://goo.gl/maps/Hny8ArjwjdzyRyTv7" class="btn" target="_blank"><i class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
+                        <a href="https://goo.gl/maps/Hny8ArjwjdzyRyTv7" class="btn" target="_blank"><i
+                                class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
                     </p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.29489953519!2d-74.0149408381984!3d40.7115241712744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a191cac2c15%3A0x7f33d7e5a45131b9!2sWorld%20Trade%20Center!5e0!3m2!1sen!2sid!4v1692094010742!5m2!1sen!2sid" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.29489953519!2d-74.0149408381984!3d40.7115241712744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a191cac2c15%3A0x7f33d7e5a45131b9!2sWorld%20Trade%20Center!5e0!3m2!1sen!2sid!4v1692094010742!5m2!1sen!2sid"
+                        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                     @endif
                 </div>
             </div>
@@ -140,24 +155,38 @@
             <h1>Gallery</h1>
         </div>
         <div class="d-flex justify-content-center">
-            <img src="{{asset('img/assetsEmiw/img/gallery/galeri.png')}}" class="pinggiran @if (in_array('Animasi', $fitur)) hidden @endif" alt="" />
+            <img src="{{asset('img/assetsEmiw/img/gallery/galeri.png')}}"
+                class="pinggiran @if (in_array('Animasi', $fitur)) hidden @endif" alt="" />
         </div>
         <div class="konten-galeri p-3">
             <div class="isi-galeri">
-                <a href="{{asset ('img/assetsEmiw/img/gallery/1.jpg')}}" data-lightbox="galeri" class="@if (in_array('Animasi', $fitur)) hidden @endif"><img src="{{asset ('img/assetsEmiw/img/gallery/1.jpg')}}" alt="" /></a>
-                <a href="{{asset ('img/assetsEmiw/img/gallery/2.jpg')}}" data-lightbox="galeri" class="@if (in_array('Animasi', $fitur)) hidden @endif"><img src="{{asset ('img/assetsEmiw/img/gallery/2.jpg')}}" alt="" /></a>
+                <a href="{{asset ('img/assetsEmiw/img/gallery/1.jpg')}}" data-lightbox="galeri"
+                    class="@if (in_array('Animasi', $fitur)) hidden @endif"><img
+                        src="{{asset ('img/assetsEmiw/img/gallery/1.jpg')}}" alt="" /></a>
+                <a href="{{asset ('img/assetsEmiw/img/gallery/2.jpg')}}" data-lightbox="galeri"
+                    class="@if (in_array('Animasi', $fitur)) hidden @endif"><img
+                        src="{{asset ('img/assetsEmiw/img/gallery/2.jpg')}}" alt="" /></a>
             </div>
             <div class="isi-galeri">
-                <a href="{{asset ('img/assetsEmiw/img/gallery/3.jpg')}}" data-lightbox="galeri" class="@if (in_array('Animasi', $fitur)) hidden @endif"><img src="{{asset ('img/assetsEmiw/img/gallery/3.jpg')}}" alt="" /></a>
-                <a href="{{asset ('img/assetsEmiw/img/gallery/4.jpg')}}" data-lightbox="galeri" class="@if (in_array('Animasi', $fitur)) hidden @endif"><img src="{{asset ('img/assetsEmiw/img/gallery/4.jpg')}}" alt="" /></a>
+                <a href="{{asset ('img/assetsEmiw/img/gallery/3.jpg')}}" data-lightbox="galeri"
+                    class="@if (in_array('Animasi', $fitur)) hidden @endif"><img
+                        src="{{asset ('img/assetsEmiw/img/gallery/3.jpg')}}" alt="" /></a>
+                <a href="{{asset ('img/assetsEmiw/img/gallery/4.jpg')}}" data-lightbox="galeri"
+                    class="@if (in_array('Animasi', $fitur)) hidden @endif"><img
+                        src="{{asset ('img/assetsEmiw/img/gallery/4.jpg')}}" alt="" /></a>
             </div>
             <div class="isi-galeri">
-                <a href="{{asset ('img/assetsEmiw/img/gallery/5.jpg')}}" data-lightbox="galeri" class="@if (in_array('Animasi', $fitur)) hidden @endif"><img src="{{asset ('img/assetsEmiw/img/gallery/5.jpg')}}" alt="" /></a>
-                <a href="{{asset ('img/assetsEmiw/img/gallery/6.jpg')}}" data-lightbox="galeri" class="@if (in_array('Animasi', $fitur)) hidden @endif"><img src="{{asset ('img/assetsEmiw/img/gallery/6.jpg')}}" alt="" /></a>
+                <a href="{{asset ('img/assetsEmiw/img/gallery/5.jpg')}}" data-lightbox="galeri"
+                    class="@if (in_array('Animasi', $fitur)) hidden @endif"><img
+                        src="{{asset ('img/assetsEmiw/img/gallery/5.jpg')}}" alt="" /></a>
+                <a href="{{asset ('img/assetsEmiw/img/gallery/6.jpg')}}" data-lightbox="galeri"
+                    class="@if (in_array('Animasi', $fitur)) hidden @endif"><img
+                        src="{{asset ('img/assetsEmiw/img/gallery/6.jpg')}}" alt="" /></a>
             </div>
         </div>
         <div class="d-flex justify-content-center @if (in_array('Animasi', $fitur)) hidden @endif">
-            <img src="{{asset('img/assetsEmiw/img/gallery/galeri.png') }}" class="pinggiran bawah @if (in_array('Animasi', $fitur)) hidden @endif" alt="" />
+            <img src="{{asset('img/assetsEmiw/img/gallery/galeri.png') }}"
+                class="pinggiran bawah @if (in_array('Animasi', $fitur)) hidden @endif" alt="" />
         </div>
     </section>
     @endif
@@ -213,7 +242,8 @@
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
     </script>
     -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/ebc309096d.js" crossorigin="anonymous"></script>
 
@@ -221,7 +251,7 @@
         var tanggal = $pesan->data->tgl_resepsi ?? new Date(new Date()).setDate(new Date().getDate() + 7);
     </script>
     <script src="{{asset('js/jsEmiw/script.js')}}"></script>
-    <script src="{{asset('jsEmiw/lightbox-plus-jquery.min.js')}}"></script>
+    <script src="{{asset('js/jsEmiw/lightbox-plus-jquery.min.js')}}"></script>
 </body>
 
 </html>
