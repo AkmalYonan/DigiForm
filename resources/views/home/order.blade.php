@@ -220,9 +220,16 @@
                   <div class="form-check">
                     @foreach($fiturs as $fitur)
                     <div class="mb-2">
-                      <input type="checkbox" name="selected_fiturs[]" value="{{ $fitur->id }}" class="form-check-input"
-                        id="fitur{{ $fitur->id }}" {{ $loop->iteration <= 6 ? 'checked disabled' : '' }}>
+                      @if ($loop->iteration <= 6) <input type="checkbox" name="selected_fiturs[]"
+                        value="{{ $fitur->id }}" class="form-check-input" id="fitur{{ $fitur->id }}" checked disabled>
+                        <input type="hidden" name="selected_fiturs[]" value="{{ $fitur->id }}" class="form-check-input"
+                          id="fitur{{ $fitur->id }}">
                         <label class="form-check-label" for="fitur{{ $fitur->id }}">{{ $fitur->nama }}</label>
+                        @else
+                        <input type="checkbox" name="selected_fiturs[]" value="{{ $fitur->id }}"
+                          class="form-check-input" id="fitur{{ $fitur->id }}">
+                        @endif
+
                     </div>
                     @endforeach
                   </div>
