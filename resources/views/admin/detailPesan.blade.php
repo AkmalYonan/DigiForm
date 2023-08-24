@@ -180,9 +180,13 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <a href="{{ route('admin-deletePesan', [ 'id' => $pesan->id])}}"
-                                                    class="btn btn-danger btn-sm w-100"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</a>
+                                                <form action="{{ route('admin-deletePesan', ['id' => $pesan->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="ps-2 btn btn-sm btn-danger w-100"
+                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     </tbody>

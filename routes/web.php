@@ -38,6 +38,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/verify-account', [App\Http\Controllers\HomeController::class, 'verifyaccount'])->name('verifyAccount');
 Route::post('/verifyotp', [App\Http\Controllers\HomeController::class, 'useractivation'])->name('verifyotp');
 Route::get('/resend-otp', [App\Http\Controllers\HomeController::class, 'resendOtp'])->name('resend.otp');
+Route::get('/result/{data:nama_pasangan}/{user:name}', [App\Http\Controllers\HomeController::class, 'result'])->name('result');
 
 
 

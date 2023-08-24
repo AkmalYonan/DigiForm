@@ -18,5 +18,6 @@ class Data extends Model
         'email',
         'no_wa',
         'nama_panggilan',
+        'nama_pasangan',
     ];
 }

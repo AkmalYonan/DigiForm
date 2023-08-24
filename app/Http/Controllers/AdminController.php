@@ -105,7 +105,7 @@ class AdminController extends Controller
             return redirect()->route('admin-viewPesan')->with('error', 'Data pesan gagal ditemukan!.');
         }
 
-        User::where('id_user', $pesan)->update([
+        User::where('id', $pesan->user->id)->update([
             'is_order' => '0'
         ]);
         $pesan->delete();

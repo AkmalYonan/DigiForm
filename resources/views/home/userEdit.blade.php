@@ -40,7 +40,7 @@
                 <div class="card shadow-lg mt-5">
                     <p class="fs-3 pt-4 fw-bold text-center text-lead2">Form Order Pesanan</p>
                     <div class="card-body">
-                        <form action="{{ route('order-pesan') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('order-update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row justify-content-center text-center">
                                 <div class="col-md-11">
@@ -214,18 +214,26 @@
                             <div class="row justify-content-center pt-5 gap-5">
                                 <div class="col-md-11">
                                     @if(isset($fiturs))
-                                    <label class="mb-2">Select fiturs:</label>
-                                    <div class="form-check">
+                                    <div class="form-group py-2">
+                                        <label>Select fiturs:</label>
                                         @foreach($fiturs as $fitur)
-                                        <div class="mb-2">
+
+                                        @if($loop->iteration < 7) <div class="form-check">
                                             <input type="checkbox" name="selected_fiturs[]" value="{{ $fitur->id }}"
-                                                class="form-check-input" id="fitur{{ $fitur->id }}" {{ $loop->iteration
-                                            <= 6 ? 'checked disabled' : '' }}>
-                                                <label class="form-check-label" for="fitur{{ $fitur->id }}">{{
-                                                    $fitur->nama }}</label>
-                                        </div>
-                                        @endforeach
+                                                class="form-check-input" checked disabled>
+                                            <input type="hidden" name="selected_fiturs[]" value="{{ $fitur->id }}"
+                                                class="form-check-input">
+                                            <label class="form-check-label">{{ $fitur->nama }}</label>
                                     </div>
+                                    @else
+                                    <?php $isChecked = $fitur_pilih->contains('id_fitur', $fitur->id) || $fitur->id <= 7; ?>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="selected_fiturs[]" value="{{ $fitur->id }}"
+                                            class="form-check-input" {{ $isChecked ? 'checked' : '' }}>
+                                        <label class="form-check-label">{{ $fitur->nama }}</label>
+                                    </div>
+                                    @endif
+                                    @endforeach
                                     @endif
                                 </div>
                             </div>

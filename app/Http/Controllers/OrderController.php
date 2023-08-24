@@ -134,6 +134,7 @@ class OrderController extends Controller
             $fileNameCouple = now()->timestamp . '.' . $request->file('fotoCouple')->getClientOriginalExtension();
             $data->imgCouple = $request->file('fotoCouple')->storeAs('fotoCouple', $fileNameCouple);
             $data->iframeMaps = $request->input('iframeMaps');
+            $data->nama_pasangan = $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita');
             $data->save();
 
             foreach ($request->file('fotoGallery') as $uploadedFile) {
@@ -228,7 +229,8 @@ class OrderController extends Controller
                 'jam_acara' => $request->input('jam_acara'),
                 'email' => $request->input('email'),
                 'no_wa' => $request->input('no_wa'),
-                'nama_panggilan' => $request->input('nama_panggilan')
+                'nama_panggilan' => $request->input('nama_panggilan'),
+                'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita')
             ]);
 
             $id_fiturs_selected = $request->input('selected_fiturs');

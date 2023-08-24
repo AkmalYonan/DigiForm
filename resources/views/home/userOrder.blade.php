@@ -148,14 +148,9 @@
                                             </td>
 
                                             <td>
-                                                <form action="{{ route('preview-order') }}" method="POST"
-                                                    target="_blank">
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $pesan->id }}">
-                                                    <button id="preview" type="submit"
-                                                        class="btn btn-warning btn-m w-100"
-                                                        target="_blank">Preview</button>
-                                                </form>
+                                                <a id="preview"
+                                                    href="/result/{{ $pesan->data->nama_pasangan }}/{{ auth()->user()->name }}"
+                                                    class="btn btn-warning btn-m w-100" target="_blank">Preview</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -183,11 +178,9 @@
                                                         Lagi</span></button>
                                             </form>
                                             @else
-                                            <form action="{{ route('confirm-order') }}" method="POST">
-                                                @csrf
-                                                <button id="preview" type="submit"
-                                                    class="btn btn-primary btn-m w-75">Cek Undangan!</button>
-                                            </form>
+                                            <a id="preview"
+                                                href="/result/{{ $pesan->data->nama_pasangan }}/{{ auth()->user()->name }}"
+                                                class="btn btn-warning btn-m w-100" target="_blank">Preview</a>
                                             @endif
                                         </div>
                                     </div>

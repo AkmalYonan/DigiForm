@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Verifytoken;
 use App\Mail\OtpEmail;
 use App\Models\Admin;
+use App\Models\Data;
 use App\Models\Fitur;
 use App\Models\Paket;
 use App\Models\Template;
@@ -121,6 +122,23 @@ class HomeController extends Controller
             $paket->harga = 'Rp ' . number_format($paket->harga, 0, ',', '.');
         }
         return view('home.pricelist', compact('Pakets'));
+    }
+
+    public function result($data, User $user)
+    {
+        $tes = Data::where('nama_pasangan', $data)->get();
+        if (count($tes) < 1) {
+            abort(404, 'NOT FOUND');
+        }
+        $pesan = $user->pesan;
+        // ddd($pesan);
+        $template = $pesan->template->nama;
+        $fitur = [];
+        foreach ($pesan->fitur as $fit) {
+            $fitur[] = $fit->fitur_name->nama;
+        }
+        // dd($template);
+        return view('preview.' . strtolower($template), compact('pesan', 'fitur'));
     }
 
     public function tempAmara()

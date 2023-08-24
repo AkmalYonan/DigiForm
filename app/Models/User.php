@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Level::class);
     }
+
+    public function pesan()
+    {
+        return $this->hasOne(Pesan::class, 'id_user');
+    }
 }
