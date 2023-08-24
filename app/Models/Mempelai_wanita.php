@@ -13,6 +13,7 @@ class Mempelai_wanita extends Model
     protected $fillable = [
         'id_pesan',
         'nama_wanita',
+        'nama_wanita_lengkap',
         'anak_ke',
         'nama_ayah',
         'nama_ibu',

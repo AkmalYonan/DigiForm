@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fira+Code&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fira+Code&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/amara.css') }}">
 </head>
 
@@ -28,11 +29,8 @@
                 </div>
                 <div class="body text-white text-center fs-5">
                     <p class="lead fs-6">Kepada Bapak/Ibu/Saudara/i</p>
-                    <p class="fs-3" style="font-family: 'Belanosima', sans-serif">
-                        Huda & Partner
-                    </p>
                     <p class="lead fs-6">
-                        Mohon maaf bila ada kesalahan pada penulisan nama/gelar
+                        Dengan Segala Hormat Kami Meminta Untuk Membuka Undangan dari kami
                     </p>
                     <button type="button" id="openContentBtn" class="btn" style="background-color: #6c4702;">
                         Buka Undangan
@@ -91,13 +89,15 @@
         </div>
         <div class="section3 mb-3 bg-warna-utama">
             <div class="container py-5">
-                <p class="display-5 text-center text-white fw-bolder py-5" style="font-family: 'Dancing Script', cursive">
+                <p class="display-5 text-center text-white fw-bolder py-5"
+                    style="font-family: 'Dancing Script', cursive">
                     Sang Mempelai
                 </p>
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-6 col-md-6">
                         <div class="container">
-                            <img src="{{ asset('img/amara/assets/card1.jpeg') }}" class="w-100 shadow-lg rounded-4" alt="" />
+                            <img src="{{ asset('img/amara/assets/card1.jpeg') }}" class="w-100 shadow-lg rounded-4"
+                                alt="" />
                             <div class="text-header text-center py-5 text-white">
                                 <p class="fw-bolder fs-1" style="font-family: 'Alex Brush', cursive">
                                     Akmal Bariq Yonanda
@@ -112,7 +112,8 @@
                     </div>
                     <div class="col-12 col-sm-6 col-md-6">
                         <div class="container">
-                            <img src="{{ asset('img/amara/assets/card2.webp') }}" class="w-100 shadow-lg rounded-4" alt="" />
+                            <img src="{{ asset('img/amara/assets/card2.webp') }}" class="w-100 shadow-lg rounded-4"
+                                alt="" />
                             <div class="text-header text-center py-5 text-white">
                                 <p class="fw-bolder fs-1" style="font-family: 'Alex Brush', cursive">
                                     Ratna Syifa nurcahyani
@@ -165,9 +166,14 @@
                                 Sme Tower, Gedung Smeco, Jl. Gatot Subroto No.Kav. 94,
                                 Pancoran, Kota Jakarta Selatan
                             </p>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.165233126139!2d106.8330980747968!3d-6.241942661121125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3c14db1c53f%3A0x2dbee1b1c268c92a!2sBRP%20Smesco%20Convention%20Hall!5e0!3m2!1sen!2sid!4v1689143993472!5m2!1sen!2sid" class="ratio ratio-21x9" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            <a href="https://www.google.com/maps/place/BRP+Smesco+Convention+Hall/@-6.2419427,106.8330981,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f3c14db1c53f:0x2dbee1b1c268c92a!8m2!3d-6.241948!4d106.835673!16s%2Fg%2F1yg58n63y?entry=ttu" target="_blank">
-                                <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}" class="img-fluid py-5 cenatcenut" alt="" />
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.165233126139!2d106.8330980747968!3d-6.241942661121125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3c14db1c53f%3A0x2dbee1b1c268c92a!2sBRP%20Smesco%20Convention%20Hall!5e0!3m2!1sen!2sid!4v1689143993472!5m2!1sen!2sid"
+                                class="ratio ratio-21x9" style="border: 0" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <a href="https://www.google.com/maps/place/BRP+Smesco+Convention+Hall/@-6.2419427,106.8330981,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f3c14db1c53f:0x2dbee1b1c268c92a!8m2!3d-6.241948!4d106.835673!16s%2Fg%2F1yg58n63y?entry=ttu"
+                                target="_blank">
+                                <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}"
+                                    class="img-fluid py-5 cenatcenut" alt="" />
                             </a>
                         </div>
                     </div>
@@ -192,9 +198,14 @@
                                 Sme Tower, Gedung Smeco, Jl. Gatot Subroto No.Kav. 94,
                                 Pancoran, Kota Jakarta Selatan
                             </p>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.165233126139!2d106.8330980747968!3d-6.241942661121125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3c14db1c53f%3A0x2dbee1b1c268c92a!2sBRP%20Smesco%20Convention%20Hall!5e0!3m2!1sen!2sid!4v1689143993472!5m2!1sen!2sid" class="ratio ratio-21x9" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            <a href="https://www.google.com/maps/place/BRP+Smesco+Convention+Hall/@-6.2419427,106.8330981,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f3c14db1c53f:0x2dbee1b1c268c92a!8m2!3d-6.241948!4d106.835673!16s%2Fg%2F1yg58n63y?entry=ttu" target="_blank">
-                                <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}" class="img-fluid py-5 cenatcenut" alt="" />
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.165233126139!2d106.8330980747968!3d-6.241942661121125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3c14db1c53f%3A0x2dbee1b1c268c92a!2sBRP%20Smesco%20Convention%20Hall!5e0!3m2!1sen!2sid!4v1689143993472!5m2!1sen!2sid"
+                                class="ratio ratio-21x9" style="border: 0" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <a href="https://www.google.com/maps/place/BRP+Smesco+Convention+Hall/@-6.2419427,106.8330981,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f3c14db1c53f:0x2dbee1b1c268c92a!8m2!3d-6.241948!4d106.835673!16s%2Fg%2F1yg58n63y?entry=ttu"
+                                target="_blank">
+                                <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}"
+                                    class="img-fluid py-5 cenatcenut" alt="" />
                             </a>
                         </div>
                     </div>
@@ -247,7 +258,8 @@
         </div>
         <div class="section6">
             <div class="container py-5">
-                <p class="fw-semibold fs-1 text-center" style="font-family: 'Dancing Script', cursive" data-aos="fade-up">
+                <p class="fw-semibold fs-1 text-center" style="font-family: 'Dancing Script', cursive"
+                    data-aos="fade-up">
                     Our Gallery
                 </p>
                 <!-- Gallery -->
@@ -261,11 +273,13 @@
                     </div>
 
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ asset('img/amara/assets/gallery3.jpeg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
+                        <img src="{{ asset('img/amara/assets/gallery3.jpeg') }}"
+                            class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
                     </div>
 
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ asset('img/amara/assets/galery4.jpeg') }}" class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+                        <img src="{{ asset('img/amara/assets/galery4.jpeg') }}"
+                            class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
                     </div>
                 </div>
                 <!-- Gallery -->
@@ -301,19 +315,22 @@
                                 <input type="text" class="form-control" id="exampleFormControlInput2" required />
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Ya, Saya akan Datang" />
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1" value="Ya, Saya akan Datang" />
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Ya, Saya akan Datang
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Saya masih bingung" checked />
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="Saya masih bingung" checked />
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Saya masih bingung
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="Maaf, Saya tidak bisa datang" />
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault3" value="Maaf, Saya tidak bisa datang" />
                                 <label class="form-check-label" for="flexRadioDefault3">
                                     Maaf, Saya tidak bisa datang
                                 </label>

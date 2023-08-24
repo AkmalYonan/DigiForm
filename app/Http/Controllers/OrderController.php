@@ -95,6 +95,7 @@ class OrderController extends Controller
             if ($mempelai_pria) {
                 $mempelai_pria->id_pesan = $id;
                 $mempelai_pria->nama_pria = $request->input('nama_mempelai_pria');
+                $mempelai_pria->nama_pria_lengkap = $request->input('nama_mempelai_pria_lengkap');
                 $mempelai_pria->anak_ke = $request->input('anak_ke_pria');
                 $mempelai_pria->nama_ayah = $request->input('nama_ayah_pria');
                 $mempelai_pria->nama_ibu = $request->input('nama_ibu_pria');
@@ -107,6 +108,7 @@ class OrderController extends Controller
             if ($mempelai_wanita) {
                 $mempelai_wanita->id_pesan = $id;
                 $mempelai_wanita->nama_wanita = $request->input('nama_mempelai_wanita');
+                $mempelai_wanita->nama_wanita_lengkap = $request->input('nama_mempelai_wanita_lengkap');
                 $mempelai_wanita->anak_ke = $request->input('anak_ke_wanita');
                 $mempelai_wanita->nama_ayah = $request->input('nama_ayah_wanita');
                 $mempelai_wanita->nama_ibu = $request->input('nama_ibu_wanita');
@@ -120,12 +122,16 @@ class OrderController extends Controller
             $data = new Data;
             $data->id_pesan = $id;
             $data->salam_pembuka = $request->input('salam');
-            $data->lokasi_acara = $request->input('lokasi_acara');
+            $data->lokasi_akad = $request->input('lokasi_akad');
+            $data->lokasi_resepsi = $request->input('lokasi_resepsi');
             $data->tgl_resepsi = $request->input('tgl_akad');
             $data->tgl_akad = $request->input('tgl_resepsi');
-            $data->jam_acara = $request->input('jam_acara');
+            $data->jam_akad = $request->input('jam_akad');
+            $data->jam_resepsi = $request->input('jam_resepsi');
             $data->email = $request->input('email');
             $data->no_wa = $request->input('no_wa');
+            $data->iframeMaps_akad = $request->input('iframeMaps_akad');
+            $data->iframeMaps_resepsi = $request->input('iframeMaps_resepsi');
             $data->nama_panggilan = $request->input('nama_panggilan');
             $fileNameThumbnail = now()->timestamp . '.' . $request->file('fotoThumbnail')->getClientOriginalExtension();
             $data->imgThumbnail = $request->file('fotoThumbnail')->storeAs('fotoThumbnail', $fileNameThumbnail);
@@ -137,16 +143,6 @@ class OrderController extends Controller
             $data->nama_pasangan = $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita');
             $data->save();
 
-            foreach ($request->file('fotoGallery') as $uploadedFile) {
-                $gallery = new GalleryUser;
-                $gallery->id_pesan = $id;
-                $fileName = now()->timestamp . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
-                $gallery->nameFile = $uploadedFile->storeAs('fotoGallery', $fileName);
-                $gallery->save();
-            }
-
-            // var_dump($request);
-            // die;
             $id_pesan = $id; //sudah ada id yang disediakan
             $id_fiturs_selected = $request->input('selected_fiturs');
             if (!empty($id_fiturs_selected)) {
@@ -160,6 +156,18 @@ class OrderController extends Controller
 
                 Detail_fitur::insert($dataToInsert);
             }
+
+            foreach ($request->file('fotoGallery') as $uploadedFile) {
+                $gallery = new GalleryUser;
+                $gallery->id_pesan = $id;
+                $fileName = now()->timestamp . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
+                $gallery->nameFile = $uploadedFile->storeAs('fotoGallery', $fileName);
+                $gallery->save();
+            }
+
+            // var_dump($request);
+            // die;
+
 
             // Redirect atau berikan respons sesuai kebutuhan
             return redirect()->route('homeorder')->with('success', 'Data berhasil disimpan!');
@@ -207,6 +215,7 @@ class OrderController extends Controller
 
             Mempelai_pria::where('id_pesan', $id_pesan)->update([
                 'nama_pria' => $request->input('nama_mempelai_pria'),
+                'nama_pria_lengkap' => $request->input('nama_mempelai_pria_lengkap'),
                 'anak_ke' => $request->input('anak_ke_pria'),
                 'nama_ayah' => $request->input('nama_ayah_pria'),
                 'nama_ibu' => $request->input('nama_ibu_pria'),
@@ -215,6 +224,7 @@ class OrderController extends Controller
 
             Mempelai_wanita::where('id_pesan', $id_pesan)->update([
                 'nama_wanita' => $request->input('nama_mempelai_wanita'),
+                'nama_wanita_lengkap' => $request->input('nama_mempelai_wanita_lengkap'),
                 'anak_ke' => $request->input('anak_ke_wanita'),
                 'nama_ayah' => $request->input('nama_ayah_wanita'),
                 'nama_ibu' => $request->input('nama_ibu_wanita'),
@@ -223,14 +233,18 @@ class OrderController extends Controller
 
             Data::where('id_pesan', $id_pesan)->update([
                 'salam_pembuka' => $request->input('salam'),
-                'lokasi_acara' => $request->input('lokasi_acara'),
+                'lokasi_akad' => $request->input('lokasi_akad'),
+                'lokasi_resepsi' => $request->input('lokasi_resepsi'),
                 'tgl_resepsi' => $request->input('tgl_resepsi'),
                 'tgl_akad' => $request->input('tgl_akad'),
-                'jam_acara' => $request->input('jam_acara'),
+                'jam_akad' => $request->input('jam_akad'),
+                'jam_resepsi' => $request->input('jam_resepsi'),
                 'email' => $request->input('email'),
                 'no_wa' => $request->input('no_wa'),
                 'nama_panggilan' => $request->input('nama_panggilan'),
-                'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita')
+                'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita'),
+                'iframeMaps_akad' => $request->input('iframeMaps_akad'),
+                'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
             ]);
 
             $id_fiturs_selected = $request->input('selected_fiturs');

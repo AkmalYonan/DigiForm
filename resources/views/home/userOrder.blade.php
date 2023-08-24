@@ -34,8 +34,12 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td>Nama</td>
+                                            <td>Nama Panggilan</td>
                                             <td>{{ $pesan->mPria->nama_pria }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama Lengkap</td>
+                                            <td>{{ $pesan->mPria->nama_pria_lengkap }}</td>
                                         </tr>
                                         <tr>
                                             <td>Anak Ke</td>
@@ -61,8 +65,12 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td>Nama</td>
+                                            <td>Nama Pangilan</td>
                                             <td>{{ $pesan->mWanita->nama_wanita }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama lengkap</td>
+                                            <td>{{ $pesan->mWanita->nama_wanita_lengkap }}</td>
                                         </tr>
                                         <tr>
                                             <td>Anak Ke</td>
@@ -91,8 +99,12 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td>Lokasi Acara</td>
-                                            <td>{{ $pesan->data->lokasi_acara }}</td>
+                                            <td>Lokasi Akad</td>
+                                            <td>{{ $pesan->data->lokasi_akad }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lokasi resepsi</td>
+                                            <td>{{ $pesan->data->lokasi_resepsi }}</td>
                                         </tr>
                                         <tr>
                                             <td>Tanggal Akad</td>
@@ -103,8 +115,12 @@
                                             <td>{{ $pesan->data->tgl_resepsi }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Jam Acara</td>
-                                            <td>{{ $pesan->data->jam_acara }}</td>
+                                            <td>Jam Akad</td>
+                                            <td>{{ $pesan->data->jam_akad }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jam Resepsi</td>
+                                            <td>{{ $pesan->data->jam_resepsi }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -138,7 +154,6 @@
                                             <td>{{ $pesan->data->nama_panggilan }}</td>
                                         </tr>
                                         <tr>
-
                                             <td>
                                                 <button onclick="location.href='{{ route('order-edit') }}'"
                                                     class="btn btn-success btn-m w-100" @if (Auth::check() &&
