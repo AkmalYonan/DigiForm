@@ -3,7 +3,7 @@
 @section('content')
 <div class="container pt-4">
   <div class="container mt-5">
-    <div class="row">
+    <div class="row g-3">
       <div class="col-md-3 col-12">
         <div class="rounded rounded-4 shadow">
           <div class="py-1 ps-2 py-md-1 ps-md-5">
@@ -24,6 +24,23 @@
               </div>
             </div>
           </div>
+          @if ($namaPaket == 1 || $namaPaket == 'Bronze')
+          <div class="container px-4">
+            <div class="card custom-card" onclick="location.href='{{ route('homepricelist') }}'">
+              <div class="py-1 px-2 py-md-1 px-md-2">
+                <div class="d-flex align-items-center">
+                  <img src="img/silver_logo.webp" class="img img-responsive" width="40" alt="Silver" title="Silver">
+                  <div class="ms-2 mt-3">
+                    <span class="font-tebal text-roboto text-capitalize fs-6">Silver</span>
+                    <br>
+                    <p class="font-kecil fw-bolder">Gunakan Lebih banyak Fitur! <br><span>Upgrade Silver dengan
+                        Rp100rb</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endif
 
           <hr class="hr">
           <div class=" border-dark-subtle text-center">
@@ -40,20 +57,28 @@
             {{-- <img src="{{ asset('img/default_logo.png') }}" class="img img-responsive" width="60" alt="Default"
               title="Default">
             @endif --}}
-
             <p class="fs-5 text-dark fw-bold">{{ $namaPaket }}</p>
             @else
             <p>Anda belum memiliki paket. Silahkan Untuk Hubungi Admin</p>
             @endif
           </div>
-          <div class="text-center">
-            <p class="fs-4 fw-semibold">Lainnya</p>
-            {{-- <button type="button" class="btn btn-success">Order History</button>
-            <button type="button" class="btn btn-info">Order Status</button> --}}
-            <a href="{{ route('homechangeplan') }}"><button type="button" class="btn btn-warning">Change
-                Plan</button></a>
-            {{-- <a href="{{ route('homeorderhistory') }}"><button type="button" class="btn btn-success">Order
-                History</button></a> --}}
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bolder" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Lainnya
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse show"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body animate-dark">
+                  <a href="{{ route('homechangeplan') }}" class="text-dark" style="text-decoration: none"><i
+                      class="fa-solid fa-box-open"></i> Change
+                    Plan</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -61,12 +86,12 @@
         <div class="shadow rounded rounded-4">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active fw-bolder text-dark" id="home-tab" data-bs-toggle="tab"
+              <button class="nav-link active fw-bolder text-dark animate-dark" id="home-tab" data-bs-toggle="tab"
                 data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
                 aria-selected="true">Account Information</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link fw-bolder text-dark" id="profile-tab" data-bs-toggle="tab"
+              <button class="nav-link fw-bolder text-dark animate-dark" id="profile-tab" data-bs-toggle="tab"
                 data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
                 aria-selected="false">Order History</button>
             </li>
@@ -77,9 +102,10 @@
               tabindex="0">
               <div class="py-2 px-2 py-5 px-md-5">
                 <p class="fs-3 fw-bolder">Account Information</p>
-                <form action="{{ route('account.change_password') }}" method="post">
+                <form action="{{ route('account-editAccount') }}" method="POST">
+                  @csrf
                   <div class="form-floating mb-2">
-                    <input type="text" class="form-control" name="username" value="{{ Auth::user()->name }}" disabled />
+                    <input type="text" class="form-control" name="username" value="{{ Auth::user()->name }}" />
                     <label for="username">Username</label>
                   </div>
                   <div class="form-floating mb-3">
@@ -98,15 +124,15 @@
                   {{-- <div class="form-floating">
                     <label class="form-label mt-2 ms-1" for="form3Example4">New Password</label>
                     <input type="text" class="form-control" name="newpassword" placeholder="XYZ...." />
-                  </div>
-                  <button type="button" class="btn btn-primary mt-4">Submit</button> --}}
+                  </div> --}}
+                  <button type="submit" class="btn btn-success">Submit</button>
                 </form>
               </div>
             </div>
             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
               <div class="py-2 px-2 py-5 px-md-5">
                 <p class="fs-3 fw-bolder">Order Information</p>
-
+                @if (Auth::user()->is_order == 1)
                 <div class="table-responsive">
                   <table class="table table-bordered text-center rounded rounded-3 overflow-hidden">
                     <thead>
@@ -136,6 +162,12 @@
                     </tbody>
                   </table>
                 </div>
+                @else
+                <p class="lead">Anda belum memiliki Orderan <br><span class="fs-6">Pesan <a
+                      href="{{ route('homeorder') }}">Sekarang</a>
+                  </span> </p>
+
+                @endif
               </div>
             </div>
 

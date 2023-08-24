@@ -12,6 +12,23 @@
             <img class="img img-responsive rounded-circle my-3" width="130" src="img/profiles.jpg" />
             <h4 class="text-roboto">{{ $namaUser->name }}</h4>
             <p>{{ $namaUser->email }}</p>
+            @if ($namaPaket == 1 || $namaPaket == 'Bronze')
+            <div class="container px-4 text-start">
+              <div class="card mx-5 custom-card">
+                <div class="py-1 px-3 py-md-1 px-md-3">
+                  <div class="d-flex align-items-center">
+                    <img src="img/silver_logo.webp" class="img img-responsive" width="40" alt="Silver" title="Silver">
+                    <div class="ms-2 mt-3">
+                      <span class="font-tebal text-roboto text-capitalize fs-6">Silver</span>
+                      <br>
+                      <p class="font-kecil fw-bolder">Gunakan Lebih banyak Fitur! <br><span>Upgrade Silver dengan
+                          Rp100rb</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
             <hr class="horizontal-dark">
             <p class="text-roboto">Paket :</p>
             @if(isset($namaPaket))

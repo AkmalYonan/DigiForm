@@ -55,7 +55,7 @@
       <p class="text-lead2 display-4 ">Benefit</p>
       <div class="row justify-content-center row-cols-3 g-3">
         <div class="col-12 col-md-4">
-          <div class="card">
+          <div class="card animate-dark">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="bg-warnaIcon2 p-3 rounded-circle">
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="card">
+          <div class="card animate-dark">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="bg-warnaIcon2 p-3 rounded-circle">
@@ -88,7 +88,7 @@
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="card">
+          <div class="card animate-dark">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="bg-warnaIcon2 p-3 rounded-circle">
@@ -104,7 +104,7 @@
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="card">
+          <div class="card animate-dark">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="bg-warnaIcon2 p-3 rounded-circle">
@@ -119,7 +119,7 @@
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="card">
+          <div class="card animate-dark">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="bg-warnaIcon2 p-3 rounded-circle" style="width: 55px;">
@@ -135,7 +135,7 @@
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="card">
+          <div class="card animate-dark">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="bg-warnaIcon2 p-3 rounded-circle">
@@ -319,7 +319,7 @@
     <div class="container mb-5 w-75">
       <div class="row justify-content-center gap-3" data-aos="fade-up">
         <div class="col">
-          <div class="card shadow-lg rounded">
+          <div class="card shadow-lg rounded animate-dark">
             <img src="{{ asset('img/akmil2.png') }}" class="card-img-top" alt="..."
               style="height: 200px; object-fit: cover;">
             <div class="card-body">
@@ -332,7 +332,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card shadow-lg rounded">
+          <div class="card shadow-lg rounded animate-dark">
             <img src="{{ asset('img/foto3.jpg') }}" class="card-img-top" alt="..."
               style="height: 200px; object-fit: cover;">
             <div class="card-body">
@@ -344,7 +344,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card shadow-lg rounded">
+          <div class="card shadow-lg rounded animate-dark">
             <img src="{{ asset('img/hehe.jpg') }}" class="card-img-top" alt="..."
               style="height: 200px; object-fit: cover;">
             <div class="card-body">

@@ -93,3 +93,21 @@ ul.fitur-list li::before {
 .custom-card:hover .text-hargaPaket {
     color: #fff;
 }
+
+.animate-dark:hover {
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.1
+    ); /* Warna latar belakang yang lebih gelap */
+    transition: background-color 0.3s ease; /* Efek transisi */
+}
+
+.font-kecil {
+    font-size: smaller;
+}
+
+.font-tebal {
+    font-weight: bolder;
+}

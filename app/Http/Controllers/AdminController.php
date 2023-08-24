@@ -24,7 +24,8 @@ class AdminController extends Controller
         $totalFitur = Fitur::count();
         $totalPesan = Data::count();
         $totalLevel = level::count();
-        return view('admin.index', compact('admins', 'totalPakets', 'totalTemplates', 'totalUser', 'totalFitur', 'totalPesan', 'totalLevel'));
+        $pesans = Pesan::orderBy('created_at', 'desc')->take(3)->get();
+        return view('admin.index', compact('admins', 'totalPakets', 'pesans', 'totalTemplates', 'totalUser', 'totalFitur', 'totalPesan', 'totalLevel'));
     }
 
     public function viewPesanan()
@@ -95,6 +96,19 @@ class AdminController extends Controller
         $users->level = $request->input('level');
         $users->save();
         return redirect()->route('admin-user')->with('success', 'Level ID pengguna berhasil diperbarui.');
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        try {
+            $pesan = Pesan::find($id);
+
+            $pesan->status = $request->input('status');
+            $pesan->save();
+            return redirect()->route('admin-viewPesan')->with('success', 'Level ID pengguna berhasil diperbarui.');
+        } catch (\Exception $e) {
+            return redirect()->route('admin-viewPesan')->with('success', 'Status Pesanan Pengguna Gagal diperbarui');
+        }
     }
 
     public function deletePesan($id)
