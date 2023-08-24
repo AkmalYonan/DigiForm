@@ -4,7 +4,11 @@
 <head class="center">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <title>{{ $pesan->data->nama_pasangan}} Wedding</title>
+=======
+    <title>{{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }} Wedding</title>
+>>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -52,6 +56,7 @@
     @endif
     @if (in_array('Nama Pengantin', $fitur))
     <div class="shadow p-4 m-4 bg-body rounded" id="mempelai">
+<<<<<<< HEAD
         <h3 class="text-mempelai display-5 mb-4" style="font-family: 'Parisienne', cursive;" alt="mempelai"
             @if(in_array('Animasi',$fitur)) data-aos="fade-up" @endif>Sang
             Mempelai
@@ -61,6 +66,17 @@
             <div class="col-12 col-md-4">
                 <h1 class="fs-3" style="color: #eaeaea;" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down"
                     @endif>{{ $pesan->mPria->nama_pria_lengkap }}</h1>
+=======
+        <h3 class="text-mempelai display-5 mb-4" style="font-family: 'Parisienne', cursive;" @if
+            (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>Sang
+            Mempelai
+        </h3>
+        <div class="row align-items-center center rounded m-2" style="background-color: #A4907C;" @if
+            (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
+            <div class="col-12 col-md-4">
+                <h1 class="fs-3" style="color: #eaeaea;" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down"
+                    @endif>{{ $pesan->mPria->nama_pria }}</h1>
+>>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
                 <br>
                 <p style="color: #eaeaea;" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>Anak Ke-{{
                     $pesan->mPria->anak_ke }} Dari Pasangan
@@ -74,7 +90,11 @@
             </div>
             <div class="col-12 col-md-4">
                 <h1 class="fs-3" style="color: #eaeaea;" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif>
+<<<<<<< HEAD
                     {{ $pesan->mWanita->nama_wanita_lengkap }}
+=======
+                    {{ $pesan->mWanita->nama_wanita }}
+>>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
                 </h1><br>
                 <p style="color: #eaeaea;" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif>Anak Ke-{{
                     $pesan->mWanita->anak_ke }} Dari Pasangan
@@ -87,8 +107,13 @@
     <main class="m-4 ">
         <section id="gallery" class="center">
             @if (in_array('Galeri', $fitur))
+<<<<<<< HEAD
             <h2 class="text-foto display-4  mb-4" style="font-family: 'Parisienne', cursive;"
                 @if(in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+=======
+            <h2 class="text-foto display-4  mb-4" style="font-family: 'Parisienne', cursive;" @if
+                (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+>>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
                 Galeri
                 Foto</h2>
             <div class="row">
@@ -126,8 +151,13 @@
         </section>
 
         <section id="details" class="center shadow p-3 mb-5 bg-body rounded">
+<<<<<<< HEAD
             <h2 class="text-acara display-4" style="font-family: 'Parisienne', cursive;" @if(in_array('Animasi',$fitur))
                 data-aos="zoom-in" @endif>Detail
+=======
+            <h2 class="text-acara display-4" style="font-family: 'Parisienne', cursive;" @if
+                (in_array('Animasi',$fitur)) data-aos="zoom-in" @endif>Detail
+>>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
                 Acara
             </h2>
             <div class="row">
@@ -141,8 +171,15 @@
                             <p class="card-text">{{ $pesan->data->lokasi_akad }}
                             </p>
                             @if (in_array('Lokasi Acara Maps', $fitur))
+<<<<<<< HEAD
                             <iframe src="{{ $pesan->data->iframeMaps_akad}}" width="400" height="300" style="border:0;"
                                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+=======
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4261.603558627242!2d107.03903174290105!3d-6.426194211744445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6996454b474c75%3A0x1591b8de6b47851d!2sJl.%20Kp.%20Tengah%20No.78%2C%20Cipeucang%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016820!5e0!3m2!1sid!2sid!4v1689219496412!5m2!1sid!2sid"
+                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+>>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
                             @endif
                         </div>
                     </div>
@@ -158,8 +195,14 @@
                             <p class="card-text">{{ $pesan->data->lokasi_resepsi }}
                             </p>
                             @if (in_array('Lokasi Acara Maps', $fitur))
+<<<<<<< HEAD
                             <iframe src="{{ $pesan->data->iframeMaps_resepsi}}" width="400" height="300"
                                 style="border:0;" allowfullscreen="" loading="lazy"
+=======
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.836143860097!2d106.87298148248746!3d-6.301909547142641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5e7fb7ab01%3A0xb11aa6aaa3800434!2sSasono%20Adiguno%20TMII!5e0!3m2!1sid!2sid!4v1689219714379!5m2!1sid!2sid"
+                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+>>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                             @endif
                         </div>

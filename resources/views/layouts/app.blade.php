@@ -114,7 +114,7 @@
                         </li>
                         @endif
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle fw-bolder"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle fw-bolder text-capitalize"
                                 style="font-family: 'Roboto', sans-serif;" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}

@@ -14,6 +14,7 @@
                             <th scope="col">ID User</th>
                             <th scope="col">Nama User</th>
                             <th scope="col">Email User</th>
+                            <th scope="col">Status Order</th>
                             <th scope="col">Nomor User</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -25,6 +26,20 @@
                             <td>{{ $pesan->id_user }}</td>
                             <td>{{ $pesan->user->name }}</td>
                             <td>{{ $pesan->data->email }}</td>
+                            <td>
+                                <form action="{{ route('admin-updateStatus', ['id' =>  $pesan->id]) }}" method="POST"
+                                    id="admin-updateStatus">
+                                    @csrf
+                                    @method('PUT')
+                                    <select name="status" onchange="this.form.submit()" @if ($pesan->id ==
+                                        auth()->user()->id) disabled @endif>
+                                        <option value="0" @if ($pesan->status == 0) selected @endif> 0 - unConfirm
+                                        </option>
+                                        <option value="1" @if ($pesan->status == 1) selected @endif> 1 - Confirmed
+                                        </option>
+                                    </select>
+                                </form>
+                            </td>
                             <td class="btn btn-link" onclick="location.href='https://wa.me/{{ $pesan->data->no_wa }}'">
                                 https://wa.me/{{ $pesan->data->no_wa }}</td>
                             <td><a href="{{ route('admin-viewPesan') }}/{{ $pesan->data->id_pesan }}"

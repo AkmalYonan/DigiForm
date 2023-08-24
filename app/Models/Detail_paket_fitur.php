@@ -23,6 +23,6 @@ class Detail_paket_fitur extends Model
 
     public function fitur()
     {
-        return $this->belongsTo(fitur::class, 'fitur_id', 'id');
+        return $this->belongsTo(Fitur::class, 'fitur_id', 'id');
     }
 }

@@ -69,7 +69,7 @@ Route::middleware(['auth', 'verifiedUser'])->group(function () {
 
 
     Route::get('/account', [AccountController::class, 'showProfile'])->name('homeaccount');
-    Route::post('/account/change-password', 'AccountController@changePassword')->name('account.change_password'); //BELUM JADI
+    Route::post('/account/editAccount', [AccountController::class, 'editAccount'])->name('account-editAccount'); //Baru Usernamenya doang
 
     Route::get('/pricelist', [HomeController::class, 'priceList'])->name('homepricelist');
 
@@ -82,46 +82,47 @@ Route::middleware(['auth', 'verifiedUser'])->group(function () {
 Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
     //INDEX
     Route::get('/dashboard-admin', [AdminController::class, 'index'])->name('admindashboard');
-    Route::get('/admin-viewPesan', [AdminController::class, 'viewPesanan'])->name('admin-viewPesan');
-    Route::get('/admin-viewPesan/{data:id}', [AdminController::class, 'detailPesanan']);
-    Route::delete('/admin-deletePesan/{id}', [AdminController::class, 'deletePesan'])->name('admin-deletePesan');
-    Route::put('/admin-updateMaps/{id}', [AdminController::class, 'updateMapsUser'])->name('updateMapsUser');
+    Route::get('/dashboard/admin-viewPesan', [AdminController::class, 'viewPesanan'])->name('admin-viewPesan');
+    Route::put('/dashboard/admin-updateStatus/{id}', [AdminController::class, 'updateStatus'])->name('admin-updateStatus');
+    Route::get('/dashboard/admin-viewPesan/{data:id}', [AdminController::class, 'detailPesanan']);
+    Route::delete('/dashboard/admin-deletePesan/{id}', [AdminController::class, 'deletePesan'])->name('admin-deletePesan');
+    Route::put('/dashboard/admin-updateMaps/{id}', [AdminController::class, 'updateMapsUser'])->name('updateMapsUser');
 
 
     //ADMIN USER
-    Route::get('/admin-user', [AdminController::class, 'viewUser'])->name('admin-user');
-    Route::put('/update-paket-user/{id}', [AdminController::class, 'updatePaket'])->name('update-paket-user');
-    Route::put('/update-level-user/{id}', [AdminController::class, 'updateLevel'])->name('update-level-user');
-    Route::delete('/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('delete-user');
+    Route::get('/dashboard/admin-user', [AdminController::class, 'viewUser'])->name('admin-user');
+    Route::put('/dashboard/update-paket-user/{id}', [AdminController::class, 'updatePaket'])->name('update-paket-user');
+    Route::put('/dashboard/update-level-user/{id}', [AdminController::class, 'updateLevel'])->name('update-level-user');
+    Route::delete('/dashboard/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('delete-user');
 
 
     //ADMIN CRUD PAKET
-    Route::get('/admin-addpaket', [PaketController::class, 'index'])->name('admin-addpaket');
-    Route::post('/store-paket', [PaketController::class, 'store'])->name('store-paket');
-    Route::get('/edit-paket/{id}', [PaketController::class, 'edit'])->name('edit-paket');
-    Route::put('/update-paket/{id}', [PaketController::class, 'update'])->name('update-paket');
-    Route::delete('/delete-paket/{id}', [PaketController::class, 'delete'])->name('delete-paket');
+    Route::get('/dashboard/admin-addpaket', [PaketController::class, 'index'])->name('admin-addpaket');
+    Route::post('/dashboard/store-paket', [PaketController::class, 'store'])->name('store-paket');
+    Route::get('/dashboard/edit-paket/{id}', [PaketController::class, 'edit'])->name('edit-paket');
+    Route::put('/dashboard/update-paket/{id}', [PaketController::class, 'update'])->name('update-paket');
+    Route::delete('/dashboard/delete-paket/{id}', [PaketController::class, 'delete'])->name('delete-paket');
 
     //ADMIN CRUD FITUR
-    Route::get('/admin-addfitur', [FiturController::class, 'index'])->name('admin-addfitur');
-    Route::post('/store-fitur', [FiturController::class, 'store'])->name('store-fitur');
-    Route::get('/edit-fitur/{id}', [FiturController::class, 'edit'])->name('edit-fitur');
-    Route::put('/update-fitur/{id}', [FiturController::class, 'update'])->name('update-fitur');
-    Route::delete('/delete-fitur/{id}', [FiturController::class, 'delete'])->name('delete-fitur');
+    Route::get('/dashboard/admin-addfitur', [FiturController::class, 'index'])->name('admin-addfitur');
+    Route::post('/dashboard/store-fitur', [FiturController::class, 'store'])->name('store-fitur');
+    Route::get('/dashboard/edit-fitur/{id}', [FiturController::class, 'edit'])->name('edit-fitur');
+    Route::put('/dashboard/update-fitur/{id}', [FiturController::class, 'update'])->name('update-fitur');
+    Route::delete('/dashboard/delete-fitur/{id}', [FiturController::class, 'delete'])->name('delete-fitur');
 
     //ADMIN CRUD TEMPLATE
-    Route::get('/admin-addtemplate', [TemplateController::class, 'index'])->name('admin-addtemplate');
-    Route::post('/store-template', [TemplateController::class, 'store'])->name('store-template');
-    Route::get('/edit-template/{id}', [TemplateController::class, 'edit'])->name('edit-template');
-    Route::put('/update-template/{id}', [TemplateController::class, 'update'])->name('update-template');
-    Route::delete('/delete-template/{id}', [TemplateController::class, 'delete'])->name('delete-template');
+    Route::get('/dashboard/admin-addtemplate', [TemplateController::class, 'index'])->name('admin-addtemplate');
+    Route::post('/dashboard/store-template', [TemplateController::class, 'store'])->name('store-template');
+    Route::get('/dashboard/edit-template/{id}', [TemplateController::class, 'edit'])->name('edit-template');
+    Route::put('/dashboard/update-template/{id}', [TemplateController::class, 'update'])->name('update-template');
+    Route::delete('/dashboard/delete-template/{id}', [TemplateController::class, 'delete'])->name('delete-template');
 
     //ADMIN CRUD LEVEL
-    Route::get('/admin-addlevel', [LevelController::class, 'index'])->name('admin-addlevel');
-    Route::post('/store-level', [LevelController::class, 'store'])->name('store-level');
-    Route::get('/edit-level/{id}', [LevelController::class, 'edit'])->name('edit-level');
-    Route::put('/update-level/{id}', [LevelController::class, 'update'])->name('update-level');
-    Route::delete('/delete-level/{id}', [LevelController::class, 'delete'])->name('delete-level');
+    Route::get('/dashboard/admin-addlevel', [LevelController::class, 'index'])->name('admin-addlevel');
+    Route::post('/dashboard/store-level', [LevelController::class, 'store'])->name('store-level');
+    Route::get('/dashboard/edit-level/{id}', [LevelController::class, 'edit'])->name('edit-level');
+    Route::put('/dashboard/update-level/{id}', [LevelController::class, 'update'])->name('update-level');
+    Route::delete('/dashboard/delete-level/{id}', [LevelController::class, 'delete'])->name('delete-level');
 
     //SETTING PAKET - FITUR
     // Route::get('/setting-paket', [AdminSettingController::class, 'index'])->name('setting-paket');
