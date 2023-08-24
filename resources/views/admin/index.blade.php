@@ -52,18 +52,18 @@
             </div>
         </div>
         <div class="col-12 col-md-3">
-            <div class="card bg-primary-subtle" onclick="location.href='{{ route('admin-addlevel') }}'">
+            <div class="card bg-primary-subtle">
                 <div class="card-body">
                     <h5 class="card-title">Detail Paket Template</h5>
-                    <p class="card-text fs-1 fw-bolder">{{ $totalLevel }}</p>
+                    <p class="card-text fs-1 fw-bolder">NULL</p>
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-3">
-            <div class="card bg-info-subtle" onclick="location.href='{{ route('admin-addlevel') }}'">
+            <div class="card bg-info-subtle">
                 <div class="card-body">
                     <h5 class="card-title">Detail Paket Fitur</h5>
-                    <p class="card-text fs-1 fw-bolder">{{ $totalLevel }}</p>
+                    <p class="card-text fs-1 fw-bolder">NULL</p>
                 </div>
             </div>
         </div>

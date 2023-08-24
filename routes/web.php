@@ -43,9 +43,6 @@ Route::get('/result/{data:nama_pasangan}/{user:name}', [App\Http\Controllers\Hom
 
 
 Route::middleware(['auth', 'verifiedUser'])->group(function () {
-    // Route::get('/home', function () {
-    //     return view('index');
-    // })->name('indexUtama');
     Route::get('/template', function () {
         return view('home.template');
     })->name('hometemplate');
@@ -75,7 +72,10 @@ Route::middleware(['auth', 'verifiedUser'])->group(function () {
     Route::post('/account/change-password', 'AccountController@changePassword')->name('account.change_password'); //BELUM JADI
 
     Route::get('/pricelist', [HomeController::class, 'priceList'])->name('homepricelist');
-    Route::get('/changeplan', [HomeController::class, 'changePlan'])->name('homechangeplan');
+
+    //ACCOUNT
+    Route::get('/account/changeplan', [HomeController::class, 'changePlan'])->name('homechangeplan');
+    Route::get('/account/orderhistory', [HomeController::class, 'orderHistory'])->name('homeorderhistory');
 });
 
 //ADMIN DISINI

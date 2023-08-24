@@ -61,12 +61,11 @@
                       <option value="Selamat Siang">Selamat Siang</option>
                       <option value="Selamat Sore">Selamat Sore</option>
                       <option value="Selamat Malam">Selamat Malam</option>
-                      <!-- Tambahkan pilihan salam dari setiap agama di Indonesia di sini -->
+
                       <option value="Assalamu'alaikum">Assalamu'alaikum</option>
                       <option value="Om Swastiastu">Om Swastiastu</option>
                       <option value="Salam Kebajikan">Salam Kebajikan</option>
                       <option value="Salam Kristen">Salam Kristen</option>
-                      <!-- Dan lain-lain sesuai dengan agama di Indonesia -->
                       <option value="The Wedding">The Wedding</option>
                     </select>
                     <label for="salam">Pilih Salam:</label>
