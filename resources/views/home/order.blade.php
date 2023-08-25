@@ -93,7 +93,11 @@
 
               <div class="row justify-content-center pt-5 gap-5">
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Data Pria</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Pria</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip" title="Isilah data dibawah untuk Data Pria!">
+                    </div>
+                  </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama_mempelai_pria" name="nama_mempelai_pria"
                       value="{{ old('nama_mempelai_pria') }}" required>
@@ -126,7 +130,11 @@
                   </div>
                 </div>
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Data Wanita</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Wanita</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                      title="Isilah data dibawah untuk Data Wanita!"></div>
+                  </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama_mempelai_wanita" name="nama_mempelai_wanita"
                       value="{{ old('nama_mempelai_wanita') }}" required>
@@ -163,7 +171,11 @@
 
               <div class="row justify-content-center pt-5 gap-5">
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Data Pernikahan</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Pernikahan</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                      title="Isilah data dibawah untuk Data Pernikahan!"></div>
+                  </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="lokasi_akad" name="lokasi_akad" required>
                     <label for="lokasi_acara">Lokasi Akad:</label>
@@ -198,7 +210,12 @@
                   </div>
                 </div>
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Kontak</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Kontak</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                      title="Isilah data dibawah untuk Data Kontak!">
+                    </div>
+                  </div>
                   <div class="form-floating mb-3  ">
                     <input type="email" class="form-control" id="email" name="email" required>
                     <label for="email">Email:</label>
@@ -212,6 +229,11 @@
                     <label for="nama_panggilan">Nama Panggilan</label>
                   </div>
                   <div class="pt-5">
+                    <div class="d-flex align-items-center">
+                      <p class="text-lead2 fs-4 fw-bolder mt-3">All Photo</p>
+                      <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                        title="Isilah data dibawah untuk Data Kontak!"></div>
+                    </div>
                     <div class="mb-3">
                       <label for="fotoPria">Foto Mempelai Pria</label>
                       <input class="form-control" type="file" id="fotoPria" name="fotoPria">
@@ -283,5 +305,11 @@
   }
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+  integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous">
+</script>
 
 @endsection

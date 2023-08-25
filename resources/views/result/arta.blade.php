@@ -107,108 +107,117 @@
                 <main class="m-4 ">
                     <section id="gallery" class="center">
                         @if (in_array('Galeri', $fitur))
-                        <h2 class="text-foto display-4  mb-4" style="font-family: 'Parisienne', cursive;"
+                        <<<<<<< HEAD <h2 class="text-foto display-4  mb-4" style="font-family: 'Parisienne', cursive;"
                             @if(in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
-                            Galeri
-                            Foto</h2>
-                        <div class="row">
-                            <div class="col">
-                                <img src="{{ asset('img/arta/BOX11442.JPG') }}"
-                                    class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
-                                    (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                            =======
+                            <h2 class="text-foto display-4  mb-4" style="font-family: 'Parisienne', cursive;" @if
+                                (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+                                >>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
+                                Galeri
+                                Foto</h2>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{{ asset('img/arta/BOX11442.JPG') }}"
+                                        class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
+                                        (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                                </div>
+                                <div class="col">
+                                    <img src="{{ asset('img/arta/BOX11444.JPG') }}"
+                                        class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
+                                        (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+                                </div>
+                                <div class="col">
+                                    <img src="{{ asset('img/arta/BOX11445.JPG') }}"
+                                        class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
+                                        (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                                </div>
+                                <div class="col">
+                                    <img src="{{ asset('img/arta/BOX11447.JPG') }}"
+                                        class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
+                                        (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+                                </div>
+                                <div class="col">
+                                    <img src="{{ asset('img/arta/BOX11440.JPG') }}"
+                                        class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
+                                        (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                                </div>
                             </div>
-                            <div class="col">
-                                <img src="{{ asset('img/arta/BOX11444.JPG') }}"
-                                    class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
-                                    (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+                            @endif
+                            <div class="shadow p-3 mb-5 bg-body rounded" @if (in_array('Animasi',$fitur))
+                                data-aos="fade-up" @endif>
+                                <p class="fs-5" style="color: #A4907C;"> "Ketahuilah, setiap kalian adalah pemimpin, dan
+                                    setiap dari
+                                    kalian
+                                    bertanggung jawab atas yang la pimpin… seorang lelaki adalah pemimpin bagi
+                                    keluarganya, dan la
+                                    bertanggung jawab atas keluarganya..Ketahuilah setiap dari kalian adalah pemimpin
+                                    dan
+                                    bertanggung
+                                    jawab atas apa yang ia pimpin." - HR. Bukhari dan Muslim.</p>
+                                <img src="{{ asset('img/arta/daun.png') }}" alt="" width="100px" height="80px">
                             </div>
-                            <div class="col">
-                                <img src="{{ asset('img/arta/BOX11445.JPG') }}"
-                                    class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
-                                    (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
-                            </div>
-                            <div class="col">
-                                <img src="{{ asset('img/arta/BOX11447.JPG') }}"
-                                    class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
-                                    (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
-                            </div>
-                            <div class="col">
-                                <img src="{{ asset('img/arta/BOX11440.JPG') }}"
-                                    class="shadow-lg p-2 mb-5 bg-body rounded" width="200px" height="320px" @if
-                                    (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
-                            </div>
-                        </div>
-                        @endif
-                        <div class="shadow p-3 mb-5 bg-body rounded" @if (in_array('Animasi',$fitur)) data-aos="fade-up"
-                            @endif>
-                            <p class="fs-5" style="color: #A4907C;"> "Ketahuilah, setiap kalian adalah pemimpin, dan
-                                setiap dari
-                                kalian
-                                bertanggung jawab atas yang la pimpin… seorang lelaki adalah pemimpin bagi keluarganya,
-                                dan la
-                                bertanggung jawab atas keluarganya..Ketahuilah setiap dari kalian adalah pemimpin dan
-                                bertanggung
-                                jawab atas apa yang ia pimpin." - HR. Bukhari dan Muslim.</p>
-                            <img src="{{ asset('img/arta/daun.png') }}" alt="" width="100px" height="80px">
-                        </div>
                     </section>
 
                     <section id="details" class="center shadow p-3 mb-5 bg-body rounded">
-                        <h2 class="text-acara display-4" style="font-family: 'Parisienne', cursive;"
+                        <<<<<<< HEAD <h2 class="text-acara display-4" style="font-family: 'Parisienne', cursive;"
                             @if(in_array('Animasi',$fitur)) data-aos="zoom-in" @endif>Detail
-                            Acara
-                        </h2>
-                        <div class="row">
-                            @if (in_array('Hari/Tgl Akad', $fitur))
-                            <div class="col-sm-6">
-                                <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Akad</h5>
-                                        <p class="card-text">{{ $pesan->data->tgl_akad }}<br>{{ $pesan->data->jam_akad
-                                            }}
-                                        </p>
-                                        <p class="card-text">{{ $pesan->data->lokasi_akad }}
-                                        </p>
-                                        @if (in_array('Lokasi Acara Maps', $fitur))
-                                        <<<<<<< HEAD <iframe src="{{ $pesan->data->iframeMaps_akad}}" width="400"
-                                            height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                            =======
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4261.603558627242!2d107.03903174290105!3d-6.426194211744445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6996454b474c75%3A0x1591b8de6b47851d!2sJl.%20Kp.%20Tengah%20No.78%2C%20Cipeucang%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016820!5e0!3m2!1sid!2sid!4v1689219496412!5m2!1sid!2sid"
+                            =======
+                            <h2 class="text-acara display-4" style="font-family: 'Parisienne', cursive;" @if
+                                (in_array('Animasi',$fitur)) data-aos="zoom-in" @endif>Detail
+                                >>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
+                                Acara
+                            </h2>
+                            <div class="row">
+                                @if (in_array('Hari/Tgl Akad', $fitur))
+                                <div class="col-sm-6">
+                                    <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Akad</h5>
+                                            <p class="card-text">{{ $pesan->data->tgl_akad }}<br>{{
+                                                $pesan->data->jam_akad }}
+                                            </p>
+                                            <p class="card-text">{{ $pesan->data->lokasi_akad }}
+                                            </p>
+                                            @if (in_array('Lokasi Acara Maps', $fitur))
+                                            <<<<<<< HEAD <iframe src="{{ $pesan->data->iframeMaps_akad}}" width="400"
+                                                height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                =======
+                                                <iframe
+                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4261.603558627242!2d107.03903174290105!3d-6.426194211744445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6996454b474c75%3A0x1591b8de6b47851d!2sJl.%20Kp.%20Tengah%20No.78%2C%20Cipeucang%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016820!5e0!3m2!1sid!2sid!4v1689219496412!5m2!1sid!2sid"
+                                                    width="400" height="300" style="border:0;" allowfullscreen=""
+                                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                >>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
+                                                @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                @if (in_array('Hari/Tgl Resepsi', $fitur))
+                                <div class="col-sm-6">
+                                    <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Resepsi</h5>
+                                            <p class="card-text">{{ $pesan->data->tgl_resepsi }}<br>{{
+                                                $pesan->data->jam_resepsi }}
+                                            </p>
+                                            <p class="card-text">{{ $pesan->data->lokasi_resepsi }}
+                                            </p>
+                                            @if (in_array('Lokasi Acara Maps', $fitur))
+                                            <<<<<<< HEAD <iframe src="{{ $pesan->data->iframeMaps_resepsi}}" width="400"
+                                                height="300" style="border:0;" allowfullscreen=""
+                                                loading="lazy"=======<iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.836143860097!2d106.87298148248746!3d-6.301909547142641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5e7fb7ab01%3A0xb11aa6aaa3800434!2sSasono%20Adiguno%20TMII!5e0!3m2!1sid!2sid!4v1689219714379!5m2!1sid!2sid"
                                                 width="400" height="300" style="border:0;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                            >>>>>>> 84df7f9 (Change Layout Account User page & Fix Some Bug)
-                                            @endif
+                                                loading="lazy">>>>>>> 84df7f9 (Change Layout Account User page & Fix
+                                                Some Bug)
+                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                @endif
+                                        </div>
                                     </div>
                                 </div>
+                                @endif
                             </div>
-                            @endif
-                            @if (in_array('Hari/Tgl Resepsi', $fitur))
-                            <div class="col-sm-6">
-                                <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Resepsi</h5>
-                                        <p class="card-text">{{ $pesan->data->tgl_resepsi }}<br>{{
-                                            $pesan->data->jam_resepsi }}
-                                        </p>
-                                        <p class="card-text">{{ $pesan->data->lokasi_resepsi }}
-                                        </p>
-                                        @if (in_array('Lokasi Acara Maps', $fitur))
-                                        <<<<<<< HEAD <iframe src="{{ $pesan->data->iframeMaps_resepsi}}" width="400"
-                                            height="300" style="border:0;" allowfullscreen=""
-                                            loading="lazy"=======<iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.836143860097!2d106.87298148248746!3d-6.301909547142641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5e7fb7ab01%3A0xb11aa6aaa3800434!2sSasono%20Adiguno%20TMII!5e0!3m2!1sid!2sid!4v1689219714379!5m2!1sid!2sid"
-                                            width="400" height="300" style="border:0;" allowfullscreen=""
-                                            loading="lazy">>>>>>> 84df7f9 (Change Layout Account User page & Fix Some
-                                            Bug)
-                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                            @endif
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
-                        </div>
                     </section>
                     @if (in_array('Buku Tamu', $fitur))
                     <section id="rsvp">

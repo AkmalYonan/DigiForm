@@ -147,7 +147,7 @@ class HomeController extends Controller
             $fitur[] = $fit->fitur_name->nama;
         }
         // dd($template);
-        return view('preview.' . strtolower($template), compact('pesan', 'fitur'));
+        return view('result.' . strtolower($template), compact('pesan', 'fitur'));
     }
 
     public function tempAmara()

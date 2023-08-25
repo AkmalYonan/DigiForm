@@ -96,34 +96,44 @@
                         <div class="row">
                             <div class="col-md-6 col-6">
                                 <h5>Informasi Acara</h5>
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Lokasi Akad</td>
-                                            <td>{{ $pesan->data->lokasi_akad }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lokasi resepsi</td>
-                                            <td>{{ $pesan->data->lokasi_resepsi }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanggal Akad</td>
-                                            <td>{{ $pesan->data->tgl_akad }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanggal Resepsi</td>
-                                            <td>{{ $pesan->data->tgl_resepsi }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jam Akad</td>
-                                            <td>{{ $pesan->data->jam_akad }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jam Resepsi</td>
-                                            <td>{{ $pesan->data->jam_resepsi }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Lokasi Akad</td>
+                                                <td>{{ $pesan->data->lokasi_akad }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lokasi resepsi</td>
+                                                <td>{{ $pesan->data->lokasi_resepsi }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tanggal Akad</td>
+                                                <td>{{ $pesan->data->tgl_akad }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tanggal Resepsi</td>
+                                                <td>{{ $pesan->data->tgl_resepsi }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jam Akad</td>
+                                                <td>{{ $pesan->data->jam_akad }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jam Resepsi</td>
+                                                <td>{{ $pesan->data->jam_resepsi }}</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <td>Link Maps Akad</td>
+                                                <td>{{ $pesan->data->iframeMaps_akad }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Link Maps Akad</td>
+                                                <td>{{ $pesan->data->iframeMaps_resepsi }}</td>
+                                            </tr> --}}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-md-6 col-6">
                                 <h5>Fitur</h5>
@@ -163,9 +173,12 @@
                                             </td>
 
                                             <td>
-                                                <a id="preview"
-                                                    href="/result/{{ $pesan->data->nama_pasangan }}/{{ auth()->user()->name }}"
-                                                    class="btn btn-warning btn-m w-100" target="_blank">Preview</a>
+                                                <form action="{{route('preview-order')}}" method="POST" target="_blank">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{$pesan->id}}">
+                                                    <button type="submit" id="preview"
+                                                        class="btn btn-warning btn-m w-100">Preview</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     </tbody>

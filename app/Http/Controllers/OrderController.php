@@ -271,9 +271,9 @@ class OrderController extends Controller
     public function preview(Request $request)
     {
         $id = $request->input('id');
-
+        // dd($id);
         $pesan = pesan::where('id', $id)->get()[0];
-
+        // dd($pesan);
         $fitur = [];
 
         foreach ($pesan->fitur as $fit) {
