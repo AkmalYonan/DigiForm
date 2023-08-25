@@ -1,3 +1,8 @@
+### Cloning
+```bash 
+$ git clone https://github.com/bakaroti/DigiForm.git
+```
+
 ### Configure
 
 ```bash
