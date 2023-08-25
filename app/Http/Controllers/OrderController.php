@@ -29,12 +29,16 @@ class OrderController extends Controller
         if ($order) {
             $Id = auth()->user()->id;
             $pesan = pesan::where('id_user', $Id)->get()[0];
+            // dd($pesan);
             $fiturs = Detail_fitur::where('id_pesan', $pesan->id)->get();
 
-            $lastUpdated = $pesan->updated_at ?? Carbon::now()->subHours(1);
-            $cooldownTime = Carbon::parse($lastUpdated)->addHour();
-            $currentTime = Carbon::now();
-            $cooldownRemaining = max(0, $cooldownTime->diffInMinutes($currentTime));
+            $cooldownRemaining = 0;
+            if ($pesan->status > 0) {
+                $confirmedTimestamp = strtotime($pesan->updated_at);
+                $cooldownDuration = 60 * 60; // Durasi cooldown dalam detik (60 menit)
+                $currentTime = time();
+                $cooldownRemaining = max(0, $confirmedTimestamp + $cooldownDuration - $currentTime);
+            }
 
             return view('home.userOrder', compact('pesan', 'fiturs', 'cooldownRemaining'));
         } else {
@@ -82,11 +86,14 @@ class OrderController extends Controller
             $id = $lastId ? $lastId + 1 : 1;
 
             User::where('id', $user_id)->update(['is_order' => 1]);
+            $user = User::where('id', $user_id)->get()[0];
+            // dd($user);
 
             $pesan = new pesan;
             if ($pesan) {
                 $pesan->id = $id;
                 $pesan->id_user = $user_id;
+                $pesan->encrypted = bcrypt($user->name);
                 $pesan->id_template = $request->input('template_id');
                 $pesan->save();
             }
@@ -139,7 +146,6 @@ class OrderController extends Controller
             $data->imgBanner = $request->file('fotoBanner')->storeAs('fotoBanner', $fileNameBanner);
             $fileNameCouple = now()->timestamp . '.' . $request->file('fotoCouple')->getClientOriginalExtension();
             $data->imgCouple = $request->file('fotoCouple')->storeAs('fotoCouple', $fileNameCouple);
-            $data->iframeMaps = $request->input('iframeMaps');
             $data->nama_pasangan = $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita');
             $data->save();
 

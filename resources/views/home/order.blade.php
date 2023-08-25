@@ -277,7 +277,6 @@
                         <input type="checkbox" name="selected_fiturs[]" value="{{ $fitur->id }}"
                           class="form-check-input" id="fitur{{ $fitur->id }}">
                         @endif
-
                     </div>
                     @endforeach
                   </div>

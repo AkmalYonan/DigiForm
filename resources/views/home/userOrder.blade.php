@@ -167,7 +167,8 @@
                                             <td>
                                                 <button onclick="location.href='{{ route('order-edit') }}'"
                                                     class="btn btn-success btn-m w-100" @if (Auth::check() &&
-                                                    $pesan->status === '1')
+                                                    $pesan->status === '1' || Auth::check() &&
+                                                    $pesan->status === '2')
                                                     disabled
                                                     @endif>Edited</button>
                                             </td>
@@ -191,25 +192,47 @@
                                             <span class="fs-6">Hasil Undangan akan Bisa dilihat disini</span>
                                         </p>
                                         <div class="card-body">
-                                            @if (Auth::check() && $pesan->status === '0')
+                                            @if (Auth::check())
+                                            @if ($pesan->status === '0')
                                             <form action="{{ route('confirm-order') }}" method="POST">
                                                 @csrf
-                                                <button id="preview" type="submit"
+                                                <button type="submit" id="preview" name="confirm"
                                                     class="btn btn-primary btn-m w-75">Confirm!</button>
                                             </form>
-                                            @elseif ($cooldownRemaining > 0)
-                                            <form action="{{ route('confirm-order') }}" method="POST">
-                                                @csrf
-                                                <button id="preview" type="submit" class="btn btn-primary btn-m w-75"
-                                                    disabled>Confirmed!<br><span>Hasil Jadi {{ $cooldownRemaining}}
-                                                        Menit
-                                                        Lagi</span></button>
-                                            </form>
-                                            @else
-                                            <a id="preview"
-                                                href="/result/{{ $pesan->data->nama_pasangan }}/{{ auth()->user()->name }}"
-                                                class="btn btn-warning btn-m w-100" target="_blank">Preview</a>
-                                            @endif
+                                            @elseif ($cooldownRemaining > 0) <button id="preview"
+                                                class="btn btn-primary btn-m w-75" disabled>
+                                                Harap Tunggu!<br><span id="cooldown-timer">{{ $cooldownRemaining }}
+                                                    minutes remaining</span>
+                                            </button>
+                                            @elseif ($pesan->status === '2')
+                                            <a href="/result/{{ $pesan->data->nama_pasangan }}/{{$pesan->encrypted}}"
+                                                class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
+                                                Preview</a>
+                                            <!-- Target -->
+                                            <div class="card shadow w-100">
+                                                <input id="foo" class=""
+                                                    value="{{ env('APP_URL') }}/result/{{ $pesan->data->nama_pasangan }}/{{ $pesan->encrypted }}">
+
+                                                <!-- Trigger -->
+                                                <button class="btn" data-clipboard-target="#foo">
+                                                    <i class="fa-solid fa-clipboard"></i>
+                                                </button>
+                                                @else
+                                                <a href="/result/{{ $pesan->data->nama_pasangan }}/{{$pesan->encrypted}}"
+                                                    class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
+                                                    Preview</a>
+                                                <!-- Target -->
+                                                <div class="card shadow w-100">
+                                                    <input id="foo" class=""
+                                                        value="{{ env('APP_URL') }}/result/{{ $pesan->data->nama_pasangan }}/{{ $pesan->encrypted }}">
+                                                    <!-- Trigger -->
+                                                    <button class="btn" data-clipboard-target="#foo">
+                                                        <i class="fa-solid fa-clipboard"></i>
+                                                    </button>
+                                                </div>
+                                                @endif
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -220,5 +243,34 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+    <script>
+        new ClipboardJS('.btn');
+
+    @if ($pesan->status > 0)
+        // Timestamp saat konfirmasi pesanan
+        var confirmedTimestamp = {{ strtotime($pesan->updated_at) * 1000 }};
+        var countdownElement = document.getElementById('cooldown-timer');
+
+        function updateCooldownTimer() {
+            var currentTime = new Date().getTime();
+            var timeRemaining = confirmedTimestamp + (60 * 60 * 1000) - currentTime;
+
+            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = minutes + 'm ' + seconds + 's ';
+
+            if (timeRemaining < 0) {
+                countdownElement.innerHTML = ''; // Hapus timer ketika 60 menit berlalu
+            } else {
+                setTimeout(updateCooldownTimer, 1000);
+            }
+        }
+
+        updateCooldownTimer();
+    @endif
+    </script>
+
+    @endsection
