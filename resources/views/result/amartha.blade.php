@@ -16,6 +16,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fira+Code&display=swap"
         rel="stylesheet" />
+
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("storage/{{ $pesan->data->imgThumbnail }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .bgwedding1 {
+            position: relative;
+            background: url("storage/{{ $pesan->data->imgBanner }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100%;
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/amartha.css') }}">
 </head>
 
@@ -25,7 +54,7 @@
             <div class="position-absolute top-50 start-50 translate-middle">
                 <div class="row justify-content-center">
                     <div class="col-10 col-md-3">
-                        <img src="{{ asset('img/amartha/img/gallery3.jpeg') }}"
+                        <img src="{{ url('storage/'. $pesan->data->imgCouple) }}"
                             class="img-fluid rounded-4 border-warna-utama" alt="" />
                     </div>
                 </div>
@@ -113,7 +142,7 @@
                 <div class="row justify-content-center">
                     <div class="col-5 col-md-3">
                         <div class="container">
-                            <img src="{{ asset('img/amartha/img/card1.jpeg') }}"
+                            <img src="{{ url('storage/'. $pesan->mPria->image) }}"
                                 class="w-100 shadow-lg rounded-4 border-warna-utama" @if(in_array('Animasi',$fitur))
                                 data-aos="fade-down" @endif />
                             <div class="text-header text-center py-5">
@@ -135,7 +164,7 @@
                     </div>
                     <div class="col-5 col-md-3">
                         <div class="container">
-                            <img src="{{ asset('img/amartha/img/card2.webp') }}"
+                            <img src="{{ url('storage/'. $pesan->mWanita->image) }}"
                                 class="w-100 shadow-lg rounded-4 border-warna-utama" @if (in_array('Animasi',$fitur))
                                 data-aos="fade-up" @endif />
                             <div class="text-header text-center py-5">
