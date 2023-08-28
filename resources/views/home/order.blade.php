@@ -72,7 +72,7 @@
                     @endif
                   </div>
 
-                  <div class="form-floating py-2">
+                  <div class="form-floating py-2 pt-3">
                     <select name="salam" id="salam" class="form-control">
                       <option value="Selamat Pagi">Selamat Pagi</option>
                       <option value="Selamat Siang">Selamat Siang</option>
@@ -93,11 +93,20 @@
 
               <div class="row justify-content-center pt-5 gap-5">
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Data Pria</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Pria</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip" title="Isilah data dibawah untuk Data Pria!">
+                    </div>
+                  </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama_mempelai_pria" name="nama_mempelai_pria"
                       value="{{ old('nama_mempelai_pria') }}" required>
-                    <label for="nama_mempelai_pria">Nama Mempelai Pria:</label>
+                    <label for="nama_mempelai_pria">Nama Panggilan Mempelai Pria:</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nama_mempelai_pria_lengkap"
+                      name="nama_mempelai_pria_lengkap" value="{{ old('nama_mempelai_pria_lengkap') }}" required>
+                    <label for="nama_mempelai_pria">Nama Lengkap Mempelai Pria:</label>
                   </div>
                   <div class=" form-floating mb-3">
                     <input type="number" class="form-control" id="anak_ke_pria" name="anak_ke_pria"
@@ -121,11 +130,20 @@
                   </div>
                 </div>
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Data Wanita</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Wanita</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                      title="Isilah data dibawah untuk Data Wanita!"></div>
+                  </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama_mempelai_wanita" name="nama_mempelai_wanita"
                       value="{{ old('nama_mempelai_wanita') }}" required>
-                    <label for="nama_mempelai_wanita">Nama Mempelai Wanita:</label>
+                    <label for="nama_mempelai_wanita">Nama Panggilan Mempelai Wanita:</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nama_mempelai_wanita_lengkap"
+                      name="nama_mempelai_wanita_lengkap" value="{{ old('nama_mempelai_wanita_lengkap') }}" required>
+                    <label for="nama_mempelai_wanita_lengkap">Nama Lengkap Mempelai Wanita:</label>
                   </div>
                   <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="anak_ke_wanita" name="anak_ke_wanita"
@@ -153,10 +171,18 @@
 
               <div class="row justify-content-center pt-5 gap-5">
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Data Pernikahan</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Pernikahan</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                      title="Isilah data dibawah untuk Data Pernikahan!"></div>
+                  </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="lokasi_acara" name="lokasi_acara" required>
-                    <label for="lokasi_acara">Lokasi Acara:</label>
+                    <input type="text" class="form-control" id="lokasi_akad" name="lokasi_akad" required>
+                    <label for="lokasi_acara">Lokasi Akad:</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="lokasi_resepsi" name="lokasi_resepsi" required>
+                    <label for="lokasi_acara">Lokasi Resepsi:</label>
                   </div>
                   <div class="form-floating mb-3">
                     <input type="date" class="form-control" id="tgl_akad" name="tgl_akad" required>
@@ -167,12 +193,29 @@
                     <label for="tgl_resepsi">Tanggal Resepsi:</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="jam_acara" name="jam_acara" required>
-                    <label for="jam_acara">Jam Acara:</label>
+                    <input type="text" class="form-control" id="jam_akad" name="jam_akad" required>
+                    <label for="jam_akad">Jam Akad: ( 08.00 - Selesai )</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="jam_resepsi" name="jam_resepsi" required>
+                    <label for="jam_resepsi">Jam Resepsi: ( 08.00 - Selesai )</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="iframeMaps_akad" name="iframeMaps_akad" required>
+                    <label for="iframeMaps_akad">Link Maps akad:</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="iframeMaps_resepsi" name="iframeMaps_resepsi" required>
+                    <label for="iframeMaps_resepsi">Link Maps resepsi</label>
                   </div>
                 </div>
                 <div class="col-md-11">
-                  <p class="text-lead2 fs-4 fw-bolder">Kontak</p>
+                  <div class="d-flex align-items-center">
+                    <p class="text-lead2 fs-4 fw-bolder mt-3">Data Kontak</p>
+                    <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                      title="Isilah data dibawah untuk Data Kontak!">
+                    </div>
+                  </div>
                   <div class="form-floating mb-3  ">
                     <input type="email" class="form-control" id="email" name="email" required>
                     <label for="email">Email:</label>
@@ -183,9 +226,14 @@
                   </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama_panggilan" name="nama_panggilan" required>
-                    <label for="nama_panggilan">Nama Panggilan:</label>
+                    <label for="nama_panggilan">Nama Panggilan</label>
                   </div>
                   <div class="pt-5">
+                    <div class="d-flex align-items-center">
+                      <p class="text-lead2 fs-4 fw-bolder mt-3">All Photo</p>
+                      <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                        title="Isilah data dibawah untuk Data Kontak!"></div>
+                    </div>
                     <div class="mb-3">
                       <label for="fotoPria">Foto Mempelai Pria</label>
                       <input class="form-control" type="file" id="fotoPria" name="fotoPria">
@@ -225,11 +273,6 @@
                         <input type="hidden" name="selected_fiturs[]" value="{{ $fitur->id }}" class="form-check-input"
                           id="fitur{{ $fitur->id }}">
                         <label class="form-check-label" for="fitur{{ $fitur->id }}">{{ $fitur->nama }}</label>
-                        @else
-                        <input type="checkbox" name="selected_fiturs[]" value="{{ $fitur->id }}"
-                          class="form-check-input" id="fitur{{ $fitur->id }}">
-                        @endif
-
                     </div>
                     @endforeach
                   </div>
@@ -257,5 +300,11 @@
   }
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+  integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous">
+</script>
 
 @endsection

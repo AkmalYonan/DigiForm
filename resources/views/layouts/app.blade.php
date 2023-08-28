@@ -150,6 +150,7 @@
     <script>
         AOS.init();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
