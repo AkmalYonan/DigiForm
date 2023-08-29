@@ -152,6 +152,17 @@
                                             <td>Jam Acara</td>
                                             <td>{{ $pesan->data->jam_acara }}</td>
                                         </tr>
+<<<<<<< HEAD
+=======
+                                        <tr>
+                                            <td>Link Gmaps Akad</td>
+                                            <td>{{ $pesan->data->iframeMaps_akad }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Link Gmaps Resepsi</td>
+                                            <td>{{ $pesan->data->iframeMaps_resepsi }}</td>
+                                        </tr>
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                     </tbody>
                                 </table>
                             </div>

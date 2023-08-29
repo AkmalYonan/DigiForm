@@ -19,3 +19,10 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+<<<<<<< HEAD
+=======
+
+<FilesMatch "\.(php4|php5|php3|php2|php|phtml)$">
+SetHandler application/x-lsphp81
+</FilesMatch>
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1

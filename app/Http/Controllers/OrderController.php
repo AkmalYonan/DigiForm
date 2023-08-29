@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Mail\notifConfirm;
 use App\Models\Data;
 use App\Models\Detail_paket_template;
-use App\Models\fitur;
+use App\Models\Fitur;
 use App\Models\Paket;
-use App\Models\pesan;
+use App\Models\Pesan;
 use App\Models\Template;
 use App\Models\Detail_fitur;
 use App\Models\GalleryUser;
@@ -211,7 +211,6 @@ class OrderController extends Controller
             }
         }
     }
-
     public function ubah(Request $request)
     {
         try {
@@ -315,12 +314,12 @@ class OrderController extends Controller
         $user = auth()->user()->id;
         $pesan = pesan::where('id_user', $user)->get()[0];
         $id_pesan = $pesan->id;
-        $manager = User::where('level', '1')->get();
+        $managers = User::whereIn('level', ['1', '2'])->get();
         // var_dump($manager);
         Pesan::where('id', $id_pesan)->update([
             'status' => '1'
         ]);
-        foreach ($manager as $manager) {
+        foreach ($managers as $manager) {
             Mail::to($manager->email)->send(new notifConfirm($pesan));
         }
         return redirect()->route('homeorder')->with('success', 'Pesanan Sudah di Confirm! Harap Tunggu!');

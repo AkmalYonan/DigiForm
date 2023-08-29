@@ -46,7 +46,15 @@
                                 <div class="col-md-11">
                                     <div class="form-floating py-2 mb-3 pt-3">
                                         @if(isset($templates))
+<<<<<<< HEAD
                                         <select name="template_id" id="template_id" class="form-control">
+=======
+
+                                        <select name="template_id" id="template_id" class="form-control">
+
+                                            <option value="{{ $pesan->template->id }}">{{ $pesan->template->nama }}
+                                            </option>
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                             @foreach($templates as $template)
                                             @if ($template)
                                             <!-- Tambahkan pengecekan apakah $template ada atau tidak null -->
@@ -60,6 +68,11 @@
 
                                     <div class="form-floating py-2">
                                         <select name="salam" id="salam" class="form-control">
+<<<<<<< HEAD
+=======
+                                            <option value="{{ $pesan->data->salam_pembuka }}">{{
+                                                $pesan->data->salam_pembuka }}</option>
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                             <option value="Selamat Pagi">Selamat Pagi</option>
                                             <option value="Selamat Siang">Selamat Siang</option>
                                             <option value="Selamat Sore">Selamat Sore</option>
@@ -197,6 +210,20 @@
                                             value="{{ $pesan->data->jam_resepsi }}" required>
                                         <label for="jam_resepsi">Jam Acara Resepsi:</label>
                                     </div>
+<<<<<<< HEAD
+=======
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="iframeMaps_akad"
+                                            name="iframeMaps_akad" value="{{ $pesan->data->iframeMaps_akad}}" required>
+                                        <label for="iframeMaps_akad">Link Maps akad:</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="iframeMaps_resepsi"
+                                            name="iframeMaps_resepsi" value="{{ $pesan->data->iframeMaps_resepsi}}"
+                                            required>
+                                        <label for="iframeMaps_resepsi">Link Maps resepsi</label>
+                                    </div>
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                 </div>
                                 <div class="col-md-11">
                                     <div class="d-flex align-items-center">
@@ -223,7 +250,11 @@
                                         <div class="d-flex align-items-center">
                                             <p class="text-lead2 fs-4 fw-bolder mt-3">All Photo</p>
                                             <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+<<<<<<< HEAD
                                                 title="Isilah data dibawah untuk Data Kontak!"></div>
+=======
+                                                title="Isi Foto dibawah ini untuk undangan"></div>
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                             <span class="text-roboto fw-bolder text-danger ms-3">Maintance
                                                 Now</span>
                                         </div>

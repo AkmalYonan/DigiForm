@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\Data;
 use App\Models\Fitur;
+<<<<<<< HEAD
 use App\Models\level;
 use App\Models\Paket;
 use App\Models\pesan;
+=======
+use App\Models\Level;
+use App\Models\Paket;
+use App\Models\Pesan;
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
 use App\Models\Template;
 use App\Models\User;
 use ErrorException;
@@ -23,7 +29,11 @@ class AdminController extends Controller
         $totalUser = User::count();
         $totalFitur = Fitur::count();
         $totalPesan = Data::count();
+<<<<<<< HEAD
         $totalLevel = level::count();
+=======
+        $totalLevel = Level::count();
+>>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
         $pesans = Pesan::orderBy('created_at', 'desc')->take(3)->get();
         return view('admin.index', compact('admins', 'totalPakets', 'pesans', 'totalTemplates', 'totalUser', 'totalFitur', 'totalPesan', 'totalLevel'));
     }

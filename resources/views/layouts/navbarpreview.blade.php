@@ -32,7 +32,8 @@
                 <div class="text-center my-3">
                     <img class="p-2" src="img/logo_110.png" alt="logo" width="70">
                 </div>
-                <p class="navbar-brand fw-bold mt-3">Preview Template</p>
+                <p class="navbar-brand fw-bold fs-2 mt-3">Preview Order</p>
+
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -41,10 +42,6 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-
-                        <button type="button" class="btn btn-primary btn-lg">
-                            Buat Undangan
-                        </button>
 
                     </ul>
                 </div>

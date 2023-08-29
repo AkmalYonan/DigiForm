@@ -182,7 +182,6 @@ class HomeController extends Controller
     }
     public function tempEmim()
     {
-
-        return view('template.Emim');
+        return view('template.emim');
     }
 }

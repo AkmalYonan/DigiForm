@@ -45,41 +45,35 @@
 }
 
 .bg-navbar-template {
-    background-color: rgba(255,
-            255,
-            255,
-            0.7);
-    /* Transparansi 50% untuk warna putih */
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    ); /* Transparansi 50% untuk warna putih */
 }
 
 .countdown-value {
-    max-width: 100%;
-    /* Set the maximum width to 100% */
-    display: inline-block;
-    /* To allow max-width to work correctly */
+    max-width: 100%; /* Set the maximum width to 100% */
+    display: inline-block; /* To allow max-width to work correctly */
 }
 
 .countdown-label {
-    max-width: 100%;
-    /* Set the maximum width to 100% */
-    display: inline-block;
-    /* To allow max-width to work correctly */
+    max-width: 100%; /* Set the maximum width to 100% */
+    display: inline-block; /* To allow max-width to work correctly */
 }
 
 ul.fitur-list {
-    list-style-type: none;
-    /* Remove default list-style (bullets) */
+    list-style-type: none; /* Remove default list-style (bullets) */
 }
 
 ul.fitur-list li {
     position: relative;
-    padding-left: 30px;
-    /* Add some padding on the left to make room for the checkbox */
+    padding-left: 30px; /* Add some padding on the left to make room for the checkbox */
 }
 
 ul.fitur-list li::before {
-    content: "\2713";
-    /* Unicode for checkmark symbol */
+    content: "\2713"; /* Unicode for checkmark symbol */
     position: absolute;
     left: 0;
     top: 0;
@@ -88,16 +82,12 @@ ul.fitur-list li::before {
 }
 
 .card {
-    transition: background-color 0.5s ease, color 0.5s ease;
-    /* Efek transisi lebih lambat dan lembut */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Efek transisi lebih lambat dan lembut */
 }
-
 /* Gaya card saat dihover */
 .custom-card:hover {
-    background-color: #333;
-    /* Warna latar belakang saat dihover */
-    color: #fff;
-    /* Warna teks saat dihover */
+    background-color: #333; /* Warna latar belakang saat dihover */
+    color: #fff; /* Warna teks saat dihover */
 }
 
 .custom-card:hover .text-hargaPaket {
@@ -105,10 +95,7 @@ ul.fitur-list li::before {
 }
 
 .animate-dark:hover {
-    background-color: rgba(0,
-            0,
-            0,
-            0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     /* Warna latar belakang yang lebih gelap */
     transition: background-color 0.3s ease;
     /* Efek transisi */

@@ -273,14 +273,8 @@
                         <input type="hidden" name="selected_fiturs[]" value="{{ $fitur->id }}" class="form-check-input"
                           id="fitur{{ $fitur->id }}">
                         <label class="form-check-label" for="fitur{{ $fitur->id }}">{{ $fitur->nama }}</label>
-                        @else
-                        <input type="checkbox" name="selected_fiturs[]" value="{{ $fitur->id }}"
-                          class="form-check-input" id="fitur{{ $fitur->id }}">
-                        <input type="hidden" name="selected_fiturs[]" value="{{ $fitur->id }}" class="form-check-input"
-                          id="fitur{{ $fitur->id }}">
-                        <label class="form-check-label" for="fitur{{ $fitur->id }}">{{ $fitur->nama }}</label>
-                        @endif
                     </div>
+                    @endif
                     @endforeach
                   </div>
                   @endif

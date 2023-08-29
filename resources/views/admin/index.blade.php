@@ -86,7 +86,7 @@
                                     @endforeach
                                 </div>
                                 <div class="col-5 col-md-2">
-                                    <button type="submit" class="btn shadow btn-dark w-100 mb-3">Submit</button>
+                                    <button type="submit" class="btn shadow btn-dark mb-3">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                                     @endforeach
                                 </div>
                                 <div class="col-5 col-md-2">
-                                    <button type="submit" class="btn shadow btn-dark w-100 mb-3">Submit</button>
+                                    <button type="submit" class="btn shadow btn-dark mb-3">Submit</button>
                                 </div>
                             </div>
                         </div>

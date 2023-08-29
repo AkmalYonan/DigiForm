@@ -8,14 +8,27 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/prima/prima.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/prima/prima2.css') }}">
+    <style>
+        body,
+        .banner {
+            background-image: url(../../storage/{{$pesan->data->imgBanner}});
+            background-attachment: fixed;
+            background-size: cover;
+            background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100%;
+            color: #eaeaea;
+        }
+    </style>
     <title>{{ $pesan->data->nama_pasangan }} Wedding</title>
 </head>
 
 <body>
     <div id="overlay">
         <div class="overlay-content" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
-            <img src="{{ asset('img/prima/foto1.jpg') }}" class="border-warna" height="200px" width="300px">
+            <img src="{{ url('storage/'. $pesan->data->imgThumbnail) }}" class="border-warna" height="200px"
+                width="300px">
             <p class="display-1 m-3" style="font-family: 'Great Vibes', cursive; color: #886F6F;">
                 {{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}
             </p>
@@ -39,7 +52,8 @@
             <p class="display-3 m-5" style="font-family: 'IM Fell Great Primer', serif; color: #ffffff;">
                 {{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}
             </p>
-            <img src="{{ asset('img/prima/foto4.jpg') }}" width="400px" class="mb-3 img-thumbnail text-center">
+            <img src="{{ url('storage/'. $pesan->data->imgBanner) }}" width="400px"
+                class="mb-3 img-thumbnail text-center">
         </div>
 
         @if (in_array('Countdown', $fitur))
@@ -84,7 +98,7 @@
                     </p>
                 </div>
                 <div class="col-md-auto">
-                    <img src="{{ asset('img/prima/foto3.jpg') }}" width="250px" height="500px"
+                    <img src="{{ url('storage/'. $pesan->data->imgCouple) }}" width="250px" height="500px"
                         class="border-warna mb-4 " @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
                 </div>
                 <div class="col col-lg-2">

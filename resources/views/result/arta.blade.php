@@ -1,4 +1,3 @@
-{{-- @dd($pesan->data) --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +15,7 @@
 
     <style>
         .banner {
-            background: rgba(0, 0, 0, 0.6)url(../../storage/{{$pesan->data->imgBanner}});
+            background: rgba(0, 0, 0, 0.6) url(../../storage/{{ $pesan->data->imgBanner }});
             background-size: cover;
             background-blend-mode: darken;
             height: 100%;
@@ -155,8 +154,7 @@
 
         <section id="details" class="center shadow p-3 mb-5 bg-body rounded">
             <h2 class="text-acara display-4" style="font-family: 'Parisienne', cursive;" @if(in_array('Animasi',$fitur))
-                data-aos="zoom-in" @endif>Detail
-                Acara
+                data-aos="zoom-in" @endif>Detail Acara
             </h2>
             <div class="row">
                 @if (in_array('Hari/Tgl Akad', $fitur))

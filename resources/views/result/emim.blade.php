@@ -33,7 +33,7 @@
         <div class="luar">
             <div class="lingkaran @if(in_array('Animasi', $fitur))hidden @endif" id="lingkaran">
                 <div class="fullscreen-bg">
-                    <img src="{{ asset('img/assetsEmiw/img/home.jpg') }}" alt="Background Image"
+                    <img src="{{ url('storage/'. $pesan->data->imgBanner) }}" alt="Background Image"
                         class="fullscreen-bg-image" />
                     @if (in_array('Countdown', $fitur))
                     <div class="welcome-text @if(in_array('Animasi', $fitur))hidden @endif" id="hitung-hari">
@@ -82,14 +82,14 @@
             </div>
             <div class="konten-mempelai @if(in_array('Animasi', $fitur))hidden @endif">
                 <div class="mempelai laki">
-                    <img src="{{asset('img/assetsEmiw/img/cowo.jpg')}}" width="100px"
+                    <img src="{{ url('storage/'. $pesan->mPria->image) }}" width="100px"
                         class="rounded-circle pic-mempelai" alt="..." />
                     <h1 class="nama pt-3" id="nama">{{ $pesan->mPria->nama_pria_lengkap}}</h1>
                     <h4 class="ortu" id="ortu">Putra dari bapak {{ $pesan->mPria->nama_ayah }} & ibu {{
                         $pesan->mPria->nama_ibu }}</h4>
                 </div>
                 <div class="mempelai perempuan">
-                    <img src="{{asset('img/assetsEmiw/img/cewe.jpg')}}" width="100px"
+                    <img src="{{ url('storage/'. $pesan->mWanita->image) }}" width="100px"
                         class="rounded-circle pic-mempelai" alt="..." />
                     <h1 class="nama pt-3" id="nama">{{ $pesan->mWanita->nama_wanita_lengkap }}</h1>
                     <h4 class="ortu" id="ortu">Putra dari bapak {{ $pesan->mWanita->nama_ayah }} & ibu {{

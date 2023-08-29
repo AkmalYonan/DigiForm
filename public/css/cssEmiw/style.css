@@ -364,13 +364,6 @@ form input[type="radio"]:checked {
     html {
         font-size: 70%;
     }
-    .openings {
-        position: relative;
-        height: fit-content;
-    }
-    .openinga {
-        height: 100vh;
-    }
     .opening .luar .konten-mempelai,
     .opening .luar .konten-acara {
         flex-direction: column;
