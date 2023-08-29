@@ -15,6 +15,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fira+Code&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/amara.css') }}">
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(storage/{{$pesan->data->imgThumbnail }});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .bgwedding1 {
+            position: relative;
+            background: url(storage/{{$pesan->data->imgBanner}});
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body>

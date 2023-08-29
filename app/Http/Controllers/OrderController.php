@@ -186,24 +186,29 @@ class OrderController extends Controller
     {
         $Id = auth()->user()->id;
         $pesan = pesan::where('id_user', $Id)->get()[0];
-        $fitur_pilih = Detail_fitur::where('id_pesan', $pesan->id)->get();
-        $paketId = auth()->user()->paket_id;
-        $namaUser = auth()->user();
 
-        if ($paketId) {
-            // Dapatkan template yang terkait dengan `paket_id` pengguna
-            $templates = Template::whereHas('pakets', function ($query) use ($paketId) {
-                $query->where('paket_id', $paketId);
-            })->get();
+        if ($pesan->status == '1') {
+            return redirect()->route('homeorder');
+        } else {
+            $fitur_pilih = Detail_fitur::where('id_pesan', $pesan->id)->get();
+            $paketId = auth()->user()->paket_id;
+            $namaUser = auth()->user();
 
-            $fiturs = fitur::whereHas('pakets', function ($query) use ($paketId) {
-                $query->where('paket_id', $paketId);
-            })->get();
+            if ($paketId) {
+                // Dapatkan template yang terkait dengan `paket_id` pengguna
+                $templates = Template::whereHas('pakets', function ($query) use ($paketId) {
+                    $query->where('paket_id', $paketId);
+                })->get();
 
-            $user = Auth::user();
-            $namaPaket = $user->paket->nama;
+                $fiturs = fitur::whereHas('pakets', function ($query) use ($paketId) {
+                    $query->where('paket_id', $paketId);
+                })->get();
 
-            return view('home.userEdit', compact('pesan', 'fiturs', 'namaPaket', 'templates', 'fitur_pilih', 'namaUser'));
+                $user = Auth::user();
+                $namaPaket = $user->paket->nama;
+
+                return view('home.userEdit', compact('pesan', 'fiturs', 'namaPaket', 'templates', 'fitur_pilih', 'namaUser'));
+            }
         }
     }
 

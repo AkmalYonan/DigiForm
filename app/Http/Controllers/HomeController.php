@@ -133,12 +133,13 @@ class HomeController extends Controller
         return view('home.pricelist', compact('Pakets'));
     }
 
-    public function result($data, Pesan $pesan)
+    public function result($data, $encrypted)
     {
         $tes = Data::where('nama_pasangan', $data)->get();
         if (count($tes) < 1) {
             abort(404, 'NOT FOUND');
         }
+        $pesan = Pesan::where('encrypted', $encrypted)->get()[0];
         // ddd($pesan);
         $template = $pesan->template->nama;
         $fitur = [];

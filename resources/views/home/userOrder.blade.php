@@ -199,40 +199,40 @@
                                                 <button type="submit" id="preview" name="confirm"
                                                     class="btn btn-primary btn-m w-75">Confirm!</button>
                                             </form>
-                                            @elseif ($cooldownRemaining > 0) <button id="preview"
+                                            @elseif ($cooldownRemaining < 0) <button id="preview"
                                                 class="btn btn-primary btn-m w-75" disabled>
                                                 Harap Tunggu!<br><span id="cooldown-timer">{{ $cooldownRemaining }}
                                                     minutes remaining</span>
-                                            </button>
-                                            @elseif ($pesan->status === '2')
-                                            <a href="/result/{{ $pesan->data->nama_pasangan }}/{{$pesan->encrypted}}"
-                                                class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
-                                                Preview</a>
-                                            <!-- Target -->
-                                            <div class="card shadow w-100">
-                                                <input id="foo" class=""
-                                                    value="{{ env('APP_URL') }}/result/{{ $pesan->data->nama_pasangan }}/{{ $pesan->encrypted }}">
-
-                                                <!-- Trigger -->
-                                                <button class="btn" data-clipboard-target="#foo">
-                                                    <i class="fa-solid fa-clipboard"></i>
                                                 </button>
-                                                @else
-                                                <a href="/result/{{ $pesan->data->nama_pasangan }}/{{$pesan->encrypted}}"
+                                                @elseif ($pesan->status === '2')
+                                                <a href="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}"
                                                     class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
                                                     Preview</a>
                                                 <!-- Target -->
                                                 <div class="card shadow w-100">
                                                     <input id="foo" class=""
-                                                        value="{{ env('APP_URL') }}/result/{{ $pesan->data->nama_pasangan }}/{{ $pesan->encrypted }}">
+                                                        value="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}">
+
                                                     <!-- Trigger -->
                                                     <button class="btn" data-clipboard-target="#foo">
                                                         <i class="fa-solid fa-clipboard"></i>
                                                     </button>
+                                                    @else
+                                                    <a href="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}"
+                                                        class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
+                                                        Preview</a>
+                                                    <!-- Target -->
+                                                    <div class="card shadow w-100">
+                                                        <input id="foo" class=""
+                                                            value="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}">
+                                                        <!-- Trigger -->
+                                                        <button class="btn" data-clipboard-target="#foo">
+                                                            <i class="fa-solid fa-clipboard"></i>
+                                                        </button>
+                                                    </div>
+                                                    @endif
+                                                    @endif
                                                 </div>
-                                                @endif
-                                                @endif
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

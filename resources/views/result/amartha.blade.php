@@ -24,7 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("storage/{{ $pesan->data->imgThumbnail }}");
+            background-image: url(../../storage/{{ $pesan->data->imgThumbnail }});
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -38,7 +38,7 @@
 
         .bgwedding1 {
             position: relative;
-            background: url("storage/{{ $pesan->data->imgBanner }}");
+            background: url(../../storage/{{ $pesan->data->imgBanner }});
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
