@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script&family=Montserrat&family=Parisienne&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.masthead {
+    height: 100vh;
+    background-image: url("https://github.com/bakaroti/resource/blob/main/bgliq8.png?raw=true");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text-lead {
+    font-family: "Pinyon Script", cursive;
+}
+
+.text-lead2 {
+    font-family: "Playfair Display", serif;
+}
+
+.text-roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+.bg-warna1 {
+    background-color: #e1e2da;
+}
+
+.bg-custom {
+    background-color: #658864;
+}
+
+.bg-warna2 {
+    background-color: #658864;
+}
+
+.bg-warnaIcon2 {
+    background-color: rgba(101, 136, 100, 1);
+}
+
+.btn-border-bottom {
+    border: bottom;
+    border-bottom: 2px solid;
+}
+
+.bg-navbar-template {
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    ); /* Transparansi 50% untuk warna putih */
+}
+
+.countdown-value {
+    max-width: 100%; /* Set the maximum width to 100% */
+    display: inline-block; /* To allow max-width to work correctly */
+}
+
+.countdown-label {
+    max-width: 100%; /* Set the maximum width to 100% */
+    display: inline-block; /* To allow max-width to work correctly */
+}
+
+ul.fitur-list {
+    list-style-type: none; /* Remove default list-style (bullets) */
+}
+
+ul.fitur-list li {
+    position: relative;
+    padding-left: 30px; /* Add some padding on the left to make room for the checkbox */
+}
+
+ul.fitur-list li::before {
+    content: "\2713"; /* Unicode for checkmark symbol */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.card {
+    transition: background-color 0.5s ease, color 0.5s ease; /* Efek transisi lebih lambat dan lembut */
+}
+/* Gaya card saat dihover */
+.custom-card:hover {
+    background-color: #333; /* Warna latar belakang saat dihover */
+    color: #fff; /* Warna teks saat dihover */
+}
+
+.custom-card:hover .text-hargaPaket {
+    color: #fff;
+}

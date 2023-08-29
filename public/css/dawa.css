@@ -1,0 +1,391 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Merriweather", serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url("../img/dawa/bg.jpg");
+}
+/* Desktop Styles */
+@media only screen and (min-width: 601px) {
+    /* Add your desktop-specific styles here */
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    /* Add your mobile-specific styles here */
+    .container,
+    .container2 {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .tgl-lokasi {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    scroll-behavior: smooth;
+
+    background-image: url("../img/dawa/bg.jpg");
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 300%; /* Display three slides at a time */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 33.33%; /* Width of each slide */
+}
+
+.slide img {
+    width: 65%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background-color: #cfb975;
+    color: #333;
+    font-size: 12px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* .wrapper .prew{
+    white-space: nowrap;
+    font-size: 0px;
+    cursor: pointer;
+}
+.prew img{
+    height: 210px;
+    object-fit: cover;
+    margin-left: 14px;
+    width: 200px;
+}
+
+.prew img:first-child{
+    margin-left: 0px;
+} */
+
+.container {
+    width: 600px;
+    max-width: 100%;
+    padding: 20px;
+    margin: 0 20px;
+    text-align: center;
+    border: 1px solid #cfb975;
+    background-color: #333;
+    border-radius: 10px;
+    color: #ebdcb9;
+}
+
+.container2 {
+    text-align: center;
+    padding: 70px;
+    color: #ebdcb9;
+}
+
+h3 {
+    padding-top: 20px;
+    font-size: 24px;
+    color: #ebdcb9;
+    margin-top: 0;
+}
+
+h1 {
+    font-family: "Alex Brush", cursive;
+    font-size: 36px;
+    color: #cfb975;
+    margin-top: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.rsvp {
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.rsvp a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #cfb975;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.date {
+    color: #ebdcb9;
+}
+
+.sambut {
+    margin-top: 60px;
+    line-height: 1;
+}
+
+.nama-tamu {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #cfb975;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .rsvp a {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #cfb975;
+}
+
+.countdown-label {
+    font-size: 12px;
+    color: #ebdcb9;
+}
+
+.tgl-lokasi {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tgl-lokasi-content {
+    text-align: center;
+    color: #ebdcb9;
+}
+
+.tgl-lokasi-content p {
+    margin-bottom: 10px;
+}
+
+.tgl-lokasi-content .bold {
+    color: #cfb975;
+}
+.card {
+    background-color: #333;
+    border: 1px solid #cfb975;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ebdcb9;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card .date {
+    font-size: 24px;
+    color: #cfb975;
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    height: 200px;
+}
+
+.gmap_iframe {
+    height: 200px !important;
+}
+
+.music-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #cfb975;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.music-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #cfb975;
+    color: #333;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #cfb975;
+}
+
+.comment-layout {
+    display: none;
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    overflow: auto;
+}
+
+#closeButton {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #cfb975;
+    color: #333;
+    border: none;
+    cursor: pointer;
+}
+
+#closeButton:hover {
+    background-color: #cfb975;
+}
+
+.comment-container {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.comment {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #ccc;
+}
+
+.hidden {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+}
+
+.bg-navbar-template {
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    ); /* Transparansi 50% untuk warna putih */
+}
