@@ -1,27 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script&family=Parisienne&display=swap");
+
 @font-face {
     font-family: "";
     src: url("../yonans/font/Segatha.ttf");
 }
+
 @font-face {
     font-family: "nyc";
     src: url("../yonans/font/nyc.otf");
 }
+
 @font-face {
     font-family: "robotl";
     src: url("../yonans/font/Roboto-Light.ttf");
 }
+
 @font-face {
     font-family: "robotm";
     src: url("../yonans/font/Roboto-Medium.ttf");
 }
+
 @font-face {
     font-family: "robotr";
     src: url("../yonans/font/Roboto-Regular.ttf");
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     min-height: 200vh;
     background: rgb(78, 1, 14);
@@ -32,6 +39,9 @@ body {
     overflow: hidden;
     position: relative;
     height: 100vh;
+}
+
+.hidden {
     opacity: 0;
     transition: all 1.5s;
 }
@@ -47,12 +57,11 @@ body {
     height: 100%;
     bottom: 0;
     background: rgb(181, 0, 0);
-    background: linear-gradient(
-        0deg,
-        rgb(78, 1, 14) 30%,
-        rgba(9, 9, 121, 0) 100%
-    );
+    background: linear-gradient(0deg,
+            rgb(78, 1, 14) 30%,
+            rgba(9, 9, 121, 0) 100%);
 }
+
 .bg-img img {
     position: absolute;
     top: 0;
@@ -61,6 +70,7 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
 .isian {
     position: absolute;
     left: 50%;
@@ -68,6 +78,7 @@ body {
     transform: translate(-50%, -50%);
     z-index: 9999;
 }
+
 .opening {
     margin-top: 300px;
     color: #d2b58d;
@@ -76,16 +87,19 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .opening h1 {
     font-size: 35px;
     font-family: "Alex Brush", cursive;
     font-weight: bold;
 }
+
 .opening h2 {
     font-size: 40px;
     font-family: "Alex Brush", cursive;
     font-weight: bold;
 }
+
 h3 {
     font-size: 25px;
     font-family: "Montserrat", sans-serif;
@@ -136,17 +150,21 @@ h3 {
     z-index: 9999;
     color: #d2b58d;
 }
+
 .isi2 h1 {
     font-family: "Alex Brush", cursive;
     color: #cfb975;
 }
+
 .mari {
     font-family: "", serif;
     font-size: 60px;
 }
+
 .tnk {
     font-family: "robotl";
 }
+
 .countdown {
     display: flex;
     justify-content: center;
@@ -189,6 +207,7 @@ h3 {
     font-size: 24px;
     color: #cfb975;
 }
+
 .mapouter {
     position: relative;
     text-align: right;
@@ -278,10 +297,9 @@ input[type="submit"]:hover {
 }
 
 .bg-navbar-template {
-    background-color: rgba(
-        255,
-        255,
-        255,
-        0.7
-    ); /* Transparansi 50% untuk warna putih */
+    background-color: rgba(255,
+            255,
+            255,
+            0.7);
+    /* Transparansi 50% untuk warna putih */
 }

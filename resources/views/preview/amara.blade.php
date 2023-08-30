@@ -193,6 +193,10 @@
                             <iframe src="{{ $pesan->data->iframeMaps_akad }}" class="ratio ratio-21x9" style="border: 0"
                                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             @endif
+                            <a href="{{$pesan->data->link_akad}}" target="_blank">
+                                <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}"
+                                    class="img-fluid py-5 cenatcenut" alt="" />
+                            </a>
                         </div>
                     </div>
                     @endif
@@ -219,6 +223,10 @@
                                     $pesan->data->iframeMaps_resepsi }}" class="ratio ratio-21x9" style="border: 0"
                                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             @endif
+                            <a href="{{$pesan->data->link_resepsi}}" target="_blank">
+                                <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}"
+                                    class="img-fluid py-5 cenatcenut" alt="" />
+                            </a>
                         </div>
                     </div>
                     @endif

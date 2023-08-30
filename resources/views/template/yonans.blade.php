@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    @include('layouts.navbartemplate')
     <nav class="navbar navbar-expand-md bg-navbar-template  py-4 fixed-top">
         <div class="container">
             {{-- <a class="navbar-brand fw-bold" href="{{ url('/') }}">

@@ -19,7 +19,7 @@
 <body>
     <div class="konten">
         <div class="hiden">
-            <section class="bg-img" id="page1">
+            <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif" id="page1">
                 <img src="{{ asset('img/yonans/rose3.jpg') }}" alt="img">
                 <div class="container mt-5 isian">
                     <div class="opening">
@@ -46,7 +46,7 @@
     </div>
     @if (in_array('Countdown', $fitur))
     <div class="konten">
-        <section class="bg-img" id="page2">
+        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif" id="page2">
             <div class="isi">
                 <h3 class="card-title text-center">About to Start In</h3>
                 <div class="countdown text-center">
@@ -72,7 +72,7 @@
     </div>
     @endif
     <div class="konten">
-        <section class="bg-img">
+        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif">
             <div class="isi">
                 <div class="isi2">
                     <h3 class="mari">Married</h3>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="konten">
-        <section class="bg-img">
+        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif">
             <div class="isi">
                 <h2 class="judul">Akad Nikah</h2>
                 <div class="tgl-lokasi-content">
@@ -104,12 +104,14 @@
                     <p class="bold">Lokasi Acara</p>
                     <p class="mb-5"><span><b>{{ $pesan->data->lokasi_akad }}</b></span></p>
                 </div>
+                <a class="button-39" href="{{$pesan->data->link_akad}}">BUKA
+                    LOKASI</a>
             </div>
         </section>
     </div>
 
     <div class="konten">
-        <section class="bg-img">
+        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif">
             <div class="isi">
                 <h2 class="judul">Resepsi</h2>
                 <div class="tgl-lokasi-content">
@@ -121,13 +123,15 @@
                     <p class="mb-5"><span><b>{{ $pesan->data->resepsi }}</b></span>
                     </p>
                 </div>
+                <a class="button-39" href="{{$pesan->data->link_resepsi}}">BUKA
+                    LOKASI</a>
             </div>
         </section>
     </div>
 
     @if (in_array('Lokasi Acara Maps', $fitur))
     <div class="konten">
-        <section class="bg-img">
+        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif">
             <div class="isi">
                 <h3>Lokasi</h3>
                 <div class="mapouter">
@@ -137,13 +141,15 @@
                     </div>
                 </div>
                 <p><span><b>{{ $pesan->data->lokasi_resepsi }}</b></span></p>
+                <a class="button-39" href="{{$pesan->data->link_resepsi}}">BUKA
+                    LOKASI</a>
             </div>
         </section>
     </div>
     @endif
 
     @if (in_array('Galeri', $fitur))
-    <div class="container mt-5">
+    <div class="container mt-5 @if(in_array('Animasi', $fitur))hidden @endif">
         <h3 class="text-center mb-3 mari">Gallery</h3>
         <div class="row">
             <div class="col-md-4 mb-3">
@@ -166,7 +172,7 @@
     @endif
 
     <div class="konten">
-        <section class="bg-img">
+        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif">
             <div class="isi">
                 <h3 class="mari">Terimakasih</h3>
                 <p class="tnk">Puji syukur kehadirat Tuhan YME atas karunianya anda dapat menghadiri undangan ini,
@@ -179,7 +185,7 @@
 
     @if (in_array('Buku Tamu', $fitur))
     <div class="konten">
-        <section class="bg-img">
+        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif">
             <div class="isi">
                 <form id="commentForm">
                     <label for="name" style="color: #CFB975;">Nama:</label>

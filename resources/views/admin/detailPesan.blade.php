@@ -123,22 +123,12 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td>Lokasi Acara</td>
-                                            <td>{{ $pesan->data->lokasi_acara }}</td>
+                                            <td>Lokasi Akad</td>
+                                            <td>{{ $pesan->data->lokasi_akad }}</td>
                                         </tr>
-
                                         <tr>
-                                            <td>Link G-Maps</td>
-                                            <td>
-                                                <form action="{{ route('updateMapsUser', ['id' =>  $pesan->id])  }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <input type="text" name="updateMapsUser" id="updateMapsUser"
-                                                        value="{{ $pesan->data->iframeMaps }}"
-                                                        class="form-control-plaintext" onchange="this.form.submit()">
-                                                </form>
-                                            </td>
+                                            <td>Lokasi Resepsi</td>
+                                            <td>{{ $pesan->data->lokasi_resepsi }}</td>
                                         </tr>
                                         <tr>
                                             <td>Tanggal Akad</td>
@@ -149,20 +139,49 @@
                                             <td>{{ $pesan->data->tgl_resepsi }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Jam Acara</td>
-                                            <td>{{ $pesan->data->jam_acara }}</td>
+                                            <td>Jam Akad</td>
+                                            <td>{{ $pesan->data->jam_akad }}</td>
                                         </tr>
-<<<<<<< HEAD
-=======
+                                        <tr>
+                                            <td>Jam Resepsi</td>
+                                            <td>{{ $pesan->data->jam_resepsi }}</td>
+                                        </tr>
                                         <tr>
                                             <td>Link Gmaps Akad</td>
-                                            <td>{{ $pesan->data->iframeMaps_akad }}</td>
+                                            <td>{{ $pesan->data->link_akad }}</td>
                                         </tr>
                                         <tr>
                                             <td>Link Gmaps Resepsi</td>
-                                            <td>{{ $pesan->data->iframeMaps_resepsi }}</td>
+                                            <td>{{ $pesan->data->link_resepsi }}</td>
                                         </tr>
->>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
+                                        <tr>
+                                            <td>Link Iframe Akad</td>
+                                            <td>
+                                                <form action="{{ route('updateMapsUserAkad', ['id' =>  $pesan->id])  }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="text" name="updateMapsUserAkad" id="updateMapsUserAkad"
+                                                        value="{{ $pesan->data->iframeMaps_akad }}"
+                                                        class="form-control-plaintext" onchange="this.form.submit()">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Link Iframe Resepsi</td>
+                                            <td>
+                                                <form
+                                                    action="{{ route('updateMapsUserResepsi', ['id' =>  $pesan->id])  }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="text" name="updateMapsUserResepsi"
+                                                        id="updateMapsUserResepsi"
+                                                        value="{{ $pesan->data->iframeMaps_resepsi }}"
+                                                        class="form-control-plaintext" onchange="this.form.submit()">
+                                                </form>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

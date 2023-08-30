@@ -87,7 +87,8 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
     Route::put('/dashboard/admin-updateStatus/{id}', [AdminController::class, 'updateStatus'])->name('admin-updateStatus');
     Route::get('/dashboard/admin-viewPesan/{data:id}', [AdminController::class, 'detailPesanan']);
     Route::delete('/dashboard/admin-deletePesan/{id}', [AdminController::class, 'deletePesan'])->name('admin-deletePesan');
-    Route::put('/dashboard/admin-updateMaps/{id}', [AdminController::class, 'updateMapsUser'])->name('updateMapsUser');
+    Route::put('/dashboard/admin-updateMapsakad/{id}', [AdminController::class, 'updateMapsUserAkad'])->name('updateMapsUserAkad');
+    Route::put('/dashboard/admin-updateMapsresepsi/{id}', [AdminController::class, 'updateMapsUserResepsi'])->name('updateMapsUserResepsi');
 
 
     //ADMIN USER

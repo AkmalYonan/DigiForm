@@ -117,6 +117,8 @@
                     <p class="m-0">{{ $pesan->data->tgl_akad }}</p>
                     <p class="m-0">{{ $pesan->data->jam_akad }}</p>
                     <p class="mt-0">{{ $pesan->data->lokasi_akad }}</p>
+                    <a href="{{$pesan->data->link_akad}}" class="btn" target="_blank"><i
+                            class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
                     @if (in_array('Lokasi Acara Maps', $fitur))
                     <iframe src="{{ $pesan->data->iframeMaps_akad }}" width="300" height="200" style="border:0;"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -129,6 +131,8 @@
                     <p class="m-0">{{ $pesan->data->tgl_resepsi }}</p>
                     <p class="m-0">{{ $pesan->data->jam_resepsi }}</p>
                     <p class="mt-0">{{ $pesan->data->lokasi_resepsi }}</p>
+                    <a href="{{$pesan->data->link_resepsi}}" class="btn" target="_blank"><i
+                            class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
                     @if (in_array('Lokasi Acara Maps', $fitur))
                     <iframe src="{{ $pesan->data->iframeMaps_resepsi }}" width="300" height="200" style="border:0;"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

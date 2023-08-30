@@ -42,15 +42,28 @@ class AdminController extends Controller
         ]);
     }
 
-    public function updateMapsUser(Request $request, $id)
+    public function updateMapsUserAkad(Request $request, $id)
     {
         try {
-            $user = auth()->user()->id;
-            $id = pesan::where('id_user', $user)->get()[0]; // Mengeksekusi kueri dan mendapatkan model
-            $id_pesan = $id->id;
+            $pesan = Pesan::find($id);
 
-            Data::where('id_pesan', $id_pesan)->update([
-                'iframeMaps' => $request->input('updateMapsUser'),
+            Data::where('id_pesan', $pesan->id)->update([
+                'iframeMaps_akad' => $request->input('updateMapsUserAkad'),
+            ]);
+
+            return redirect()->back()->with('success', 'Link Maps Pesanan berhasil diperbarui.');
+        } catch (ErrorException $e) {
+            return redirect()->back()->with('failed', 'Link Maps Pesanan Gagal diperbarui.');
+        }
+    }
+
+    public function updateMapsUserResepsi(Request $request, $id)
+    {
+        try {
+            $pesan = Pesan::find($id);
+
+            Data::where('id_pesan', $pesan->id)->update([
+                'iframeMaps_resepsi' => $request->input('updateMapsUserResepsi'),
             ]);
 
             return redirect()->back()->with('success', 'Link Maps Pesanan berhasil diperbarui.');

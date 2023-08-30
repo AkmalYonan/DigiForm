@@ -137,8 +137,8 @@ class OrderController extends Controller
             $data->jam_resepsi = $request->input('jam_resepsi');
             $data->email = $request->input('email');
             $data->no_wa = $request->input('no_wa');
-            $data->iframeMaps_akad = $request->input('iframeMaps_akad');
-            $data->iframeMaps_resepsi = $request->input('iframeMaps_resepsi');
+            $data->link_akad = $request->input('iframeMaps_akad');
+            $data->link_resepsi = $request->input('iframeMaps_resepsi');
             $data->nama_panggilan = $request->input('nama_panggilan');
             $fileNameThumbnail = now()->timestamp . '.' . $request->file('fotoThumbnail')->getClientOriginalExtension();
             $data->imgThumbnail = $request->file('fotoThumbnail')->storeAs('fotoThumbnail', $fileNameThumbnail);
