@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
 <div class="container">
     <div class="container mt-5">
         <div class="row">
@@ -46,19 +44,13 @@
                                 <div class="col-md-11">
                                     <div class="form-floating py-2 mb-3 pt-3">
                                         @if(isset($templates))
-<<<<<<< HEAD
-                                        <select name="template_id" id="template_id" class="form-control">
-=======
 
                                         <select name="template_id" id="template_id" class="form-control">
-
-                                            <option value="{{ $pesan->template->id }}">{{ $pesan->template->nama }}
-                                            </option>
->>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                             @foreach($templates as $template)
                                             @if ($template)
-                                            <!-- Tambahkan pengecekan apakah $template ada atau tidak null -->
-                                            <option value="{{ $template->id }}">{{ $template->nama }}</option>
+                                            <option value="{{ $template->id }}" {{ $template->id ==
+                                                $pesan->id_template ?
+                                                'selected' : '' }}>{{ $template->nama }}</option>
                                             @endif
                                             @endforeach
                                         </select>
@@ -68,11 +60,8 @@
 
                                     <div class="form-floating py-2">
                                         <select name="salam" id="salam" class="form-control">
-<<<<<<< HEAD
-=======
                                             <option value="{{ $pesan->data->salam_pembuka }}">{{
                                                 $pesan->data->salam_pembuka }}</option>
->>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                             <option value="Selamat Pagi">Selamat Pagi</option>
                                             <option value="Selamat Siang">Selamat Siang</option>
                                             <option value="Selamat Sore">Selamat Sore</option>
@@ -210,20 +199,16 @@
                                             value="{{ $pesan->data->jam_resepsi }}" required>
                                         <label for="jam_resepsi">Jam Acara Resepsi:</label>
                                     </div>
-<<<<<<< HEAD
-=======
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="iframeMaps_akad"
-                                            name="iframeMaps_akad" value="{{ $pesan->data->iframeMaps_akad}}" required>
+                                            name="iframeMaps_akad" value="{{ $pesan->data->link_akad}}" required>
                                         <label for="iframeMaps_akad">Link Maps akad:</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="iframeMaps_resepsi"
-                                            name="iframeMaps_resepsi" value="{{ $pesan->data->iframeMaps_resepsi}}"
-                                            required>
+                                            name="iframeMaps_resepsi" value="{{ $pesan->data->link_resepsi}}" required>
                                         <label for="iframeMaps_resepsi">Link Maps resepsi</label>
                                     </div>
->>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                 </div>
                                 <div class="col-md-11">
                                     <div class="d-flex align-items-center">
@@ -246,15 +231,11 @@
                                             name="nama_panggilan" value="{{ $pesan->data->nama_panggilan }}" required>
                                         <label for="nama_panggilan">Nama Panggilan:</label>
                                     </div>
-                                    <div class="pt-5">
+                                    <!-- <div class="pt-5">
                                         <div class="d-flex align-items-center">
                                             <p class="text-lead2 fs-4 fw-bolder mt-3">All Photo</p>
                                             <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
-<<<<<<< HEAD
-                                                title="Isilah data dibawah untuk Data Kontak!"></div>
-=======
                                                 title="Isi Foto dibawah ini untuk undangan"></div>
->>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
                                             <span class="text-roboto fw-bolder text-danger ms-3">Maintance
                                                 Now</span>
                                         </div>
@@ -287,6 +268,79 @@
                                             <label for="fotoGallery">Foto Gallery ( Max 6 )</label>
                                             <input class="form-control" type="file" id="fotoGallery"
                                                 name="fotoGallery[]" multiple disabled>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="row justify-content-center g-0">
+                                <div class="col-md-4 col-12 mb-4">
+                                    <div class="container">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gambar 1</p>
+                                        <img src="https://github.com/bakaroti/resource/blob/main/temp1.jpg?raw=true"
+                                            alt="Image 1" class="lightbox-trigger img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="container">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gambar 2</p>
+                                        <img src="https://github.com/bakaroti/resource/blob/main/temp2.jpg?raw=true"
+                                            alt="Image 2" class="lightbox-trigger img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="container">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gambar 3</p>
+                                        <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
+                                            alt="Image 3" class="lightbox-trigger img-fluid">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center g-0">
+                                    <div class="col-md-12 col-12 text-center">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3">gambar banner</p>
+                                        <div class="container">
+                                            <img src="https://github.com/bakaroti/resource/blob/main/temp1.jpg?raw=true"
+                                                alt="Image 1" class="lightbox-trigger img-fluid" style="width:350px;">
+                                        </div>
+                                    </div>
+                                    <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gallery</p>
+                                    <div class="col-md-6 col-12">
+                                        <div class="d-flex">
+                                            <div class="image-container">
+                                                <img src="https://github.com/bakaroti/resource/blob/main/temp1.jpg?raw=true"
+                                                    alt="Image 1" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="image-container">
+                                                <img src="https://github.com/bakaroti/resource/blob/main/temp2.jpg?raw=true"
+                                                    alt="Image 2" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="image-container">
+                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="lightbox" id="lightbox">
+                                                <span class="close-button" id="close-button">&times;</span>
+                                                <img src="" alt="Fullscreen Image" class="lightbox-content">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="d-flex">
+                                            <div class="image-container">
+                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="image-container">
+                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
+                                            <div class="image-container">
+                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -336,6 +390,57 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+
+    .image-container {
+        display: inline-block;
+        width: 242px;
+        box-sizing: border-box;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .lightbox-content {
+        position: relative;
+        max-width: 80%;
+        max-height: 80%;
+        text-align: center;
+    }
+
+    .lightbox-image {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .active {
+        display: flex;
+    }
 </style>
 
 
@@ -344,6 +449,24 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous">
+</script>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+const lightboxContent = document.querySelector('.lightbox-content');
+const lightboxTrigger = document.querySelectorAll('.lightbox-trigger');
+const closeButton = document.getElementById('close-button');
+
+lightboxTrigger.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    lightboxContent.src = trigger.src;
+    lightbox.classList.add('active');
+  });
+});
+
+closeButton.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
 </script>
 
 

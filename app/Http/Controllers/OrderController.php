@@ -290,7 +290,17 @@ class OrderController extends Controller
             $fitur[] = $fit->fitur_name->nama;
         }
         // return $pesan->template->nama;
-        return view('preview.' . strtolower($pesan->template->nama), compact('pesan', 'fitur'));
+        $formatDate_akad = $pesan->data->tgl_akad;
+        $format_akad = date_create($formatDate_akad)->format('Y-m-d');
+        $originalDate_akad = Carbon::createFromFormat('Y-m-d', $format_akad);
+        $tgl_akad = $originalDate_akad->translatedFormat('l, j F Y');
+
+        $formatDate_resepsi = $pesan->data->tgl_resepsi;
+        $format_resepsi = date_create($formatDate_resepsi)->format('Y-m-d');
+        $originalDate_resepsi = Carbon::createFromFormat('Y-m-d', $format_resepsi);
+        $tgl_resepsi = $originalDate_resepsi->translatedFormat('l, j F Y');
+
+        return view('preview.' . strtolower($pesan->template->nama), compact('pesan', 'fitur', 'tgl_akad', 'tgl_resepsi'));
     }
 
     public function deleteUser($id)
