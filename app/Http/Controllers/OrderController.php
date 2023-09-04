@@ -20,6 +20,7 @@ use finfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 
 class OrderController extends Controller
 {
@@ -93,7 +94,7 @@ class OrderController extends Controller
             if ($pesan) {
                 $pesan->id = $id;
                 $pesan->id_user = $user_id;
-                $pesan->encrypted = bcrypt($user->name);
+                $pesan->encrypted = Hash::make($user->name);
                 $pesan->id_template = $request->input('template_id');
                 $pesan->save();
             }
@@ -184,30 +185,38 @@ class OrderController extends Controller
 
     public function edit()
     {
-        $Id = auth()->user()->id;
-        $pesan = pesan::where('id_user', $Id)->get()[0];
 
-        if ($pesan->status == '1') {
+        $order = auth()->user()->is_order;
+
+        if ($order == '0') {
             return redirect()->route('homeorder');
         } else {
-            $fitur_pilih = Detail_fitur::where('id_pesan', $pesan->id)->get();
-            $paketId = auth()->user()->paket_id;
-            $namaUser = auth()->user();
+            $Id = auth()->user()->id;
+            $pesan = pesan::where('id_user', $Id)->get()[0];
 
-            if ($paketId) {
-                // Dapatkan template yang terkait dengan `paket_id` pengguna
-                $templates = Template::whereHas('pakets', function ($query) use ($paketId) {
-                    $query->where('paket_id', $paketId);
-                })->get();
+            if ($pesan->status == '1') {
+                return redirect()->route('homeorder')->with("error", "Akses diTolak! Anda sudah Melakukan Edit!");
+            } else {
 
-                $fiturs = fitur::whereHas('pakets', function ($query) use ($paketId) {
-                    $query->where('paket_id', $paketId);
-                })->get();
+                $fitur_pilih = Detail_fitur::where('id_pesan', $pesan->id)->get();
+                $paketId = auth()->user()->paket_id;
+                $namaUser = auth()->user();
 
-                $user = Auth::user();
-                $namaPaket = $user->paket->nama;
+                if ($paketId) {
+                    // Dapatkan template yang terkait dengan `paket_id` pengguna
+                    $templates = Template::whereHas('pakets', function ($query) use ($paketId) {
+                        $query->where('paket_id', $paketId);
+                    })->get();
 
-                return view('home.userEdit', compact('pesan', 'fiturs', 'namaPaket', 'templates', 'fitur_pilih', 'namaUser'));
+                    $fiturs = fitur::whereHas('pakets', function ($query) use ($paketId) {
+                        $query->where('paket_id', $paketId);
+                    })->get();
+
+                    $user = Auth::user();
+                    $namaPaket = $user->paket->nama;
+
+                    return view('home.userEdit', compact('pesan', 'fiturs', 'namaPaket', 'templates', 'fitur_pilih', 'namaUser'));
+                }
             }
         }
     }
@@ -290,7 +299,17 @@ class OrderController extends Controller
             $fitur[] = $fit->fitur_name->nama;
         }
         // return $pesan->template->nama;
-        return view('preview.' . strtolower($pesan->template->nama), compact('pesan', 'fitur'));
+        $formatDate_akad = $pesan->data->tgl_akad;
+        $format_akad = date_create($formatDate_akad)->format('Y-m-d');
+        $originalDate_akad = Carbon::createFromFormat('Y-m-d', $format_akad);
+        $tgl_akad = $originalDate_akad->translatedFormat('l, j F Y');
+
+        $formatDate_resepsi = $pesan->data->tgl_resepsi;
+        $format_resepsi = date_create($formatDate_resepsi)->format('Y-m-d');
+        $originalDate_resepsi = Carbon::createFromFormat('Y-m-d', $format_resepsi);
+        $tgl_resepsi = $originalDate_resepsi->translatedFormat('l, j F Y');
+
+        return view('preview.' . strtolower($pesan->template->nama), compact('pesan', 'fitur', 'tgl_akad', 'tgl_resepsi'));
     }
 
     public function deleteUser($id)

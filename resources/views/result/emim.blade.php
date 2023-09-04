@@ -46,7 +46,7 @@
             <div class="nama-mempelai text-center @if(in_array('Animasi', $fitur))hidden @endif">
                 <span>{{ $pesan->mPria->nama_pria }}</span> & <span>{{ $pesan->mWanita->nama_wanita }}</span>
             </div>
-            <div class="tanggal">{{ $pesan->data->tgl_resepsi }}</div>
+            <div class="tanggal">{{ $tgl_resepsi }}</div>
             <div class="buka-undangan">
                 <button href="" class="tombol-buka-undangan @if(in_array('Animasi', $fitur))hidden @endif"
                     id="tombol-buka-undangan">
@@ -114,7 +114,7 @@
                     <div class="row title-acara text-center">
                         <h1>Akad Nikah</h1>
                     </div>
-                    <p class="m-0">{{ $pesan->data->tgl_akad }}</p>
+                    <p class="m-0">{{ $tgl_akad }}</p>
                     <p class="m-0">{{ $pesan->data->jam_akad }}</p>
                     <p class="mt-0">{{ $pesan->data->lokasi_akad }}</p>
                     <a href="{{$pesan->data->link_akad}}" class="btn" target="_blank"><i
@@ -128,7 +128,7 @@
                     <div class="row title-acara text-center">
                         <h1>Resepsi</h1>
                     </div>
-                    <p class="m-0">{{ $pesan->data->tgl_resepsi }}</p>
+                    <p class="m-0">{{ $tgl_resepsi }}</p>
                     <p class="m-0">{{ $pesan->data->jam_resepsi }}</p>
                     <p class="mt-0">{{ $pesan->data->lokasi_resepsi }}</p>
                     <a href="{{$pesan->data->link_resepsi}}" class="btn" target="_blank"><i

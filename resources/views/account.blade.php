@@ -34,7 +34,7 @@
                     <span class="font-tebal text-roboto text-capitalize fs-6">Silver</span>
                     <br>
                     <p class="font-kecil fw-bolder">Gunakan Lebih banyak Fitur! <br><span>Upgrade Silver dengan
-                        Rp100rb</span></p>
+                        Rp49rb</span></p>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,8 @@
                 </button>
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse show"
-                data-bs-parent="#accordionFlushExample">
+                data-bs-parent="#accordionFlushExample" onclick="location.href='{{ route('homechangeplan')}}'"
+                style="cursor: pointer;">
                 <div class="accordion-body animate-dark">
                   <a href="{{ route('homechangeplan') }}" class="text-dark" style="text-decoration: none"><i
                       class="fa-solid fa-box-open"></i> Change

@@ -13,6 +13,7 @@ use App\Models\Fitur;
 use App\Models\Paket;
 use App\Models\Pesan;
 use App\Models\Template;
+use Carbon\carbon;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -126,11 +127,13 @@ class HomeController extends Controller
     public function priceList()
     {
         $Pakets = Paket::all();
+        $admin = Admin::first(); // Misalnya kita ambil admin pertama, Anda bisa menyesuaikan dengan kebutuhan Anda.
+        $whatsappNumber = $admin->noHp;
 
         foreach ($Pakets as $paket) {
             $paket->harga = 'Rp ' . number_format($paket->harga, 0, ',', '.');
         }
-        return view('home.pricelist', compact('Pakets'));
+        return view('home.pricelist', compact('Pakets', 'whatsappNumber'));
     }
 
     public function result($data, $encrypted)
@@ -140,14 +143,24 @@ class HomeController extends Controller
             abort(404, 'NOT FOUND');
         }
         $pesan = Pesan::where('encrypted', $encrypted)->get()[0];
-        // ddd($pesan);
+
         $template = $pesan->template->nama;
         $fitur = [];
         foreach ($pesan->fitur as $fit) {
             $fitur[] = $fit->fitur_name->nama;
         }
+        $formatDate_akad = $pesan->data->tgl_akad;
+        $format_akad = date_create($formatDate_akad)->format('Y-m-d');
+        $originalDate_akad = Carbon::createFromFormat('Y-m-d', $format_akad);
+        $tgl_akad = $originalDate_akad->translatedFormat('l, j F Y');
+
+        $formatDate_resepsi = $pesan->data->tgl_resepsi;
+        $format_resepsi = date_create($formatDate_resepsi)->format('Y-m-d');
+        $originalDate_resepsi = Carbon::createFromFormat('Y-m-d', $format_resepsi);
+        $tgl_resepsi = $originalDate_resepsi->translatedFormat('l, j F Y');
+
         // dd($template);
-        return view('result.' . strtolower($template), compact('pesan', 'fitur'));
+        return view('result.' . strtolower($template), compact('pesan', 'tgl_akad', 'tgl_resepsi', 'fitur'));
     }
 
     public function tempAmara()

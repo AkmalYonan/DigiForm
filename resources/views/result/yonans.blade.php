@@ -27,7 +27,7 @@
                     <h1 class="text-center">{{ $pesan->mWanita->nama_wanita }}</h1>
                     <hr>
                     <div class="text-center details mb-2">
-                        <p><span class="date">{{ $pesan->data->tgl_resepsi }}</span></p>
+                        <p><span class="date">{{ $tgl_resepsi }}</span></p>
                     </div>
                     <div class="text-center sambut">
                         <p>Kepada yth.</p>
@@ -95,7 +95,7 @@
                 <h2 class="judul">Akad Nikah</h2>
                 <div class="tgl-lokasi-content">
                     <div class="card">
-                        <p class="date">{{ $pesan->data->tgl_akad }}</p>
+                        <p class="date">{{ $tgl_akad }}</p>
                     </div>
                     <p>Pukul {{ $pesan->data->jam_akad }}</p>
                     <p class="bold">Lokasi Acara</p>
@@ -113,7 +113,7 @@
                 <h2 class="judul">Resepsi</h2>
                 <div class="tgl-lokasi-content">
                     <div class="card">
-                        <p class="date">{{ $pesan->data->tgl_resepsi }}</p>
+                        <p class="date">{{ $tgl_resepsi }}</p>
                     </div>
                     <p>Pukul {{ $pesan->data->jam_resepsi }}</p>
                     <p class="bold">Lokasi Acara</p>

@@ -6,7 +6,8 @@
         <div class="col-12 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Total Paket</h5><button type="button" class="btn btn-sm btn-danger mt-2 mb-3"
+                    <h5 class="card-title">Total User Registered</h5><button type="button"
+                        class="btn btn-sm btn-danger mt-2 mb-3"
                         onclick="location.href='{{ route('admindashboard') }}'">BACK</button>
                     <div class="table-responsive">
                         <table class="table">

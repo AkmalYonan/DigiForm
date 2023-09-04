@@ -162,7 +162,7 @@
                     <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif>
                         <div class="card-body">
                             <h5 class="card-title">Akad</h5>
-                            <p class="card-text">{{ $pesan->data->tgl_akad }}<br>{{ $pesan->data->jam_akad }}
+                            <p class="card-text">{{ $tgl_akad }}<br>{{ $pesan->data->jam_akad }}
                             </p>
                             <p class="card-text">{{ $pesan->data->lokasi_akad }}
                             </p>
@@ -179,7 +179,7 @@
                     <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
                         <div class="card-body">
                             <h5 class="card-title">Resepsi</h5>
-                            <p class="card-text">{{ $pesan->data->tgl_resepsi }}<br>{{ $pesan->data->jam_resepsi }}
+                            <p class="card-text">{{ $tgl_resepsi }}<br>{{ $pesan->data->jam_resepsi }}
                             </p>
                             <p class="card-text">{{ $pesan->data->lokasi_resepsi }}
                             </p>
