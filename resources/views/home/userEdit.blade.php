@@ -256,7 +256,7 @@
                                             name="nama_panggilan" value="{{ $pesan->data->nama_panggilan }}" required>
                                         <label for="nama_panggilan">Nama Panggilan:</label>
                                     </div>
-                                    <!-- <div class="pt-5">
+                                    <div class="pt-5">
                                         <div class="d-flex align-items-center">
                                             <p class="text-lead2 fs-4 fw-bolder mt-3">All Photo</p>
                                             <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
@@ -266,35 +266,31 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="fotoPria">Foto Mempelai Pria</label>
-                                            <input class="form-control" type="file" id="fotoPria" name="fotoPria"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoPria" name="fotoPria">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoWanita">Foto Mempelai Wanita</label>
-                                            <input class="form-control" type="file" id="fotoWanita" name="fotoWanita"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoWanita" name="fotoWanita">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoCouple">Foto Couple ( 1 Frame )</label>
-                                            <input class="form-control" type="file" id="fotoCouple" name="fotoCouple"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoCouple" name="fotoCouple">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoThumbnail">Foto Thumbnail Undangan</label>
                                             <input class="form-control" type="file" id="fotoThumbnail"
-                                                name="fotoThumbnail" disabled>
+                                                name="fotoThumbnail">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoBanner">Foto Banner</label>
-                                            <input class="form-control" type="file" id="fotoBanner" name="fotoBanner"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoBanner" name="fotoBanner">
                                         </div>
                                         <div class="mb-3">
                                             <label for="fotoGallery">Foto Gallery ( Max 6 )</label>
                                             <input class="form-control" type="file" id="fotoGallery"
-                                                name="fotoGallery[]" multiple disabled>
+                                                name="fotoGallery[]" multiple>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="row justify-content-center g-0">
@@ -408,6 +404,27 @@
                                 <button type="submit" class="btn btn-primary btn-block w-75">Submit</button>
                             </div>
                         </form>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
