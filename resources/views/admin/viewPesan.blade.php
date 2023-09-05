@@ -31,8 +31,7 @@
                                     id="admin-updateStatus">
                                     @csrf
                                     @method('PUT')
-                                    <select name="status" onchange="this.form.submit()" @if ($pesan->id ==
-                                        auth()->user()->id) disabled @endif>
+                                    <select name="status" onchange="this.form.submit()">
                                         <option value="0" @if ($pesan->status == 0) selected @endif> 0 - unConfirm
                                         </option>
                                         <option value="1" @if ($pesan->status == 1) selected @endif> 1 - Confirmed

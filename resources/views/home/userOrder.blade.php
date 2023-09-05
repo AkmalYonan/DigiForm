@@ -5,97 +5,104 @@
 <div class="container pt-5 mt-5 pb-4">
     <div class="row">
         <div class="col-12 col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title fs-3 fw-bold text-center">Detail Pesan</h5>
-                </div>
-                <div class="card-body ">
-                    <div class="container">
-                        <table class="table ">
-                            <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>{{ $pesan->id }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Template</td>
-                                    <td>{{ $pesan->template->nama }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Salam Pembuka</td>
-                                    <td>{{ $pesan->data->salam_pembuka }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <!-- <div class="card"> -->
+            <div class="card-header mb-3">
+                <h5 class="card-title fs-3 fw-bold text-center">Detail Pesan</h5>
+            </div>
+            <div class="card-body ">
+                <div class="container">
+                    <table class="table ">
+                        <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>{{ $pesan->id }}</td>
+                            </tr>
+                            <tr>
+                                <td>Template</td>
+                                <td>{{ $pesan->template->nama }}</td>
+                            </tr>
+                            <tr>
+                                <td>Salam Pembuka</td>
+                                <td>{{ $pesan->data->salam_pembuka }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
+                    <div class="container">
                         <div class="row py-2 my-4">
-                            <div class="col-md-6 col-6">
-                                <h5>Data Mempelai Pria</h5>
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Nama Panggilan</td>
-                                            <td>{{ $pesan->mPria->nama_pria }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Lengkap</td>
-                                            <td>{{ $pesan->mPria->nama_pria_lengkap }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Anak Ke</td>
-                                            <td>{{ $pesan->mPria->anak_ke }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Ayah</td>
-                                            <td>{{ $pesan->mPria->nama_ayah }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Ibu</td>
-                                            <td>{{ $pesan->mPria->nama_ibu }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Username IG</td>
-                                            <td>{{ $pesan->mPria->username_ig }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="col-md-6 col-12 mb-3">
+                                <h5 class="fw-bold">Data Mempelai Pria</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Nama Panggilan</td>
+                                                <td>{{ $pesan->mPria->nama_pria }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Lengkap</td>
+                                                <td>{{ $pesan->mPria->nama_pria_lengkap }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Anak Ke</td>
+                                                <td>{{ $pesan->mPria->anak_ke }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Ayah</td>
+                                                <td>{{ $pesan->mPria->nama_ayah }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Ibu</td>
+                                                <td>{{ $pesan->mPria->nama_ibu }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Username IG</td>
+                                                <td>{{ $pesan->mPria->username_ig }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="col-md-6 col-6">
-                                <h5>Data Mempelai Wanita</h5>
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Nama Pangilan</td>
-                                            <td>{{ $pesan->mWanita->nama_wanita }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama lengkap</td>
-                                            <td>{{ $pesan->mWanita->nama_wanita_lengkap }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Anak Ke</td>
-                                            <td>{{ $pesan->mWanita->anak_ke }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Ayah</td>
-                                            <td>{{ $pesan->mWanita->nama_ayah }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Ibu</td>
-                                            <td>{{ $pesan->mWanita->nama_ibu }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Username IG</td>
-                                            <td>{{ $pesan->mWanita->username_ig }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="col-md-6 col-12">
+                                <h5 class="fw-bold">Data Mempelai Wanita</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Nama Pangilan</td>
+                                                <td>{{ $pesan->mWanita->nama_wanita }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama lengkap</td>
+                                                <td>{{ $pesan->mWanita->nama_wanita_lengkap }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Anak Ke</td>
+                                                <td>{{ $pesan->mWanita->anak_ke }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Ayah</td>
+                                                <td>{{ $pesan->mWanita->nama_ayah }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Ibu</td>
+                                                <td>{{ $pesan->mWanita->nama_ibu }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Username IG</td>
+                                                <td>{{ $pesan->mWanita->username_ig }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-6 col-6">
-                                <h5>Informasi Acara</h5>
+                            <div class="col-md-6 col-12">
+                                <h5 class="fw-bold">Informasi Acara</h5>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <tbody>
@@ -135,20 +142,27 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-6">
-                                <h5>Fitur</h5>
-                                <table class="table">
-                                    <tbody>
-                                        @foreach ($fiturs as $fitur)
-                                        <tr>
-                                            <td>{{ $fitur->fitur_name->nama }}</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                            <div class="col-md-6 col-12 mt-4">
+                                <h5 class="fw-bold">Fitur</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach ($fiturs as $key => $fitur)
+                                            <tr>
+                                                @if ($key === 0)
+                                                <td>List Fitur Checked</td>
+                                                @else
+                                                <td></td>
+                                                @endif
+                                                <td>{{ $fitur->fitur_name->nama }}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <h5>Kontak</h5>
+                            <div class="col-md-6 mt-5">
+                                <h5 class="fw-bold">Kontak</h5>
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -167,7 +181,8 @@
                                             <td>
                                                 <button onclick="location.href='{{ route('order-edit') }}'"
                                                     class="btn btn-success btn-m w-100" @if (Auth::check() &&
-                                                    $pesan->status === '1' || Auth::check() &&
+                                                    $pesan->status
+                                                    === '1' || Auth::check() &&
                                                     $pesan->status === '2')
                                                     disabled
                                                     @endif>Edited</button>
@@ -185,7 +200,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-3">
                                 <div class="card">
                                     <div class="container text-center py-3">
                                         <p class="text-lead2 fs-3">Result<br>
@@ -199,40 +214,40 @@
                                                 <button type="submit" id="preview" name="confirm"
                                                     class="btn btn-primary btn-m w-75">Confirm!</button>
                                             </form>
-                                            @elseif ($cooldownRemaining > 0) <button id="preview"
+                                            @elseif ($cooldownRemaining < 0) <button id="preview"
                                                 class="btn btn-primary btn-m w-75" disabled>
                                                 Harap Tunggu!<br><span id="cooldown-timer">{{ $cooldownRemaining }}
                                                     minutes remaining</span>
-                                            </button>
-                                            @elseif ($pesan->status === '2')
-                                            <a href="/result/{{ $pesan->data->nama_pasangan }}/{{$pesan->encrypted}}"
-                                                class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
-                                                Preview</a>
-                                            <!-- Target -->
-                                            <div class="card shadow w-100">
-                                                <input id="foo" class=""
-                                                    value="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}">
-
-                                                <!-- Trigger -->
-                                                <button class="btn" data-clipboard-target="#foo">
-                                                    <i class="fa-solid fa-clipboard"></i>
                                                 </button>
-                                                @else
-                                                <a href="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}"
+                                                @elseif ($pesan->status === '2')
+                                                <a href="/result/{{ $pesan->data->nama_pasangan }}/{{$pesan->encrypted}}"
                                                     class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
                                                     Preview</a>
                                                 <!-- Target -->
                                                 <div class="card shadow w-100">
                                                     <input id="foo" class=""
                                                         value="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}">
+
                                                     <!-- Trigger -->
                                                     <button class="btn" data-clipboard-target="#foo">
                                                         <i class="fa-solid fa-clipboard"></i>
                                                     </button>
+                                                    @else
+                                                    <a href="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}"
+                                                        class="btn btn-warning btn-m w-100 my-1" target="_blank">Lihat
+                                                        Preview</a>
+                                                    <!-- Target -->
+                                                    <div class="card shadow w-100">
+                                                        <input id="foo" class=""
+                                                            value="{{ route('result-order', ['namaPasangan' => $pesan->data->nama_pasangan, 'encrypted' => $pesan->encrypted])}}">
+                                                        <!-- Trigger -->
+                                                        <button class="btn" data-clipboard-target="#foo">
+                                                            <i class="fa-solid fa-clipboard"></i>
+                                                        </button>
+                                                    </div>
+                                                    @endif
+                                                    @endif
                                                 </div>
-                                                @endif
-                                                @endif
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -241,6 +256,7 @@
                     </div>
                 </div>
             </div>
+            <!-- </div> -->
         </div>
     </div>
 

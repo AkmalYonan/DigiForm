@@ -129,7 +129,7 @@
                 <div class="col-sm-6 mb-4" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
                     <h5 class="fs-3" style="font-family: 'IM Fell Great Primer', serif;color: #886F6F;">Akad</h5>
                     <p class="fs-5" style="font-family: 'IM Fell Great Primer', serif;color: #886F6F;">
-                        {{ $pesan->data->tgl_akad }}<br>{{ $pesan->data->jam_akad }}<br>{{$pesan->data->lokasi_akad}}
+                        {{ $tgl_akad }}<br>{{ $pesan->data->jam_akad }}<br>{{$pesan->data->lokasi_akad}}
                     </p>
                     @if (in_array('Lokasi Acara Maps', $fitur))
                     <div class="ratio ratio-21x9">
@@ -144,7 +144,7 @@
                 <div class="col-sm-6 mb-4" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
                     <h5 class="fs-3" style="font-family: 'IM Fell Great Primer', serif;color: #886F6F;">Resepsi</h5>
                     <p class="fs-5" style="font-family: 'IM Fell Great Primer', serif;color: #886F6F;">
-                        {{ $pesan->data->tgl_resepsi }}<br>{{ $pesan->data->jam_acara
+                        {{ $tgl_resepsi }}<br>{{ $pesan->data->jam_acara
                         }}<br>{{$pesan->data->lokasi_resepsi}}
                     </p>
                     @if (in_array('Lokasi Acara Maps', $fitur))

@@ -89,7 +89,7 @@
                     <p class="display-3" style="font-family: 'Alex Brush', cursive">
                         {{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}
                     </p>
-                    <p class="lead fs-6 fw-semibold">{{ $pesan->data->tgl_resepsi }}</p>
+                    <p class="lead fs-6 fw-semibold">{{ $tgl_resepsi }}</p>
                 </div>
             </div>
         </div>
@@ -289,7 +289,7 @@
                             </p>
                             <hr class="w-50 mx-auto" style="border-width: 3px" />
                             <p class="text-center fs-2 pt-2" style="font-family: 'Belanosima', sans-serif">
-                                {{ $pesan->data->tgl_akad }}
+                                {{ $tgl_akad }}
                             </p>
                             <p class="text-center fs-6 text-warna-utama" style="font-family: 'Belanosima', sans-serif">
                                 {{ $pesan->data->jam_akad }}
@@ -331,7 +331,7 @@
                             </p>
                             <hr class="w-50 mx-auto" style="border-width: 3px" />
                             <p class="text-center fs-2 pt-2" style="font-family: 'Belanosima', sans-serif">
-                                {{ $pesan->data->tgl_resepsi }}
+                                {{ $tgl_resepsi }}
                             </p>
                             <p class="text-center fs-6 text-warna-utama" style="font-family: 'Belanosima', sans-serif">
                                 {{ $pesan->data->jam_resepsi }}

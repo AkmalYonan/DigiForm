@@ -60,19 +60,44 @@
 
                                     <div class="form-floating py-2">
                                         <select name="salam" id="salam" class="form-control">
-                                            <option value="{{ $pesan->data->salam_pembuka }}">{{
-                                                $pesan->data->salam_pembuka }}</option>
-                                            <option value="Selamat Pagi">Selamat Pagi</option>
-                                            <option value="Selamat Siang">Selamat Siang</option>
-                                            <option value="Selamat Sore">Selamat Sore</option>
-                                            <option value="Selamat Malam">Selamat Malam</option>
+                                            <option value="Selamat Pagi"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                {{ $pesan->data->salam_pembuka == 'Selamat
+                                                Pagi' ? 'selected' : '' }}>Selamat Pagi</option>
+                                            <option value="Selamat Siang"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                {{ $pesan->data->salam_pembuka == 'Selamat Siang' ? 'selected' : ''
+                                                }}>Selamat Siang</option>
+                                            <option value="Selamat Sore"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                {{ $pesan->data->salam_pembuka == 'Selamat
+                                                Sore' ? 'selected' : '' }}>Selamat Sore</option>
+                                            <option value="Selamat Malam"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                {{ $pesan->data->salam_pembuka == 'Selamat
+                                                Malam' ? 'selected' : '' }}>Selamat Malam</option>
                                             <!-- Tambahkan pilihan salam dari setiap agama di Indonesia di sini -->
-                                            <option value="Assalamu'alaikum">Assalamu'alaikum</option>
-                                            <option value="Om Swastiastu">Om Swastiastu</option>
-                                            <option value="Salam Kebajikan">Salam Kebajikan</option>
-                                            <option value="Salam Kristen">Salam Kristen</option>
+                                            <option value="Assalamu`alaikum"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                @if ($pesan->data->salam_pembuka =='Assalamu`alaikum')
+                                                selected @endif>Assalamu'alaikum</option>
+                                            <option value="Om Swastiastu"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                @if ($pesan->data->salam_pembuka == 'Om Swastiastu') selected
+                                                @endif>Om Swastiastu</option>
+                                            <option value="Salam Kebajikan"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                @if ($pesan->data->salam_pembuka == 'Salam Kebajikan')
+                                                selected @endif>Salam Kebajikan</option>
+                                            <option value="Salam Kristen"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                @if ($pesan->data->salam_pembuka == 'Salam Kristen') selected
+                                                @endif>Salam Kristen</option>
                                             <!-- Dan lain-lain sesuai dengan agama di Indonesia -->
-                                            <option value="The Wedding">The Wedding</option>
+                                            <option value="The Wedding"
+                                                Alt="Salam Pembuka untuk undangan hari pernikahan pengantin sekali seumur hidup"
+                                                @if ($pesan->data->salam_pembuka == 'The Wedding') selected
+                                                @endif>The Wedding</option>
                                         </select>
                                         <label for="salam">Pilih Salam:</label>
 
@@ -241,33 +266,110 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="fotoPria">Foto Mempelai Pria</label>
-                                            <input class="form-control" type="file" id="fotoPria" name="fotoPria"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoPria" name="fotoPria">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoWanita">Foto Mempelai Wanita</label>
-                                            <input class="form-control" type="file" id="fotoWanita" name="fotoWanita"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoWanita" name="fotoWanita">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoCouple">Foto Couple ( 1 Frame )</label>
-                                            <input class="form-control" type="file" id="fotoCouple" name="fotoCouple"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoCouple" name="fotoCouple">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoThumbnail">Foto Thumbnail Undangan</label>
                                             <input class="form-control" type="file" id="fotoThumbnail"
-                                                name="fotoThumbnail" disabled>
+                                                name="fotoThumbnail">
                                         </div>
                                         <div class=" mb-3">
                                             <label for="fotoBanner">Foto Banner</label>
-                                            <input class="form-control" type="file" id="fotoBanner" name="fotoBanner"
-                                                disabled>
+                                            <input class="form-control" type="file" id="fotoBanner" name="fotoBanner">
                                         </div>
                                         <div class="mb-3">
                                             <label for="fotoGallery">Foto Gallery ( Max 6 )</label>
                                             <input class="form-control" type="file" id="fotoGallery"
-                                                name="fotoGallery[]" multiple disabled>
+                                                name="fotoGallery[]" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center g-0">
+                                <div class="col-md-4 col-12 mb-4">
+                                    <div class="container">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">Foto Thumbnail</p>
+                                        <img src="{{ url('storage/'. $pesan->data->imgThumbnail) }}" alt="Image 1"
+                                            class="lightbox-trigger img-fluid animate-dark">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="container">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">Foto Banner</p>
+                                        <img src="{{ url('storage/'. $pesan->data->imgBanner) }}" alt="Image 2"
+                                            class="lightbox-trigger img-fluid animate-dark">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="container">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">Foto Couple</p>
+                                        <img src="{{ url('storage/'. $pesan->data->imgCouple) }}" alt="Image 3"
+                                            class="lightbox-trigger img-fluid animate-dark">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center g-0">
+                                    <div class="col-md-6 col-12 text-center">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3">Foto Pria</p>
+                                        <div class="container">
+                                            <img src="{{ url('storage/'. $pesan->mPria->image) }}" alt="Image 1"
+                                                class="lightbox-trigger img-fluid animate-dark" style="width:350px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12 text-center">
+                                        <p class="text-lead2 fs-5 fw-bolder mt-3">Foto Wanita</p>
+                                        <div class="container">
+                                            <img src="{{ url('storage/'. $pesan->mWanita->image) }}" alt="Image 1"
+                                                class="lightbox-trigger img-fluid animate-dark" style="width:350px;">
+                                        </div>
+                                    </div>
+
+                                    <p class="text-lead2 fs-5 fw-bolder mt-4 text-center">Gallery</p>
+                                    <div class="col-md-6 col-12">
+                                        <div class="d-flex">
+                                            <div class="image-container">
+                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
+                                                    alt="Image 1" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="image-container">
+                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
+                                                    alt="Image 2" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="image-container">
+                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="lightbox" id="lightbox">
+                                                <span class="close-button" id="close-button">&times;</span>
+                                                <img src="" alt="Fullscreen Image" class="lightbox-content">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="d-flex">
+                                            <div class="image-container">
+                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
+
+                                            <div class="image-container">
+                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
+                                            <div class="image-container">
+                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
+                                                    alt="Image 3" class="lightbox-trigger">
+                                            </div>
                                         </div>
                                     </div> -->
                                 </div>
@@ -375,6 +477,27 @@
                                 <button type="submit" class="btn btn-primary btn-block w-75">Submit</button>
                             </div>
                         </form>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

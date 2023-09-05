@@ -78,7 +78,7 @@
                     <p class="display-3" style="font-family: 'Alex Brush', cursive">
                         {{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}
                     </p>
-                    <p class="lead fs-6 fw-semibold">{{ $pesan->data->tgl_resepsi }}</p>
+                    <p class="lead fs-6 fw-semibold">{{ $tgl_resepsi }}</p>
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@
                             </div>
                             <p>
                                 <i class="fa-solid fa-calendar-days fa-xl pe-2" style="color: #5e4820"></i>{{
-                                $pesan->data->tgl_akad }}
+                                $tgl_akad }}
                             </p>
                             <p>
                                 <i class="fa-regular fa-clock fa-xl pe-2" style="color: #5a4820"></i>{{
@@ -208,7 +208,7 @@
                             </div>
                             <p>
                                 <i class="fa-solid fa-calendar-days fa-xl pe-2" style="color: #5e4820"></i>{{
-                                $pesan->data->tgl_resepsi }}
+                                $tgl_resepsi }}
                             </p>
                             <p>
                                 <i class="fa-regular fa-clock fa-xl pe-2" style="color: #5a4820"></i>{{

@@ -45,13 +45,13 @@
                         </ul>
                         </p>
                         @if(Auth::check())
-                        <a href="{{ route('hometemplate') }}" class="btn btn-dark w-100 fw-bolder"
-                            style="border-bottom-width: 2px">Lihat
-                            Templates <i class="fa-solid fa-right-to-bracket fa-lg ps-2"></i></a>
+                        <a href="https://wa.me/{{ $whatsappNumber }}" target="_blank"
+                            class="btn btn-dark w-100 fw-bolder" style="border-bottom-width: 2px">Hubungi Staff<i
+                                class="fa-solid fa-right-to-bracket fa-lg ps-2"></i></a>
                         @else
                         <a href="{{ route('login') }}" class="btn btn-dark w-100 text-roboto"
-                            style="border-bottom-width: 2px">Lihat
-                            Templates <i class="fa-solid fa-right-to-bracket fa-lg ps-2"></i></a>
+                            style="border-bottom-width: 2px">Hubungi Staff<i
+                                class="fa-solid fa-right-to-bracket fa-lg ps-2"></i></a>
                         @endif
                     </div>
                 </div>

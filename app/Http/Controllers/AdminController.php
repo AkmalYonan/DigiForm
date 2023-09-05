@@ -79,7 +79,7 @@ class AdminController extends Controller
     {
         $levels = level::all();
         $pakets = Paket::all();
-        $users = User::all();
+        $users = User::orderByDesc('level')->get();
         $totalUsers = User::count();
         return view('admin.user', compact('users', 'totalUsers', 'pakets', 'levels'));
     }
