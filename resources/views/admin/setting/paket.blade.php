@@ -42,7 +42,7 @@
                     @csrf
                     @method('patch')
                     <div class="pb-3">
-                        <select class="form-select">
+                        <select class="form-select" id="paketDropdown-fitur">
                             @foreach ($pakets as $paket)
                             <option value="{{$paket->id}}">{{$paket->nama}}</option>
                             @endforeach
@@ -65,4 +65,23 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
+<script>
+    $(document).ready(function () {
+        // Saat dropdown paket berubah
+        $('#paketDropdown-fitur').change(function () {
+            // Dapatkan ID paket yang dipilih
+            var selectedPaketID = $(this).val();
+
+            // Reset semua checkbox terlebih dahulu
+            $('input[type="checkbox"]').prop('checked', false);
+
+            // Centang checkbox yang sesuai dengan paket yang dipilih
+            $('input[type="checkbox"][data-fitur-paket="' + selectedPaketID + '"]').prop('checked', true);
+        });
+    });
+</script>
+
+
 @endsection
