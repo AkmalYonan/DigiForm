@@ -23,6 +23,7 @@ class PaketController extends Controller
     {
         $paket = new Paket();
         $paket->nama = $request->input('namaPaket');
+        $paket->harga = $request->input('hargaPaket');
         $paket->save();
 
         return redirect()->route('admin-addpaket')->with('success', 'Fitur baru berhasil ditambahkan.');

@@ -15,6 +15,7 @@
                     <div class="container shadow-lg py-3 my-3 rounded-3">
                         <p class="lead">Input Paket Baru</p>
                         <form action="{{ route('store-paket') }}" method="POST">
+                            @csrf
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" name="namaPaket">
                                 <label for="floatingInput">Nama Paket</label>
