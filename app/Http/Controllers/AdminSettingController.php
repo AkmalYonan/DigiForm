@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Fitur;
+use App\Models\Paket;
+use App\Models\Template;
 use Illuminate\Http\Request;
 
 class AdminSettingController extends Controller
@@ -34,5 +37,14 @@ class AdminSettingController extends Controller
         $email->save();
 
         return redirect()->route('admindashboard')->with('success', 'Email Admin Website berhasil diperbarui.');
+    }
+
+    public function viewSettingPaket()
+    {
+        $pakets = Paket::all();
+        $fiturs = Fitur::all();
+        $templates = Template::all();
+
+        return view('admin.setting.paketTemplate', compact('pakets', 'fiturs', 'templates'));
     }
 }

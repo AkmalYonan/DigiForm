@@ -127,7 +127,11 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
     Route::delete('/dashboard/delete-level/{id}', [LevelController::class, 'delete'])->name('delete-level');
 
     //SETTING PAKET - FITUR
-    // Route::get('/setting-paket', [AdminSettingController::class, 'index'])->name('setting-paket');
+    Route::get('/dashboard/setting-paket', [AdminSettingController::class, 'viewSettingPaket'])->name('admin-settingPaket');
+
+    Route::patch('/dashboard/setting-paket-template', [AdminSettingController::class, 'updatePaketTemplate'])->name('admin-updatedetailTemplate');
+    Route::patch('/dashboard/setting-paket-fitur', [AdminSettingController::class, 'updatePaketFitur'])->name('admin-updatedetailFitur');
+
     Route::put('/update-noHp', [AdminSettingController::class, 'updateHp'])->name('admin-settingHp');
     Route::put('/update-emailAdmin', [AdminSettingController::class, 'updateEmail'])->name('admin-settingEmail');
 });

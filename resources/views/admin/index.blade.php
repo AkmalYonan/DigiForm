@@ -52,21 +52,21 @@
             </div>
         </div>
         <div class="col-12 col-md-3">
-            <div class="card bg-primary-subtle">
+            <div class="card bg-primary-subtle" onclick="location.href='{{ route('admin-settingPaket') }}'">
                 <div class="card-body animate-dark">
                     <h5 class="card-title">Detail Paket Template</h5>
                     <p class="card-text fs-1 fw-bolder">NULL</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3">
+        {{-- <div class="col-12 col-md-3">
             <div class="card bg-info-subtle">
                 <div class="card-body animate-dark">
                     <h5 class="card-title">Detail Paket Fitur</h5>
                     <p class="card-text fs-1 fw-bolder">NULL</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <div class="row mt-3">
         <div class="col-12 col-md-6">
