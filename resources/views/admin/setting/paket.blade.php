@@ -12,17 +12,23 @@
                     @csrf
                     @method('patch')
                     <div class="pb-3">
-                        <select class="form-select">
+                        <select class="form-select" id="paketSelect">
                             @foreach ($pakets as $paket)
                             <option value="{{$paket->id}}">{{$paket->nama}}</option>
                             @endforeach
                         </select>
                     </div>
+                    <script>
+                        let banyak_template = 0;
+                    </script>
                     @foreach ($templates as $template)
+                    <script>
+                        banyak_template++;
+                    </script>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="{{$template->id}}" name="checkbox"
-                            id="flexCheck{{$template->id}}"> <!-- Unique ID for each checkbox -->
-                        <label class="form-check-label" for="flexCheck{{$template->id}}">
+                            id="flexCheck{{$loop->iteration}}"> <!-- Unique ID for each checkbox -->
+                        <label class="form-check-label" for="flexCheck{{$loop->iteration}}">
                             {{$template->nama}}
                         </label>
                     </div>
@@ -48,11 +54,17 @@
                             @endforeach
                         </select>
                     </div>
+                    <script>
+                        let banyak_fitur = 0;
+                    </script>
                     @foreach ($fiturs as $fitur)
+                    <script>
+                        banyak_fitur++;
+                    </script>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="{{$fitur->id}}" name="checkbox"
-                            id="flexCheckFitur{{$fitur->id}}"> <!-- Unique ID for each checkbox -->
-                        <label class="form-check-label" for="flexCheckFitur{{$fitur->id}}">
+                            id="flexCheckFitur{{$loop->iteration}}"> <!-- Unique ID for each checkbox -->
+                        <label class="form-check-label" for="flexCheckFitur{{$loop->iteration}}">
                             {{$fitur->nama}}
                         </label>
                     </div>
@@ -68,19 +80,89 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
 <script>
-    $(document).ready(function () {
-        // Saat dropdown paket berubah
-        $('#paketDropdown-fitur').change(function () {
-            // Dapatkan ID paket yang dipilih
-            var selectedPaketID = $(this).val();
+    // $(document).ready(function () {
+    //     // Saat dropdown paket berubah
+    //     $('#paketDropdown-fitur').change(function () {
+    //         // Dapatkan ID paket yang dipilih
+    //         var selectedPaketID = $(this).val();
 
-            // Reset semua checkbox terlebih dahulu
-            $('input[type="checkbox"]').prop('checked', false);
+    //         // Reset semua checkbox terlebih dahulu
+    //         $('input[type="checkbox"]').prop('checked', false);
 
-            // Centang checkbox yang sesuai dengan paket yang dipilih
-            $('input[type="checkbox"][data-fitur-paket="' + selectedPaketID + '"]').prop('checked', true);
-        });
-    });
+    //         // Centang checkbox yang sesuai dengan paket yang dipilih
+    //         $('input[type="checkbox"][data-fitur-paket="' + selectedPaketID + '"]').prop('checked', true);
+    //     });
+    // });
+
+    const detail_template = document.querySelector('#paketSelect');
+    const detail_fitur = document.querySelector('#paketDropdown-fitur');
+
+    function checkInclude(array, value){
+        for(let i = 0; i < array.length; i++){
+            if(value == array[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    detail_template.addEventListener('change', function(){
+        // console.log('tes ubah paket');
+        $.ajax({
+            url: '{{ route('paket-change') }}',
+            type: 'POST',
+            data : {
+                _token : '{{ csrf_token() }}',
+                id_paket: detail_template.value,
+                sesi : 'template'
+            },
+            success : function({detail_paket}){
+                console.log(detail_paket);
+                const templates_id = detail_paket.map(detil => detil.template_id);
+                // console.log(templates_id);
+                for(let i = 1; i <= banyak_template; i++){
+                    const check = document.querySelector('#flexCheck' + i);
+                    // console.log(check.value);
+                    if ( checkInclude(templates_id, check.value)) {
+                        // console.log('berhasil');
+                        check.checked = true;
+                    } else {
+                        check.checked = false;
+                    }
+                }
+
+            }
+        })
+    })
+
+    detail_fitur.addEventListener('change', function(){
+        // console.log('tes ubah paket');
+        $.ajax({
+            url: '{{ route('paket-change') }}',
+            type: 'POST',
+            data : {
+                _token : '{{ csrf_token() }}',
+                id_paket: detail_fitur.value,
+                sesi : 'fitur'
+            },
+            success : function({detail_paket}){
+                console.log(detail_paket);
+                const fiturs_id = detail_paket.map(detil => detil.fitur_id);
+                // console.log(fiturs_id);
+                for(let i = 1; i <= banyak_fitur; i++){
+                    const check = document.querySelector('#flexCheckFitur' + i);
+                    // console.log(check.value);
+                    if ( checkInclude(fiturs_id, check.value)) {
+                        // console.log('berhasil');
+                        check.checked = true;
+                    } else {
+                        check.checked = false;
+                    }
+                }
+
+            }
+        })
+    })
 </script>
 
 

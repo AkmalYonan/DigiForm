@@ -136,4 +136,5 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
 
     Route::put('/update-noHp', [AdminSettingController::class, 'updateHp'])->name('admin-settingHp');
     Route::put('/update-emailAdmin', [AdminSettingController::class, 'updateEmail'])->name('admin-settingEmail');
+    Route::post('/paket-change', [AdminSettingController::class, 'paketChange'])->name('paket-change');
 });

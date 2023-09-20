@@ -51,25 +51,21 @@ class AdminSettingController extends Controller
         return view('admin.setting.paket', compact('pakets', 'fiturs', 'templates'));
     }
 
-    public function viewfitur(Request $request)
+    //  
+
+    public function paketChange(Request $request)
     {
-        $selectedPaketID = $request->input('paketDropdown-fitur');
-        $selectedFiturIDs = $request->input('checkbox');
 
-        // Lakukan apa yang perlu Anda lakukan dengan data yang telah dipilih, misalnya:
-        // - Menyimpan pemilihan ke dalam database
-        // - Melakukan validasi
-        // - Menampilkan pesan sukses atau kesalahan
+        $paket = Paket::find($request->id_paket);
 
-        // Misalnya, menyimpan data pemilihan ke dalam database
-        $detailTemplate = ::find($selectedPaketID);
-
-        if (!$detailTemplate) {
-            return redirect()->back()->with('error', 'Detail Template not found');
+        if ($request->sesi === 'template') {
+            $detail_template = $paket->detailPaketTemplate;
+        } else {
+            $detail_template = $paket->detailPaketFitur;
         }
 
-        $detailTemplate->fiturs()->sync($selectedFiturIDs);
 
-        return redirect()->back()->with('success', 'Detail Template updated successfully');
+        return response()->json(['detail_paket' => $detail_template]);
+        // dd($paket);
     }
 }
