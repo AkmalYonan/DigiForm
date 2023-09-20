@@ -47,8 +47,17 @@ class AdminSettingController extends Controller
         $fiturs = Fitur::all();
         $templates = Template::all();
 
+        $bronze = Paket::where('nama', 'Bronze')->first();
+        $detail_bronze = [[]];
+        foreach ($bronze->detailPaketTemplate as $template) {
+            $detail_bronze[0][] = $template->template_id;
+        }
+        foreach ($bronze->detailPaketFitur as $template) {
+            $detail_bronze[1][] = $template->fitur_id;
+        }
+        // ddd($detail_bronze);
 
-        return view('admin.setting.paket', compact('pakets', 'fiturs', 'templates'));
+        return view('admin.setting.paket', compact('pakets', 'fiturs', 'templates', 'detail_bronze'));
     }
 
     //  

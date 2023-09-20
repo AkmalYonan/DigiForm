@@ -1,3 +1,4 @@
+{{-- @dd($detail_bronze) --}}
 @extends('layouts.app')
 
 @section('content')
@@ -27,7 +28,11 @@
                     </script>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="{{$template->id}}" name="checkbox"
-                            id="flexCheck{{$loop->iteration}}"> <!-- Unique ID for each checkbox -->
+                            id="flexCheck{{$loop->iteration}}" @if (in_array($template->id,
+                        $detail_bronze[0]))
+                        checked
+                        @endif>
+                        <!-- Unique ID for each checkbox -->
                         <label class="form-check-label" for="flexCheck{{$loop->iteration}}">
                             {{$template->nama}}
                         </label>
@@ -63,7 +68,11 @@
                     </script>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="{{$fitur->id}}" name="checkbox"
-                            id="flexCheckFitur{{$loop->iteration}}"> <!-- Unique ID for each checkbox -->
+                            id="flexCheckFitur{{$loop->iteration}}" @if (in_array($fitur->id,
+                        $detail_bronze[1]))
+                        checked
+                        @endif>
+                        <!-- Unique ID for each checkbox -->
                         <label class="form-check-label" for="flexCheckFitur{{$loop->iteration}}">
                             {{$fitur->nama}}
                         </label>
