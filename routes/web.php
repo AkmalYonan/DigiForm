@@ -131,7 +131,6 @@ Route::middleware(['auth', 'verifiedUser', 'checkAdmin'])->group(function () {
 
     Route::patch('/dashboard/setting-paket-template', [AdminSettingController::class, 'updatePaketTemplate'])->name('admin-updatedetailTemplate');
     Route::patch('/dashboard/setting-paket-fitur', [AdminSettingController::class, 'updatePaketFitur'])->name('admin-updatedetailFitur');
-    Route::post('/get-fitur/{paket_id}', [AdminSettingController::class, 'viewfitur'])->name('admin-getFitur');
 
 
     Route::put('/update-noHp', [AdminSettingController::class, 'updateHp'])->name('admin-settingHp');

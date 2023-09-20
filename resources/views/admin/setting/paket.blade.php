@@ -13,9 +13,11 @@
                     @csrf
                     @method('patch')
                     <div class="pb-3">
-                        <select class="form-select" id="paketSelect">
+                        <select class="form-select" id="paketSelect" name="dropdownTemplate">
                             @foreach ($pakets as $paket)
-                            <option value="{{$paket->id}}">{{$paket->nama}}</option>
+                            <option value="{{$paket->id}}" @if ($loop->iteration == 1)
+                                selected
+                                @endif>{{$paket->nama}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -27,8 +29,8 @@
                         banyak_template++;
                     </script>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="{{$template->id}}" name="checkbox"
-                            id="flexCheck{{$loop->iteration}}" @if (in_array($template->id,
+                        <input class="form-check-input" type="checkbox" value="{{$template->id}}"
+                            name="checkboxTemplate[]" id="flexCheck{{$loop->iteration}}" @if (in_array($template->id,
                         $detail_bronze[0]))
                         checked
                         @endif>
@@ -49,13 +51,15 @@
                 <p class="lead">Setting Fitur <span class="font-kecil"><br>Pilih Paket untuk Mensetting bagian
                         Fitur</span>
                 </p>
-                <form action="{{ route('admin-updatedetailTemplate') }}" method="POST">
+                <form action="{{ route('admin-updatedetailFitur') }}" method="POST">
                     @csrf
                     @method('patch')
                     <div class="pb-3">
-                        <select class="form-select" id="paketDropdown-fitur">
+                        <select class="form-select" id="paketDropdown-fitur" name="dropdownFitur">
                             @foreach ($pakets as $paket)
-                            <option value="{{$paket->id}}">{{$paket->nama}}</option>
+                            <option value="{{$paket->id}}" @if ($loop->iteration == 1)
+                                selected
+                                @endif>{{$paket->nama}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -67,7 +71,7 @@
                         banyak_fitur++;
                     </script>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="{{$fitur->id}}" name="checkbox"
+                        <input class="form-check-input" type="checkbox" value="{{$fitur->id}}" name="checkboxFitur[]"
                             id="flexCheckFitur{{$loop->iteration}}" @if (in_array($fitur->id,
                         $detail_bronze[1]))
                         checked
@@ -87,22 +91,8 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // $(document).ready(function () {
-    //     // Saat dropdown paket berubah
-    //     $('#paketDropdown-fitur').change(function () {
-    //         // Dapatkan ID paket yang dipilih
-    //         var selectedPaketID = $(this).val();
-
-    //         // Reset semua checkbox terlebih dahulu
-    //         $('input[type="checkbox"]').prop('checked', false);
-
-    //         // Centang checkbox yang sesuai dengan paket yang dipilih
-    //         $('input[type="checkbox"][data-fitur-paket="' + selectedPaketID + '"]').prop('checked', true);
-    //     });
-    // });
-
     const detail_template = document.querySelector('#paketSelect');
     const detail_fitur = document.querySelector('#paketDropdown-fitur');
 
