@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/911-confirm-OkdeiekimfnelmwdLIwdjoijdoijlmfeoijoijmdwlkmdiojinindauyfdaytdjhbDHBuyGDuigakjndDuiknaUODNAWDKjnkjlnADkljnDWLKAJUDbaliubwdauiwbdKUBJDKUWBdaiuwdiUABWDjkbWdbkjbWDiDBKJwdbnKudWUIOBdKJBNWdkUABwdiuwbdkJBWDIUdbWKJdbKWjdbawuidbaiwbd', [App\Http\Controllers\Secret911Controller::class, 'showView'])->name('ak47');
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

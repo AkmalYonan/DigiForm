@@ -168,26 +168,26 @@
                 Foto</h2>
             <div class="row m-3">
                 <div class="col-lg-4 col-md-12 mb-2 mb-lg-0">
-                    <img src="{{ asset('img/prima/foto2.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Boat on Calm Water" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif />
 
-                    <img src="{{ asset('img/prima/foto9.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Wintry Mountain Landscape" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif />
                 </div>
 
                 <div class="col-lg-4 mb-2 mb-lg-0">
-                    <img src="{{ asset('img/prima/foto8.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Mountains in the Clouds" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif />
 
-                    <img src="{{ asset('img/prima/foto10.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Boat on Calm Water" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif />
                 </div>
 
                 <div class="col-lg-4 mb-2 mb-lg-0">
-                    <img src="{{ asset('img/prima/foto7.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto5)}}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Waves at Sea" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif />
 
-                    <img src="{{ asset('img/prima/foto12.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto6)}}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Yosemite National Park" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif />
                 </div>
             </div>

@@ -289,20 +289,20 @@
                 <!-- Gallery -->
                 <div class="row">
                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                        <img src="{{ asset('img/amara/assets/galery1.jpeg') }}" class=" w-100 shadow-1-strong rounded
+                        <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" class=" w-100 shadow-1-strong rounded
                             mb-4" alt="Boat on Calm Water" />
 
-                        <img src="{{ asset('img/amara/assets/galery2.jpeg') }}" class=" w-100 shadow-1-strong rounded
+                        <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" class=" w-100 shadow-1-strong rounded
                             mb-4" alt="Boat on Calm Water" />
                     </div>
 
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ asset('img/amara/assets/gallery3.jpeg') }}"
+                        <img src="{{ url('storage/'. $pesan->gallery->foto3)}}"
                             class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
                     </div>
 
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ asset('img/amara/assets/galery4.jpeg') }}"
+                        <img src="{{ url('storage/'. $pesan->gallery->foto4)}}"
                             class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
                     </div>
                 </div>

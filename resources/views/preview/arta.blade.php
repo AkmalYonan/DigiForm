@@ -120,23 +120,23 @@
                 Foto</h2>
             <div class="row">
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11442.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" class="shadow-lg p-2 mb-5 bg-body rounded"
                         width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11444.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" class="shadow-lg p-2 mb-5 bg-body rounded"
                         width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11445.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" class="shadow-lg p-2 mb-5 bg-body rounded"
                         width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11447.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" class="shadow-lg p-2 mb-5 bg-body rounded"
                         width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11440.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
+                    <img src="{{ url('storage/'. $pesan->gallery->foto5)}}" class="shadow-lg p-2 mb-5 bg-body rounded"
                         width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
                 </div>
             </div>

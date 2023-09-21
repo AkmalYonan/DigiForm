@@ -187,22 +187,22 @@
                     <h1>Gallery</h1>
                     <div class="slider">
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe2.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe2.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto5)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto6)}}" alt="img">
                         </div>
                     </div>
                     <div class="prev-btn">

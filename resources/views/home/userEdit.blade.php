@@ -256,13 +256,13 @@
                                             name="nama_panggilan" value="{{ $pesan->data->nama_panggilan }}" required>
                                         <label for="nama_panggilan">Nama Panggilan:</label>
                                     </div>
-                                    <!-- <div class="pt-5">
+                                    <div class="pt-5">
                                         <div class="d-flex align-items-center">
                                             <p class="text-lead2 fs-4 fw-bolder mt-3">All Photo</p>
                                             <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
                                                 title="Isi Foto dibawah ini untuk undangan"></div>
-                                            <span class="text-roboto fw-bolder text-danger ms-3">Maintance
-                                                Now</span>
+                                            {{-- <span class="text-roboto fw-bolder text-danger ms-3">Maintance
+                                                Now</span> --}}
                                         </div>
                                         <div class="mb-3">
                                             <label for="fotoPria">Foto Mempelai Pria</label>
@@ -285,14 +285,41 @@
                                             <label for="fotoBanner">Foto Banner</label>
                                             <input class="form-control" type="file" id="fotoBanner" name="fotoBanner">
                                         </div>
+                                    </div>
+                                    <div class="pt-5">
+                                        <div class="d-flex align-items-center">
+                                            <p class="text-lead2 fs-4 fw-bolder mt-3">Photo Gallery</p>
+                                            <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                                                title="Isilah data dibawah untuk Data Kontak!"></div>
+                                        </div>
                                         <div class="mb-3">
-                                            <label for="fotoGallery">Foto Gallery ( Max 6 )</label>
-                                            <input class="form-control" type="file" id="fotoGallery"
-                                                name="fotoGallery[]" multiple>
+                                            <label for="foto1">Foto_1</label>
+                                            <input class="form-control" type="file" id="foto1" name="foto1">
+                                        </div>
+                                        <div class=" mb-3">
+                                            <label for="foto2">Foto_2</label>
+                                            <input class="form-control" type="file" id="foto2" name="foto2">
+                                        </div>
+                                        <div class=" mb-3">
+                                            <label for="foto3">Foto_3</label>
+                                            <input class="form-control" type="file" id="foto3" name="foto3">
+                                        </div>
+                                        <div class=" mb-3">
+                                            <label for="foto4">Foto_4</label>
+                                            <input class="form-control" type="file" id="foto4" name="foto4">
+                                        </div>
+                                        <div class=" mb-3">
+                                            <label for="foto5">Foto_5</label>
+                                            <input class="form-control" type="file" id="foto5" name="foto5">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="foto6">Foto_6</label>
+                                            <input class="form-control" type="file" id="foto6" name="foto6">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row justify-content-center g-0">
                                 <div class="col-md-4 col-12 mb-4">
                                     <div class="container">
@@ -335,91 +362,18 @@
                                     <div class="col-md-6 col-12">
                                         <div class="d-flex">
                                             <div class="image-container">
-                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
-                                                    alt="Image 1" class="lightbox-trigger">
+                                                <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" alt="Image 1"
+                                                    class="lightbox-trigger">
                                             </div>
 
                                             <div class="image-container">
-                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
-                                                    alt="Image 2" class="lightbox-trigger">
+                                                <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" alt="Image 2"
+                                                    class="lightbox-trigger">
                                             </div>
 
                                             <div class="image-container">
-                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
-                                                    alt="Image 3" class="lightbox-trigger">
-                                            </div>
-
-                                            <div class="lightbox" id="lightbox">
-                                                <span class="close-button" id="close-button">&times;</span>
-                                                <img src="" alt="Fullscreen Image" class="lightbox-content">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="d-flex">
-                                            <div class="image-container">
-                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
-                                                    alt="Image 3" class="lightbox-trigger">
-                                            </div>
-
-                                            <div class="image-container">
-                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
-                                                    alt="Image 3" class="lightbox-trigger">
-                                            </div>
-                                            <div class="image-container">
-                                                <img src="https://s3-cdn.cmlabs.co/page/2023/01/24/panduan-dan-cara-mengatasi-error-404-dengan-efektif-205111.png"
-                                                    alt="Image 3" class="lightbox-trigger">
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
-                            <div class="row justify-content-center g-0">
-                                <div class="col-md-4 col-12 mb-4">
-                                    <div class="container">
-                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gambar 1</p>
-                                        <img src="https://github.com/bakaroti/resource/blob/main/temp1.jpg?raw=true"
-                                            alt="Image 1" class="lightbox-trigger img-fluid">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="container">
-                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gambar 2</p>
-                                        <img src="https://github.com/bakaroti/resource/blob/main/temp2.jpg?raw=true"
-                                            alt="Image 2" class="lightbox-trigger img-fluid">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="container">
-                                        <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gambar 3</p>
-                                        <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
-                                            alt="Image 3" class="lightbox-trigger img-fluid">
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center g-0">
-                                    <div class="col-md-12 col-12 text-center">
-                                        <p class="text-lead2 fs-5 fw-bolder mt-3">gambar banner</p>
-                                        <div class="container">
-                                            <img src="https://github.com/bakaroti/resource/blob/main/temp1.jpg?raw=true"
-                                                alt="Image 1" class="lightbox-trigger img-fluid" style="width:350px;">
-                                        </div>
-                                    </div>
-                                    <p class="text-lead2 fs-5 fw-bolder mt-3 text-center">gallery</p>
-                                    <div class="col-md-6 col-12">
-                                        <div class="d-flex">
-                                            <div class="image-container">
-                                                <img src="https://github.com/bakaroti/resource/blob/main/temp1.jpg?raw=true"
-                                                    alt="Image 1" class="lightbox-trigger">
-                                            </div>
-
-                                            <div class="image-container">
-                                                <img src="https://github.com/bakaroti/resource/blob/main/temp2.jpg?raw=true"
-                                                    alt="Image 2" class="lightbox-trigger">
-                                            </div>
-
-                                            <div class="image-container">
-                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
-                                                    alt="Image 3" class="lightbox-trigger">
+                                                <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" alt="Image 3"
+                                                    class="lightbox-trigger">
                                             </div>
 
                                             <div class="lightbox" id="lightbox">
@@ -431,22 +385,23 @@
                                     <div class="col-md-6 col-12">
                                         <div class="d-flex">
                                             <div class="image-container">
-                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
-                                                    alt="Image 3" class="lightbox-trigger">
+                                                <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" alt="Image 3"
+                                                    class="lightbox-trigger">
                                             </div>
 
                                             <div class="image-container">
-                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
-                                                    alt="Image 3" class="lightbox-trigger">
+                                                <img src="{{ url('storage/'. $pesan->gallery->foto5)}}" alt="Image 3"
+                                                    class="lightbox-trigger">
                                             </div>
                                             <div class="image-container">
-                                                <img src="https://github.com/bakaroti/resource/blob/main/temp3.jpg?raw=true"
-                                                    alt="Image 3" class="lightbox-trigger">
+                                                <img src="{{ url('storage/'. $pesan->gallery->foto6)}}" alt="Image 3"
+                                                    class="lightbox-trigger">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row justify-content-center pt-5 gap-5">
                                 <div class="col-md-11">
                                     @if(isset($fiturs))

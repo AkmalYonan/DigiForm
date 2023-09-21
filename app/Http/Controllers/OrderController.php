@@ -10,7 +10,7 @@ use App\Models\Paket;
 use App\Models\Pesan;
 use App\Models\Template;
 use App\Models\Detail_fitur;
-use App\Models\GalleryUser;
+use App\Models\galeryUser;
 use App\Models\Mempelai_pria;
 use App\Models\Mempelai_wanita;
 use App\Models\User;
@@ -76,10 +76,14 @@ class OrderController extends Controller
                 'fotoPria' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
                 'fotoWanita' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
                 'fotoBanner' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
-                'fotoGallery' => 'required|array',
-                'fotoGallery.*' => 'mimes:png,jpeg,jpg,pdf',
                 'fotoThumbnail' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
                 'fotoCouple' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'foto1' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'foto2' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'foto3' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'foto4' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'foto5' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
+                'foto6' => 'required|mimes:png,jpeg,jpg,pdf|max:5120',
             ]);
 
 
@@ -165,13 +169,21 @@ class OrderController extends Controller
                 Detail_fitur::insert($dataToInsert);
             }
 
-            foreach ($request->file('fotoGallery') as $uploadedFile) {
-                $gallery = new GalleryUser;
-                $gallery->id_pesan = $id;
-                $fileName = now()->timestamp . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
-                $gallery->nameFile = $uploadedFile->storeAs('fotoGallery', $fileName);
-                $gallery->save();
-            }
+            $gallery = new galeryUser;
+            $gallery->id_pesan = $id;
+            $fileNameFoto1 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto1')->getClientOriginalExtension();
+            $gallery->foto1 = $request->file('foto1')->storeAs('fotoGallery', $fileNameFoto1);
+            $fileNameFoto2 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto2')->getClientOriginalExtension();
+            $gallery->foto2 = $request->file('foto2')->storeAs('fotoGallery', $fileNameFoto2);
+            $fileNameFoto3 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto3')->getClientOriginalExtension();
+            $gallery->foto3 = $request->file('foto3')->storeAs('fotoGallery', $fileNameFoto3);
+            $fileNameFoto4 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto4')->getClientOriginalExtension();
+            $gallery->foto4 = $request->file('foto4')->storeAs('fotoGallery', $fileNameFoto4);
+            $fileNameFoto5 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto5')->getClientOriginalExtension();
+            $gallery->foto5 = $request->file('foto5')->storeAs('fotoGallery', $fileNameFoto5);
+            $fileNameFoto6 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto6')->getClientOriginalExtension();
+            $gallery->foto6 = $request->file('foto6')->storeAs('fotoGallery', $fileNameFoto6);
+            $gallery->save();
 
             // var_dump($request);
             // die;
@@ -193,7 +205,7 @@ class OrderController extends Controller
             return redirect()->route('homeorder');
         } else {
             $Id = auth()->user()->id;
-            $pesan = Pesan::where('id_user', $Id)->get()[0];
+            $pesan = pesan::where('id_user', $Id)->get()[0];
 
             if ($pesan->status == '1') {
                 return redirect()->route('homeorder')->with("error", "Akses diTolak! Anda sudah Melakukan Edit!");
@@ -226,10 +238,10 @@ class OrderController extends Controller
         try {
 
             $user = auth()->user()->id;
-            $id = Pesan::where('id_user', $user)->get()[0]; // Mengeksekusi kueri dan mendapatkan model
+            $id = pesan::where('id_user', $user)->get()[0]; // Mengeksekusi kueri dan mendapatkan model
             $id_pesan = $id->id;
 
-            Pesan::where('id', $id_pesan)->update([
+            pesan::where('id', $id_pesan)->update([
                 'id_template' => $request->input('template_id')
             ]);
 
@@ -291,36 +303,107 @@ class OrderController extends Controller
             }
 
 
-            if ($request->hasFile('fotoThumbnail') && $request->hasFile('fotoBanner') && $request->hasFile('fotoCouple')) {
-                $dataLama = Data::where('id_pesan', $id_pesan)->get()[0];
-                Storage::delete([
-                    $dataLama->imgThumbnail,
-                    $dataLama->imgBanner,
-                    $dataLama->imgCouple
-                ]);
+            if ($request->hasFile('fotoThumbnail') || $request->hasFile('fotoBanner') || $request->hasFile('fotoCouple')) {
+                if ($request->hasFile('fotoThumbnail') && $request->hasFile('fotoBanner') && $request->hasFile('fotoCouple')) {
+                    $dataLama = Data::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->imgThumbnail,
+                        $dataLama->imgBanner,
+                        $dataLama->imgCouple
+                    ]);
 
-                $fileNameThumbnail = now()->timestamp . '.' . $request->file('fotoThumbnail')->getClientOriginalExtension();
-                $fileNameBanner = now()->timestamp . '.' . $request->file('fotoBanner')->getClientOriginalExtension();
-                $fileNameCouple = now()->timestamp . '.' . $request->file('fotoCouple')->getClientOriginalExtension();
+                    $fileNameThumbnail = now()->timestamp . '.' . $request->file('fotoThumbnail')->getClientOriginalExtension();
+                    $fileNameBanner = now()->timestamp . '.' . $request->file('fotoBanner')->getClientOriginalExtension();
+                    $fileNameCouple = now()->timestamp . '.' . $request->file('fotoCouple')->getClientOriginalExtension();
 
-                Data::where('id_pesan', $id_pesan)->update([
-                    'salam_pembuka' => $request->input('salam'),
-                    'lokasi_akad' => $request->input('lokasi_akad'),
-                    'lokasi_resepsi' => $request->input('lokasi_resepsi'),
-                    'tgl_resepsi' => $request->input('tgl_resepsi'),
-                    'tgl_akad' => $request->input('tgl_akad'),
-                    'jam_akad' => $request->input('jam_akad'),
-                    'jam_resepsi' => $request->input('jam_resepsi'),
-                    'email' => $request->input('email'),
-                    'no_wa' => $request->input('no_wa'),
-                    'nama_panggilan' => $request->input('nama_panggilan'),
-                    'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita'),
-                    'iframeMaps_akad' => $request->input('iframeMaps_akad'),
-                    'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
-                    'imgThumbnail' => $request->file('fotoThumbnail')->storeAs('fotoThumbnail', $fileNameThumbnail),
-                    'imgBanner' => $request->file('fotoBanner')->storeAs('fotoBanner', $fileNameBanner),
-                    'imgCouple' => $request->file('fotoCouple')->storeAs('fotoCouple', $fileNameCouple),
-                ]);
+                    Data::where('id_pesan', $id_pesan)->update([
+                        'salam_pembuka' => $request->input('salam'),
+                        'lokasi_akad' => $request->input('lokasi_akad'),
+                        'lokasi_resepsi' => $request->input('lokasi_resepsi'),
+                        'tgl_resepsi' => $request->input('tgl_resepsi'),
+                        'tgl_akad' => $request->input('tgl_akad'),
+                        'jam_akad' => $request->input('jam_akad'),
+                        'jam_resepsi' => $request->input('jam_resepsi'),
+                        'email' => $request->input('email'),
+                        'no_wa' => $request->input('no_wa'),
+                        'nama_panggilan' => $request->input('nama_panggilan'),
+                        'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita'),
+                        'iframeMaps_akad' => $request->input('iframeMaps_akad'),
+                        'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
+                        'imgThumbnail' => $request->file('fotoThumbnail')->storeAs('fotoThumbnail', $fileNameThumbnail),
+                        'imgBanner' => $request->file('fotoBanner')->storeAs('fotoBanner', $fileNameBanner),
+                        'imgCouple' => $request->file('fotoCouple')->storeAs('fotoCouple', $fileNameCouple),
+                    ]);
+                } elseif ($request->hasFile('fotoThumbnail')) {
+                    $dataLama = Data::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->imgThumbnail,
+                    ]);
+
+                    $fileNameThumbnail = now()->timestamp . '.' . $request->file('fotoThumbnail')->getClientOriginalExtension();
+                    Data::where('id_pesan', $id_pesan)->update([
+                        'salam_pembuka' => $request->input('salam'),
+                        'lokasi_akad' => $request->input('lokasi_akad'),
+                        'lokasi_resepsi' => $request->input('lokasi_resepsi'),
+                        'tgl_resepsi' => $request->input('tgl_resepsi'),
+                        'tgl_akad' => $request->input('tgl_akad'),
+                        'jam_akad' => $request->input('jam_akad'),
+                        'jam_resepsi' => $request->input('jam_resepsi'),
+                        'email' => $request->input('email'),
+                        'no_wa' => $request->input('no_wa'),
+                        'nama_panggilan' => $request->input('nama_panggilan'),
+                        'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita'),
+                        'iframeMaps_akad' => $request->input('iframeMaps_akad'),
+                        'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
+                        'imgThumbnail' => $request->file('fotoThumbnail')->storeAs('fotoThumbnail', $fileNameThumbnail),
+                    ]);
+                } elseif ($request->hasFile('fotoBanner')) {
+                    $dataLama = Data::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->imgBanner,
+                    ]);
+
+                    $fileNameBanner = now()->timestamp . '.' . $request->file('fotoBanner')->getClientOriginalExtension();
+                    Data::where('id_pesan', $id_pesan)->update([
+                        'salam_pembuka' => $request->input('salam'),
+                        'lokasi_akad' => $request->input('lokasi_akad'),
+                        'lokasi_resepsi' => $request->input('lokasi_resepsi'),
+                        'tgl_resepsi' => $request->input('tgl_resepsi'),
+                        'tgl_akad' => $request->input('tgl_akad'),
+                        'jam_akad' => $request->input('jam_akad'),
+                        'jam_resepsi' => $request->input('jam_resepsi'),
+                        'email' => $request->input('email'),
+                        'no_wa' => $request->input('no_wa'),
+                        'nama_panggilan' => $request->input('nama_panggilan'),
+                        'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita'),
+                        'iframeMaps_akad' => $request->input('iframeMaps_akad'),
+                        'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
+                        'imgBanner' => $request->file('fotoBanner')->storeAs('fotoBanner', $fileNameBanner),
+                    ]);
+                } elseif ($request->hasFile('fotoCouple')) {
+                    $dataLama = Data::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->imgCouple,
+                    ]);
+
+                    $fileNameCouple = now()->timestamp . '.' . $request->file('fotoCouple')->getClientOriginalExtension();
+                    Data::where('id_pesan', $id_pesan)->update([
+                        'salam_pembuka' => $request->input('salam'),
+                        'lokasi_akad' => $request->input('lokasi_akad'),
+                        'lokasi_resepsi' => $request->input('lokasi_resepsi'),
+                        'tgl_resepsi' => $request->input('tgl_resepsi'),
+                        'tgl_akad' => $request->input('tgl_akad'),
+                        'jam_akad' => $request->input('jam_akad'),
+                        'jam_resepsi' => $request->input('jam_resepsi'),
+                        'email' => $request->input('email'),
+                        'no_wa' => $request->input('no_wa'),
+                        'nama_panggilan' => $request->input('nama_panggilan'),
+                        'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita'),
+                        'iframeMaps_akad' => $request->input('iframeMaps_akad'),
+                        'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
+                        'imgCouple' => $request->file('fotoCouple')->storeAs('fotoCouple', $fileNameCouple),
+                    ]);
+                }
             } else {
                 // Hanya menjalankan pembaruan data tanpa mengubah gambar jika input file tidak diisi
                 Data::where('id_pesan', $id_pesan)->update([
@@ -339,6 +422,103 @@ class OrderController extends Controller
                     'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
                 ]);
             }
+
+            if ($request->hasFile('foto1') || $request->hasFile('foto2') || $request->hasFile('foto3') || $request->hasFile('foto4') || $request->hasFile('foto5') || $request->hasFile('foto6')) {
+                if ($request->hasFile('foto1') && $request->hasFile('foto1')  && $request->hasFile('foto2')  && $request->hasFile('foto3')  && $request->hasFile('foto4') & $request->hasFile('foto5') && $request->hasFile('foto6')) {
+                    $dataLama = galeryUser::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->foto1,
+                        $dataLama->foto2,
+                        $dataLama->foto3,
+                        $dataLama->foto4,
+                        $dataLama->foto5,
+                        $dataLama->foto6,
+                    ]);
+
+                    $fileNameFoto1 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto1')->getClientOriginalExtension();
+                    $fileNameFoto2 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto2')->getClientOriginalExtension();
+                    $fileNameFoto3 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto3')->getClientOriginalExtension();
+                    $fileNameFoto4 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto4')->getClientOriginalExtension();
+                    $fileNameFoto5 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto5')->getClientOriginalExtension();
+                    $fileNameFoto6 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto6')->getClientOriginalExtension();
+
+                    galeryUser::where('id_pesan', $id_pesan)->update([
+                        'foto1' => $request->file('foto1')->storeAs('fotoGallery', $fileNameFoto1),
+                        'foto2' => $request->file('foto2')->storeAs('fotoGallery', $fileNameFoto2),
+                        'foto3' => $request->file('foto3')->storeAs('fotoGallery', $fileNameFoto3),
+                        'foto4' => $request->file('foto4')->storeAs('fotoGallery', $fileNameFoto4),
+                        'foto5' => $request->file('foto5')->storeAs('fotoGallery', $fileNameFoto5),
+                        'foto6' => $request->file('foto6')->storeAs('fotoGallery', $fileNameFoto6),
+                    ]);
+                } elseif ($request->hasFile('foto1')) {
+                    $dataLama = galeryUser::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->foto1,
+                    ]);
+
+                    $fileNameFoto1 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto1')->getClientOriginalExtension();
+                    galeryUser::where('id_pesan', $id_pesan)->update([
+                        'foto1' => $request->file('foto1')->storeAs('fotoGallery', $fileNameFoto1),
+                    ]);
+                } elseif ($request->hasFile('foto2')) {
+                    $dataLama = galeryUser::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->foto2,
+                    ]);
+
+                    $fileNameFoto2 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto2')->getClientOriginalExtension();
+
+
+                    galeryUser::where('id_pesan', $id_pesan)->update([
+                        'foto2' => $request->file('foto2')->storeAs('fotoGallery', $fileNameFoto2),
+                    ]);
+                } elseif ($request->hasFile('foto3')) {
+                    $dataLama = galeryUser::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->foto3,
+                    ]);
+
+                    $fileNameFoto3 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto3')->getClientOriginalExtension();
+                    galeryUser::where('id_pesan', $id_pesan)->update([
+                        'foto3' => $request->file('foto3')->storeAs('fotoGallery', $fileNameFoto3),
+                    ]);
+                } elseif ($request->hasFile('foto4')) {
+                    $dataLama = galeryUser::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->foto4,
+                    ]);
+
+                    $fileNameFoto4 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto4')->getClientOriginalExtension();
+                    galeryUser::where('id_pesan', $id_pesan)->update([
+                        'foto4' => $request->file('foto4')->storeAs('fotoGallery', $fileNameFoto4),
+                    ]);
+                } elseif ($request->hasFile('foto5')) {
+                    $dataLama = galeryUser::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->foto5,
+                    ]);
+
+                    $fileNameFoto5 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto5')->getClientOriginalExtension();
+
+
+                    galeryUser::where('id_pesan', $id_pesan)->update([
+                        'foto5' => $request->file('foto5')->storeAs('fotoGallery', $fileNameFoto5),
+                    ]);
+                } elseif ($request->hasFile('foto6')) {
+                    $dataLama = galeryUser::where('id_pesan', $id_pesan)->get()[0];
+                    Storage::delete([
+                        $dataLama->foto6,
+                    ]);
+
+                    $fileNameFoto6 = now()->timestamp . '_' . uniqid() . '.' . $request->file('foto6')->getClientOriginalExtension();
+
+
+                    galeryUser::where('id_pesan', $id_pesan)->update([
+                        'foto6' => $request->file('foto6')->storeAs('fotoGallery', $fileNameFoto6),
+                    ]);
+                }
+            }
+
 
             $id_fiturs_selected = $request->input('selected_fiturs');
             if (!empty($id_fiturs_selected)) {
@@ -360,7 +540,6 @@ class OrderController extends Controller
             return redirect()->back()->with('Failed', 'Data Gagal disimpan!');
         }
     }
-
     public function preview(Request $request)
     {
         $id = $request->input('id');

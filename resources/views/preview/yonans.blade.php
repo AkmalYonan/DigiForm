@@ -153,18 +153,23 @@
         <h3 class="text-center mb-3 mari">Gallery</h3>
         <div class="row">
             <div class="col-md-4 mb-3">
-                <a href="{{ asset('img/yonans/zee.jpg') }}" data-lightbox="gallery">
-                    <img src="{{ asset('img/yonans/zee.jpg') }}" alt="Gambar 1" class="img-fluid">
+                <a href="{{ url('storage/'. $pesan->gallery->foto1)}}" data-lightbox="gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" alt="Gambar 1" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4 mb-3">
-                <a href="{{ asset('img/yonans/hehe.jpg') }}" data-lightbox="gallery">
-                    <img src="{{ asset('img/yonans/hehe.jpg') }}" alt="Gambar 1" class="img-fluid">
+                <a href="{{ url('storage/'. $pesan->gallery->foto2)}}" data-lightbox="gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" alt="Gambar 1" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4 mb-3">
-                <a href="{{ asset('img/yonans/eheh2.jpg') }}" data-lightbox=" gallery">
-                    <img src="{{ asset('img/yonans/eheh2.jpg') }}" alt=" Gambar 1" class="img-fluid">
+                <a href="{{ url('storage/'. $pesan->gallery->foto3)}}" data-lightbox=" gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" alt=" Gambar 1" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url('storage/'. $pesan->gallery->foto4)}}" data-lightbox=" gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" alt=" Gambar 1" class="img-fluid">
                 </a>
             </div>
         </div>

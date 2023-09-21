@@ -254,9 +254,36 @@
                       <label for="fotoBanner">Foto Banner</label>
                       <input class="form-control" type="file" id="fotoBanner" name="fotoBanner">
                     </div>
+                  </div>
+                  <div class="pt-5">
+                    <div class="d-flex align-items-center">
+                      <p class="text-lead2 fs-4 fw-bolder mt-3">Photo Gallery</p>
+                      <div class="icon-tanya ms-2" data-bs-toggle="tooltip"
+                        title="Isilah data dibawah untuk Data Kontak!"></div>
+                    </div>
                     <div class="mb-3">
-                      <label for="fotoGallery">Foto Gallery ( Max 6 )</label>
-                      <input class="form-control" type="file" id="fotoGallery" name="fotoGallery[]" multiple>
+                      <label for="foto1">Foto_1</label>
+                      <input class="form-control" type="file" id="foto1" name="foto1">
+                    </div>
+                    <div class=" mb-3">
+                      <label for="foto2">Foto_2</label>
+                      <input class="form-control" type="file" id="foto2" name="foto2">
+                    </div>
+                    <div class=" mb-3">
+                      <label for="foto3">Foto_3</label>
+                      <input class="form-control" type="file" id="foto3" name="foto3">
+                    </div>
+                    <div class=" mb-3">
+                      <label for="foto4">Foto_4</label>
+                      <input class="form-control" type="file" id="foto4" name="foto4">
+                    </div>
+                    <div class=" mb-3">
+                      <label for="foto5">Foto_5</label>
+                      <input class="form-control" type="file" id="foto5" name="foto5">
+                    </div>
+                    <div class="mb-3">
+                      <label for="foto6">Foto_6</label>
+                      <input class="form-control" type="file" id="foto6" name="foto6">
                     </div>
                   </div>
                 </div>

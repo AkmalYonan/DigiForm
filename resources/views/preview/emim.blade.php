@@ -152,28 +152,28 @@
         </div>
         <div class="konten-galeri p-3">
             <div class="isi-galeri">
-                <a href="{{asset ('img/assetsEmiw/img/gallery/1.jpg')}}" data-lightbox="galeri"
+                <a href="{{ url('storage/'. $pesan->gallery->foto1)}}" data-lightbox="galeri"
                     class="@if(in_array('Animasi', $fitur))hidden @endif"><img
-                        src="{{asset ('img/assetsEmiw/img/gallery/1.jpg')}}" alt="" /></a>
-                <a href="{{asset ('img/assetsEmiw/img/gallery/2.jpg')}}" data-lightbox="galeri"
+                        src="{{ url('storage/'. $pesan->gallery->foto1)}}" alt="" /></a>
+                <a href="{{ url('storage/'. $pesan->gallery->foto2)}}" data-lightbox="galeri"
                     class="@if(in_array('Animasi', $fitur))hidden @endif"><img
-                        src="{{asset ('img/assetsEmiw/img/gallery/2.jpg')}}" alt="" /></a>
+                        src="{{ url('storage/'. $pesan->gallery->foto2)}}" alt="" /></a>
             </div>
             <div class="isi-galeri">
-                <a href="{{asset ('img/assetsEmiw/img/gallery/3.jpg')}}" data-lightbox="galeri"
+                <a href="{{ url('storage/'. $pesan->gallery->foto3)}}" data-lightbox="galeri"
                     class="@if(in_array('Animasi', $fitur))hidden @endif"><img
-                        src="{{asset ('img/assetsEmiw/img/gallery/3.jpg')}}" alt="" /></a>
-                <a href="{{asset ('img/assetsEmiw/img/gallery/4.jpg')}}" data-lightbox="galeri"
+                        src="{{ url('storage/'. $pesan->gallery->foto3)}}" alt="" /></a>
+                <a href="{{ url('storage/'. $pesan->gallery->foto4)}}" data-lightbox="galeri"
                     class="@if(in_array('Animasi', $fitur))hidden @endif"><img
-                        src="{{asset ('img/assetsEmiw/img/gallery/4.jpg')}}" alt="" /></a>
+                        src="{{ url('storage/'. $pesan->gallery->foto4)}}" alt="" /></a>
             </div>
             <div class="isi-galeri">
-                <a href="{{asset ('img/assetsEmiw/img/gallery/5.jpg')}}" data-lightbox="galeri"
+                <a href="{{ url('storage/'. $pesan->gallery->foto5)}}" data-lightbox="galeri"
                     class="@if(in_array('Animasi', $fitur))hidden @endif"><img
-                        src="{{asset ('img/assetsEmiw/img/gallery/5.jpg')}}" alt="" /></a>
-                <a href="{{asset ('img/assetsEmiw/img/gallery/6.jpg')}}" data-lightbox="galeri"
+                        src="{{ url('storage/'. $pesan->gallery->foto5)}}" alt="" /></a>
+                <a href="{{ url('storage/'. $pesan->gallery->foto6)}}" data-lightbox="galeri"
                     class="@if(in_array('Animasi', $fitur))hidden @endif"><img
-                        src="{{asset ('img/assetsEmiw/img/gallery/6.jpg')}}" alt="" /></a>
+                        src="{{ url('storage/'. $pesan->gallery->foto6)}}" alt="" /></a>
             </div>
         </div>
         <div class="d-flex justify-content-center @if(in_array('Animasi', $fitur))hidden @endif">

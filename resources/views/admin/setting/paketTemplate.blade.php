@@ -95,34 +95,7 @@
         })
     })
 
-    detail_fitur.addEventListener('change', function(){
-        // console.log('tes ubah paket');
-        $.ajax({
-            url: '{{ route('paket-change') }}',
-            type: 'POST',
-            data : {
-                _token : '{{ csrf_token() }}',
-                id_paket: detail_fitur.value,
-                sesi : 'fitur'
-            },
-            success : function({detail_paket}){
-                console.log(detail_paket);
-                const fiturs_id = detail_paket.map(detil => detil.fitur_id);
-                // console.log(fiturs_id);
-                for(let i = 1; i <= banyak_fitur; i++){
-                    const check = document.querySelector('#flexCheckFitur' + i);
-                    // console.log(check.value);
-                    if ( checkInclude(fiturs_id, check.value)) {
-                        // console.log('berhasil');
-                        check.checked = true;
-                    } else {
-                        check.checked = false;
-                    }
-                }
-
-            }
-        })
-    })
+    
 </script>
 
 
