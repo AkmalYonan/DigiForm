@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
+
+/* font-family: 'Pinyon Script', cursive; */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: serif;
+}
+
+.tombol {
+    position: fixed;
+    z-index: 9999;
+    border: none;
+    text-decoration: none;
+    font-size: 2.5rem !important;
+    padding: 0 0;
+    cursor: pointer;
+    color: rgb(206, 178, 23);
+    mix-blend-mode: multiply;
+    background: none;
+    transition: 0.5s;
+}
+
+.kembali {
+    bottom: 5%;
+    left: -50%;
+    margin: 0;
+}
+
+.lagu {
+    bottom: 5%;
+    right: 5%;
+}
+
+.lagu h4 {
+    font-family: "Pinyon Script", cursive;
+    font-size: 1.4rem;
+}
+
+#pause-icon {
+    display: none;
+}
+
+.hidden {
+    opacity: 0%;
+    transform: translateY(50px);
+    transition: all 1s;
+}
+
+.show {
+    transition: 0;
+    transform: translateY(0);
+    opacity: 100%;
+}
+
+.opening {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.opening .luar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    font-family: "Pinyon Script", cursive;
+    color: rgb(206, 178, 23);
+}
+
+.opening .luar .lingkaran {
+    width: 300px;
+    height: 300px;
+    border: 5px solid rgb(206, 178, 23);
+    border-radius: 50%;
+    transition: 0.7s;
+    overflow: hidden;
+}
+
+.opening .luar .lingkaran .fullscreen-bg {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.opening .luar .lingkaran .fullscreen-bg .fullscreen-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.opening .luar .lingkaran .fullscreen-bg .welcome-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    padding: 30px 30px;
+    opacity: 0%;
+    transition: 0.5s;
+}
+
+.opening .luar .lingkaran .fullscreen-bg .welcome-text .judul {
+    font-size: 3rem;
+}
+
+.opening .luar .lingkaran .fullscreen-bg .welcome-text .countdown {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    font-size: 1.7rem;
+}
+
+.opening .luar .lingkaran .fullscreen-bg .welcome-text .countdown .waktu {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: rgb(206, 178, 23);
+    padding: 10px 10px;
+}
+
+.opening .luar .nama-mempelai {
+    margin-top: 15px;
+    font-size: 2rem;
+    width: 300px;
+}
+
+.opening .luar .nama-mempelai span {
+    font-size: 2.5rem;
+}
+
+.opening .luar .buka-undangan {
+    margin-top: 15px;
+}
+
+.opening .luar .tombol-buka-undangan {
+    font-size: 1.5rem;
+    background: transparent;
+    width: 200px;
+    border: 2px solid rgb(206, 178, 23);
+    color: rgb(206, 178, 23);
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.opening .luar .tombol-buka-undangan:hover {
+    background-color: rgb(206, 178, 23);
+    color: white;
+    transform: scale(1.1);
+}
+
+.opening .luar .konten-mempelai,
+.opening .luar .konten-acara {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.opening .luar .pembuka-acara {
+    margin-top: 30px;
+    font-family: serif;
+}
+
+.opening .luar .pembuka-acara #dnyaaja {
+    font-family: "Pinyon Script", cursive;
+    font-size: 2rem;
+}
+
+.opening .luar .teks-kata2 {
+    font-family: serif;
+}
+
+.opening .luar .konten-mempelai .mempelai,
+.opening .luar .konten-acara .acara {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    width: 50%;
+    height: 100%;
+}
+
+.opening .luar .konten-acara .acara {
+    font-family: serif;
+}
+
+.opening .luar .konten-mempelai .laki,
+.opening .luar .konten-acara .resepsi {
+    background: rgb(206, 178, 23);
+    color: white;
+}
+.opening .luar .konten-acara .acara .title-acara {
+    font-size: 2rem;
+    font-family: "Pinyon Script", cursive;
+}
+
+.opening .luar .konten-mempelai .perempuan,
+.opening .luar .konten-acara .akad-nikah {
+    border: 3px solid rgb(206, 178, 23);
+}
+
+.opening .luar .konten-acara .akad-nikah a {
+    background: rgb(206, 178, 23);
+    color: white;
+}
+.opening .luar .konten-acara .resepsi a {
+    color: rgb(206, 178, 23);
+    background: white;
+}
+
+.galeri {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.galeri .title-galeri {
+    font-family: "Pinyon Script", cursive;
+    font-size: 3rem;
+    color: rgb(206, 178, 23);
+}
+
+.galeri .konten-galeri {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.galeri .konten-galeri .isi-galeri {
+    display: flex;
+    flex-direction: column;
+    width: 32.5%;
+}
+
+.galeri .konten-galeri .isi-galeri a {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+    margin-bottom: 10px;
+}
+
+.galeri .konten-galeri .isi-galeri a:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    z-index: 999;
+}
+
+.galeri .konten-galeri .isi-galeri a img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+    filter: grayscale(100%);
+}
+
+.galeri .konten-galeri .isi-galeri a img:hover {
+    filter: grayscale(0);
+    z-index: 999;
+}
+
+.galeri .pinggiran {
+    width: 300px;
+    margin: 10px 0;
+}
+
+.galeri .bawah {
+    transform: rotate(180deg);
+}
+
+.opening .title-form {
+    font-size: 3rem;
+    font-family: "Pinyon Script", cursive;
+    color: rgb(206, 178, 23);
+}
+
+.rsvp {
+    flex-direction: column;
+}
+
+form {
+    width: 60vw;
+    font-family: serif;
+    margin: 0 20px;
+    color: rgb(206, 178, 23);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: rgb(206, 178, 23);
+}
+
+form input:focus,
+form textarea:focus {
+    background: rgba(255, 255, 255, 0);
+    color: rgb(206, 178, 23);
+}
+
+form input,
+form textarea {
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid rgb(206, 178, 23);
+    transition: all 0.4s;
+    z-index: 9993;
+}
+
+form button {
+    z-index: 9993;
+}
+
+form input[type="radio"] {
+    padding: 3px;
+}
+
+form input[type="radio"]:checked {
+    background: rgb(206, 178, 23);
+    border: 1px solid rgb(206, 178, 23);
+}
+
+.btn-submit {
+    text-decoration: none;
+    color: rgb(206, 178, 23);
+    background: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid rgb(206, 178, 23);
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 70%;
+    }
+    .opening .luar .konten-mempelai,
+    .opening .luar .konten-acara {
+        flex-direction: column;
+    }
+    .opening .luar .konten-mempelai .mempelai,
+    .opening .luar .konten-acara .acara {
+        width: 100%;
+    }
+    .galeri .konten-galeri {
+        flex-direction: column;
+    }
+    .galeri .konten-galeri .isi-galeri {
+        width: 100%;
+    }
+    iframe {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width: 475px) {
+    html {
+        font-size: 60%;
+    }
+}
