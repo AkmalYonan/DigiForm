@@ -42,7 +42,7 @@ class AdminSettingController extends Controller
         return redirect()->route('admindashboard')->with('success', 'Email Admin Website berhasil diperbarui.');
     }
 
-    public function viewSettingPaket()
+    public function viewSettingPaketTemplate()
     {
         $pakets = Paket::all();
         $fiturs = Fitur::all();
@@ -58,7 +58,26 @@ class AdminSettingController extends Controller
         }
         // ddd($detail_bronze);
 
-        return view('admin.setting.paket', compact('pakets', 'fiturs', 'templates', 'detail_bronze'));
+        return view('admin.setting.paketTemplate', compact('pakets', 'fiturs', 'templates', 'detail_bronze'));
+    }
+
+    public function viewSettingPaketFitur()
+    {
+        $pakets = Paket::all();
+        $fiturs = Fitur::all();
+        $templates = Template::all();
+
+        $bronze = Paket::first();
+        $detail_bronze = [[]];
+        foreach ($bronze->detailPaketTemplate as $template) {
+            $detail_bronze[0][] = $template->template_id;
+        }
+        foreach ($bronze->detailPaketFitur as $template) {
+            $detail_bronze[1][] = $template->fitur_id;
+        }
+        // ddd($detail_bronze);
+
+        return view('admin.setting.paketFitur', compact('pakets', 'fiturs', 'templates', 'detail_bronze'));
     }
 
     //  
@@ -96,7 +115,7 @@ class AdminSettingController extends Controller
             // Masukkan detail fitur yang baru
             Detail_paket_template::insert($dataToInsert);
         }
-        return redirect()->route('admin-settingPaket')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('admin-settingPaketTemplate')->with('success', 'Data berhasil disimpan!');
     }
 
     public function updatePaketFitur(Request $request)
@@ -116,6 +135,6 @@ class AdminSettingController extends Controller
             // Masukkan detail fitur yang baru
             Detail_paket_fitur::insert($dataToInsert);
         }
-        return redirect()->route('admin-settingPaket')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('admin-settingPaketFitur')->with('success', 'Data berhasil disimpan!');
     }
 }

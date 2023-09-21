@@ -77,7 +77,7 @@ class AdminController extends Controller
 
     public function viewUser()
     {
-        $levels = level::all();
+        $levels = Level::all();
         $pakets = Paket::all();
         $users = User::orderByDesc('level')->get();
         $totalUsers = User::count();

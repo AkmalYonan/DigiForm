@@ -30,7 +30,7 @@ class OrderController extends Controller
         $order = auth()->user()->is_order;
         if ($order) {
             $Id = auth()->user()->id;
-            $pesan = pesan::where('id_user', $Id)->get()[0];
+            $pesan = Pesan::where('id_user', $Id)->get()[0];
             // dd($pesan);
             $fiturs = Detail_fitur::where('id_pesan', $pesan->id)->get();
 
@@ -193,7 +193,7 @@ class OrderController extends Controller
             return redirect()->route('homeorder');
         } else {
             $Id = auth()->user()->id;
-            $pesan = pesan::where('id_user', $Id)->get()[0];
+            $pesan = Pesan::where('id_user', $Id)->get()[0];
 
             if ($pesan->status == '1') {
                 return redirect()->route('homeorder')->with("error", "Akses diTolak! Anda sudah Melakukan Edit!");
@@ -226,10 +226,10 @@ class OrderController extends Controller
         try {
 
             $user = auth()->user()->id;
-            $id = pesan::where('id_user', $user)->get()[0]; // Mengeksekusi kueri dan mendapatkan model
+            $id = Pesan::where('id_user', $user)->get()[0]; // Mengeksekusi kueri dan mendapatkan model
             $id_pesan = $id->id;
 
-            pesan::where('id', $id_pesan)->update([
+            Pesan::where('id', $id_pesan)->update([
                 'id_template' => $request->input('template_id')
             ]);
 
@@ -365,7 +365,7 @@ class OrderController extends Controller
     {
         $id = $request->input('id');
         // dd($id);
-        $pesan = pesan::where('id', $id)->get()[0];
+        $pesan = Pesan::where('id', $id)->get()[0];
         // dd($pesan);
         $fitur = [];
 
@@ -405,7 +405,7 @@ class OrderController extends Controller
     public function confirm()
     {
         $user = auth()->user()->id;
-        $pesan = pesan::where('id_user', $user)->get()[0];
+        $pesan = Pesan::where('id_user', $user)->get()[0];
         $id_pesan = $pesan->id;
         $managers = User::whereIn('level', ['1', '2'])->get();
         // var_dump($manager);
