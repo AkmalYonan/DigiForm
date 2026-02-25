@@ -1,39 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Page Content -->
-<section class="mt-5 pt-5">
-    <div class="container py-5 mt-5">
-        <div class="row justify-content-center">
+<section class="pt-24 mt-10">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
             @if ($Pakets)
             @foreach ($Pakets as $paket)
-            <div class="col-12 col-md-4" data-aos="fade-up">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title fs-1 text-lead2 fw-bolder" style="color: #B59410">
-                            {{ $paket->nama }} <br /><span class="fs-4 text-roboto text-dark">{{ $paket->harga }}</span>
-                        </h5>
-                        <p class="card-text">
-                        <ul class="fw-light fitur-list">
-                            @foreach ($paket->detailPaketFitur as $detailPaketFitur)
-                            <li>{{ $detailPaketFitur->fitur->nama }}</li>
-                            @endforeach
-                        </ul>
-                        </p>
-                        @if(Auth::check())
-                        <a href="https://wa.me/{{ $whatsappNumber }}" target="_blank"
-                            class="btn btn-dark w-100 fw-bolder" style="border-bottom-width: 2px">Hubungi Staff<i
-                                class="fa-solid fa-right-to-bracket fa-lg ps-2"></i></a>
-                        @else
-                        <a href="{{ route('login') }}" class="btn btn-dark w-100 text-roboto"
-                            style="border-bottom-width: 2px">Hubungi Staff<i
-                                class="fa-solid fa-right-to-bracket fa-lg ps-2"></i></a>
-                        @endif
-                    </div>
+            <div class="w-full" data-aos="fade-up">
+                <div
+                    class="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition duration-300">
+
+                    <h5 class="text-4xl font-extrabold text-[#B59410] leading-tight">
+                        {{ $paket->nama }}
+                        <br>
+                        <span class="text-lg font-normal text-gray-800">
+                            {{ $paket->harga }}
+                        </span>
+                    </h5>
+
+                    <ul class="mt-6 space-y-2 text-gray-600 font-light list-disc list-inside">
+                        @foreach ($paket->detailPaketFitur as $detailPaketFitur)
+                        <li>{{ $detailPaketFitur->fitur->nama }}</li>
+                        @endforeach
+                    </ul>
+
+                    @if(Auth::check())
+                    <a href="https://wa.me/{{ $whatsappNumber }}" target="_blank"
+                        class="mt-6 inline-flex items-center justify-center w-full bg-black text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition duration-300">
+                        Hubungi Staff
+                        <i class="fa-solid fa-right-to-bracket fa-lg pl-2"></i>
+                    </a>
+                    @else
+                    <a href="{{ route('login') }}"
+                        class="mt-6 inline-flex items-center justify-center w-full bg-black text-white font-medium py-3 rounded-lg hover:bg-gray-800 transition duration-300">
+                        Hubungi Staff
+                        <i class="fa-solid fa-right-to-bracket fa-lg pl-2"></i>
+                    </a>
+                    @endif
+
                 </div>
             </div>
             @endforeach
             @endif
+
         </div>
     </div>
 </section>
