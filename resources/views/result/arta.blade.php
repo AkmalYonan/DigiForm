@@ -118,38 +118,49 @@
                 @if(in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
                 Galeri
                 Foto</h2>
-            <div class="row">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+                @if (in_array('Galeri', $fitur))
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11442.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                    <img src="{{ asset('img/arta/BOX11442.JPG') }}"
+                        class="img-fluid shadow-lg p-2 bg-body rounded w-100"
+                        style="max-height:320px; object-fit:cover;" @if (in_array('Animasi',$fitur)) data-aos="fade-up"
+                        @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11444.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+                    <img src="{{ asset('img/arta/BOX11444.JPG') }}"
+                        class="img-fluid shadow-lg p-2 bg-body rounded w-100"
+                        style="max-height:320px; object-fit:cover;" @if (in_array('Animasi',$fitur))
+                        data-aos="fade-down" @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11445.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                    <img src="{{ asset('img/arta/BOX11445.JPG') }}"
+                        class="img-fluid shadow-lg p-2 bg-body rounded w-100"
+                        style="max-height:320px; object-fit:cover;" @if (in_array('Animasi',$fitur)) data-aos="fade-up"
+                        @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11447.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
+                    <img src="{{ asset('img/arta/BOX11447.JPG') }}"
+                        class="img-fluid shadow-lg p-2 bg-body rounded w-100"
+                        style="max-height:320px; object-fit:cover;" @if (in_array('Animasi',$fitur))
+                        data-aos="fade-down" @endif>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('img/arta/BOX11440.JPG') }}" class="shadow-lg p-2 mb-5 bg-body rounded"
-                        width="200px" height="320px" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                    <img src="{{ asset('img/arta/BOX11440.JPG') }}"
+                        class="img-fluid shadow-lg p-2 bg-body rounded w-100"
+                        style="max-height:320px; object-fit:cover;" @if (in_array('Animasi',$fitur)) data-aos="fade-up"
+                        @endif>
                 </div>
-            </div>
-            @endif
-            <div class="shadow p-3 mb-5 bg-body rounded" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
-                <p class="fs-5" style="color: #A4907C;"> "Ketahuilah, setiap kalian adalah pemimpin, dan setiap dari
-                    kalian
-                    bertanggung jawab atas yang la pimpin… seorang lelaki adalah pemimpin bagi keluarganya, dan la
-                    bertanggung jawab atas keluarganya..Ketahuilah setiap dari kalian adalah pemimpin dan
-                    bertanggung
-                    jawab atas apa yang ia pimpin." - HR. Bukhari dan Muslim.</p>
-                <img src="{{ asset('img/arta/daun.png') }}" alt="" width="100px" height="80px">
-            </div>
+                @endif
+                @endif
+                <div class="shadow p-3 mb-5 bg-body rounded" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                    <p class="fs-5" style="color: #A4907C;"> "Ketahuilah, setiap kalian adalah pemimpin, dan setiap dari
+                        kalian
+                        bertanggung jawab atas yang la pimpin… seorang lelaki adalah pemimpin bagi keluarganya, dan la
+                        bertanggung jawab atas keluarganya..Ketahuilah setiap dari kalian adalah pemimpin dan
+                        bertanggung
+                        jawab atas apa yang ia pimpin." - HR. Bukhari dan Muslim.</p>
+                    <img src="{{ asset('img/arta/daun.png') }}" alt="" width="100px" height="80px">
+                </div>
         </section>
 
         <section id="details" class="center shadow p-3 mb-5 bg-body rounded">
@@ -158,7 +169,7 @@
             </h2>
             <div class="row">
                 @if (in_array('Hari/Tgl Akad', $fitur))
-                <div class="col-sm-6">
+                <div class="col-12 col-sm-6">
                     <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif>
                         <div class="card-body">
                             <h5 class="card-title">Akad</h5>
@@ -167,15 +178,17 @@
                             <p class="card-text">{{ $pesan->data->lokasi_akad }}
                             </p>
                             @if (in_array('Lokasi Acara Maps', $fitur))
-                            <iframe src="{{ $pesan->data->iframeMaps_akad}}" width="400" height="300" style="border:0;"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="{{ $pesan->data->iframeMaps_akad}}" style="border:0;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                             @endif
                         </div>
                     </div>
                 </div>
                 @endif
                 @if (in_array('Hari/Tgl Resepsi', $fitur))
-                <div class="col-sm-6">
+                <div class="col-12 col-sm-6">
                     <div class="card" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
                         <div class="card-body">
                             <h5 class="card-title">Resepsi</h5>
@@ -184,9 +197,10 @@
                             <p class="card-text">{{ $pesan->data->lokasi_resepsi }}
                             </p>
                             @if (in_array('Lokasi Acara Maps', $fitur))
-                            <iframe src="{{ $pesan->data->iframeMaps_resepsi}}" width="400" height="300"
-                                style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="{{ $pesan->data->iframeMaps_resepsi}}" style="border:0;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                             @endif
                         </div>
                     </div>

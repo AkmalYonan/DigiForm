@@ -9,11 +9,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/prima/prima2.css') }}">
-    <title>{{ $pesan->data->nama_pasangan }} Wedding</title>
     <style>
         body,
         .banner {
-            background-image: url(storage/{{$pesan->data->imgBanner}});
+            background-image: url(../../storage/{{$pesan->data->imgBanner}});
             background-attachment: fixed;
             background-size: cover;
             background-blend-mode: darken;
@@ -22,12 +21,13 @@
             color: #eaeaea;
         }
     </style>
+    <title>{{ $pesan->data->nama_pasangan }} Wedding</title>
 </head>
 
 <body>
     <div id="overlay">
         <div class="overlay-content" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
-            <img src="{{ url('storage/'.$pesan->data->imgThumbnail) }}" class="border-warna" height="200px"
+            <img src="{{ url('storage/'. $pesan->data->imgThumbnail) }}" class="border-warna" height="200px"
                 width="300px">
             <p class="display-1 m-3" style="font-family: 'Great Vibes', cursive; color: #886F6F;">
                 {{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}
@@ -52,8 +52,8 @@
             <p class="display-3 m-5" style="font-family: 'IM Fell Great Primer', serif; color: #ffffff;">
                 {{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}
             </p>
-            <img src="{{ url('storage/'.$pesan->data->imgBanner) }}" width="400px"
-                class="mb-3 img-thumbnail text-center">
+            <img src="{{ url('storage/'. $pesan->data->imgBanner) }}" class="img-fluid mb-3 img-thumbnail text-center"
+                style="max-width: 400px;">
         </div>
 
         @if (in_array('Countdown', $fitur))
@@ -83,8 +83,8 @@
         </div>
 
         <div class="mempelai text-center m-5">
-            <div class="row justify-content-md-center align-items-center">
-                <div class="col col-lg-2">
+            <div class="row justify-content-center align-items-center g-4">
+                <div class="col-12 col-md-4 col-lg-3">
                     <h1 class="display-3" style="font-family: 'Great Vibes', cursive; color: #886F6F;"
                         @if(in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
                         {{ $pesan->mPria->nama_pria_lengkap }}
@@ -97,11 +97,12 @@
                         <br>Bapak {{ $pesan->mPria->nama_ayah }} & Ibu {{ $pesan->mPria->nama_ibu }}
                     </p>
                 </div>
-                <div class="col-md-auto">
-                    <img src="{{ url('storage/'. $pesan->data->imgCouple) }}" width="250px" height="500px"
-                        class="border-warna mb-4 " @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
+                <div class="col-12 col-md-4">
+                    <img src="{{ url('storage/'. $pesan->data->imgCouple) }}" class="img-fluid border-warna mb-4"
+                        style="max-height: 500px; width: 100%; object-fit: cover; max-width: 250px;" @if
+                        (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif>
                 </div>
-                <div class="col col-lg-2">
+                <div class="col-12 col-md-4 col-lg-3">
                     <h1 class="display-3" style="font-family: 'Great Vibes', cursive; color: #886F6F;"
                         @if(in_array('Animasi',$fitur)) data-aos="fade-down" @endif>
                         {{ $pesan->mWanita->nama_wanita_lengkap }}
@@ -168,26 +169,26 @@
                 Foto</h2>
             <div class="row m-3">
                 <div class="col-lg-4 col-md-12 mb-2 mb-lg-0">
-                    <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ asset('img/prima/foto2.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Boat on Calm Water" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif />
 
-                    <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ asset('img/prima/foto9.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Wintry Mountain Landscape" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif />
                 </div>
 
                 <div class="col-lg-4 mb-2 mb-lg-0">
-                    <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ asset('img/prima/foto8.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Mountains in the Clouds" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-down" @endif />
 
-                    <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ asset('img/prima/foto10.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Boat on Calm Water" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif />
                 </div>
 
                 <div class="col-lg-4 mb-2 mb-lg-0">
-                    <img src="{{ url('storage/'. $pesan->gallery->foto5)}}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ asset('img/prima/foto7.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Waves at Sea" @if (in_array('Animasi',$fitur)) data-aos="fade-down" @endif />
 
-                    <img src="{{ url('storage/'. $pesan->gallery->foto6)}}" class="w-100 shadow-1-strong rounded mb-4"
+                    <img src="{{ asset('img/prima/foto12.jpg') }}" class="w-100 shadow-1-strong rounded mb-4"
                         alt="Yosemite National Park" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif />
                 </div>
             </div>
@@ -205,7 +206,7 @@
         @if (in_array('Buka Tamu', $fitur))
         <div class="text-center ucapan m-3">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-12 col-sm-6">
                     <form id="greetingForm">
                         <h2 class="text-center fs-2  mb-4" style="font-family: 'Parisienne', cursive; color: #886F6F"
                             @if (in_array('Animasi',$fitur)) data-aos="zoom-in" @endif>Kartu Ucapan</h2>
@@ -249,7 +250,7 @@
 
         <h1 class="display-5 mt-3" @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif
             style="font-family: 'IM Fell Great Primer'">Terimakasih</h1>
-        <img src="{{ asset('img/prima/pngegg (3).png') }}" width="200px" height="200px" class="m-3">
+        <img src="{{ asset('img/prima/pngegg (3).png') }}" class="img-fluid m-3" style="max-width: 200px;">
         <p @if (in_array('Animasi',$fitur)) data-aos="zoom-in-up" @endif class="fs-4"
             style="font-family: 'IM Fell Great Primer'">Merupakan Suatu
             Kebahagian dan
