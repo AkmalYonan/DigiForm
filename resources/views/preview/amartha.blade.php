@@ -24,7 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("storage/{{ $pesan->data->imgThumbnail }}");
+            background-image: url(../../storage/{{ $pesan->data->imgThumbnail }});
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -38,7 +38,7 @@
 
         .bgwedding1 {
             position: relative;
-            background: url("storage/{{ $pesan->data->imgBanner }}");
+            background: url(../../storage/{{ $pesan->data->imgBanner }});
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -53,7 +53,7 @@
         <div class="container">
             <div class="position-absolute top-50 start-50 translate-middle">
                 <div class="row justify-content-center">
-                    <div class="col-10 col-md-3">
+                    <div class="col-8 col-sm-6 col-md-4">
                         <img src="{{ url('storage/'. $pesan->data->imgCouple) }}"
                             class="img-fluid rounded-4 border-warna-utama" alt="" />
                     </div>
@@ -104,7 +104,7 @@
             ></path>
           </svg> -->
 
-                <div class="container w-75 text-center pt-2 pb-5">
+                <div class="container text-center pt-2 pb-5">
                     <div class="row row-cols-1 justify-content-center pt-5">
                         <div class="col-4">
                             <img src="{{ asset('img/amartha/assets/Bunga-1-1.png') }}" alt=""
@@ -140,7 +140,7 @@
                     </p>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-5 col-md-3">
+                    <div class="col-10 col-sm-5 col-md-3">
                         <div class="container">
                             <img src="{{ url('storage/'. $pesan->mPria->image) }}"
                                 class="w-100 shadow-lg rounded-4 border-warna-utama" @if(in_array('Animasi',$fitur))
@@ -162,7 +162,7 @@
                             &
                         </p>
                     </div>
-                    <div class="col-5 col-md-3">
+                    <div class="col-10 col-sm-5 col-md-3">
                         <div class="container">
                             <img src="{{ url('storage/'. $pesan->mWanita->image) }}"
                                 class="w-100 shadow-lg rounded-4 border-warna-utama" @if (in_array('Animasi',$fitur))
@@ -192,7 +192,8 @@
                         alt="fgwefwegergweffewfqwe" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>Menuju
                         Hari Bahagia
                     </p>
-                    <p class="container w-75" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
+                    <p class="container col-12 col-md-9 mx-auto" @if (in_array('Animasi',$fitur)) data-aos="fade-up"
+                        @endif>
                         Siang dan malam berganti begitu cepat, di antara saat-saat
                         mendebarkan yang belum pernah kami rasakan sebelumnya. Kami
                         nantikan kehadiran para keluarga dan sahabat, untuk menjadi saksi
@@ -373,10 +374,9 @@
                         {{ $pesan->data->lokasi_resepsi }}
                     </p>
                     @if (in_array('Lokasi Acara Maps', $fitur))
-                    <div class="container w-75 border border-4 border-dark rounded-4">
-                        <iframe src="{{ $pesan->data->iframeMaps_resepsi}}" class="ratio ratio-21x9 object-fit-contain"
-                            style="border: 0" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="{{ $pesan->data->iframeMaps_resepsi}}" style="border: 0" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     @endif
                     <div class="livestream py-5">
@@ -414,20 +414,20 @@
                 <!-- Gallery -->
                 <div class="row" @if (in_array('Animasi',$fitur)) data-aos="fade-up" @endif>
                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                        <img src="{{ url('storage/'. $pesan->gallery->foto1)}}"
+                        <img src="{{ asset('img/amartha/img/galery1.jpeg') }}"
                             class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
 
-                        <img src="{{ url('storage/'. $pesan->gallery->foto2)}}"
-                            class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
-                    </div>
-
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ url('storage/'. $pesan->gallery->foto3)}}"
+                        <img src="{{ asset('img/amartha/img/galery2.jpeg') }}"
                             class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
                     </div>
 
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" class=" w-100 shadow-1-strong rounded
+                        <img src="{{ asset('img/amartha/img/gallery3.jpeg') }}"
+                            class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
+                    </div>
+
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img src="{{ asset('img/amartha/img/galery4.jpeg') }}" class=" w-100 shadow-1-strong rounded
                             mb-4" alt="Photo in LOTTE KOREA 360" />
                     </div>
                 </div>
@@ -495,7 +495,7 @@
             </div>
         </div>
         <div class="footer">
-            <div class="container pt-3 w-50">
+            <div class="container pt-3">
                 <p class="text-muted fs-6 text-center">
                     Copyright ©, 2023 Akmal Yonan, All Rights Reserved
                 </p>

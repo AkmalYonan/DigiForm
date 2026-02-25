@@ -22,7 +22,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url(storage/{{$pesan->data->imgThumbnail }});
+            background-image: url(../../storage/{{$pesan->data->imgThumbnail }});
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -36,7 +36,7 @@
 
         .bgwedding1 {
             position: relative;
-            background: url(storage/{{$pesan->data->imgBanner}});
+            background: url(../../storage/{{$pesan->data->imgBanner}});
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -92,9 +92,9 @@
               d="M0,288L120,250.7C240,213,480,139,720,138.7C960,139,1200,213,1320,250.7L1440,288L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"
             ></path>
           </svg> -->
-                <div class="container w-75 text-center py-5">
+                <div class="container text-center py-5">
                     <div class="row row-cols-1 justify-content-center py-5">
-                        <div class="col-4">
+                        <div class="col-8 col-sm-4 col-md-3">
                             <img src="{{ asset('img/amara/assets/Bunga-1-1.png') }}" alt="" class="w-25 img-fluid" />
                         </div>
                         <div class="col-12">
@@ -164,7 +164,7 @@
                         <!-- السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ -->
                         {{ $pesan->data->salam_pembuka }}
                     </p>
-                    <p class="container w-75">
+                    <p class="container col-12 col-md-9 mx-auto">
                         Dengan memohon Rahmat Allah SWT dan dengan segenap kerendahan
                         hati, perkenankanlah kami mengundang Bapak/Ibu/Saudara/i untuk
                         dapat menghadiri acara pernikahan kami yang dilaksanakan pada :
@@ -190,8 +190,10 @@
                                 $pesan->data->lokasi_akad }}
                             </p>
                             @if (in_array('Lokasi Acara Maps', $fitur))
-                            <iframe src="{{ $pesan->data->iframeMaps_akad }}" class="ratio ratio-21x9" style="border: 0"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="{{ $pesan->data->iframeMaps_akad }}" style="border: 0" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                             @endif
                             <a href="{{$pesan->data->link_akad}}" target="_blank">
                                 <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}"
@@ -219,9 +221,11 @@
                                 $pesan->data->lokasi_resepsi }}
                             </p>
                             @if (in_array('Lokasi Acara Maps', $fitur))
-                            <iframe src="{{
-                                    $pesan->data->iframeMaps_resepsi }}" class="ratio ratio-21x9" style="border: 0"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="{{ $pesan->data->iframeMaps_resepsi }}" style="border: 0"
+                                    allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                             @endif
                             <a href="{{$pesan->data->link_resepsi}}" target="_blank">
                                 <img src="{{ asset('img/amara/assets/bukagoogle.jpeg') }}"
@@ -289,20 +293,20 @@
                 <!-- Gallery -->
                 <div class="row">
                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                        <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" class=" w-100 shadow-1-strong rounded
+                        <img src="{{ asset('img/amara/assets/galery1.jpeg') }}" class=" w-100 shadow-1-strong rounded
                             mb-4" alt="Boat on Calm Water" />
 
-                        <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" class=" w-100 shadow-1-strong rounded
+                        <img src="{{ asset('img/amara/assets/galery2.jpeg') }}" class=" w-100 shadow-1-strong rounded
                             mb-4" alt="Boat on Calm Water" />
                     </div>
 
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ url('storage/'. $pesan->gallery->foto3)}}"
+                        <img src="{{ asset('img/amara/assets/gallery3.jpeg') }}"
                             class="w-100 shadow-1-strong rounded mb-4" alt="Photo in LOTTE KOREA 360" />
                     </div>
 
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        <img src="{{ url('storage/'. $pesan->gallery->foto4)}}"
+                        <img src="{{ asset('img/amara/assets/galery4.jpeg') }}"
                             class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
                     </div>
                 </div>
@@ -310,7 +314,7 @@
             </div>
         </div>
         @endif
-        <div class="container pt-2 w-75">
+        <div class="container pt-2">
             <div class="text-center">
                 <p>
                     “Dan di antara ayat-ayat-Nya ialah Dia menciptakan untukmu
@@ -326,7 +330,7 @@
         </div>
         @if (in_array('Buku Tamu', $fitur))
         <div class="section6">
-            <div class="container py-4 w-75">
+            <div class="container py-4">
                 <div class="text-center">
                     <p>Konfirmasi Kehadiran anda di Acara pernikahan :</p>
                     <p class="display-4" style="font-family: 'Alex Brush', cursive">
