@@ -1,78 +1,146 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container pt-5 mt-5 pb-4">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="card bg-info">
-                <div class="card-body">
-                    <h5 class="card-title fs-6">Total Paket</h5>
-                    <p class="card-text fs-1 fw-bolder">{{ $totalPakets }}</p>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-28">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <div>
+            <h1 class="text-3xl font-extrabold text-slate-900 display-font">Manajemen Paket</h1>
+            <p class="text-slate-500 mt-1">Atur harga dan opsi paket undangan untuk pelanggan</p>
+        </div>
+        <a href="{{ route('admindashboard') }}"
+            class="inline-flex items-center justify-center px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium transition-colors border border-slate-200 shadow-sm">
+            <i class="fa-solid fa-arrow-left mr-2 text-sm"></i> Kembali ke Dashboard
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- Left Column: Stats & Add Form -->
+        <div class="lg:col-span-1 space-y-6">
+            <!-- Stat Card -->
+            <div
+                class="bg-gradient-to-br from-indigo-500 to-blue-600 rounded-3xl p-6 shadow-lg shadow-indigo-500/30 text-white relative overflow-hidden">
+                <div class="absolute right-0 top-0 -mt-4 -mr-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-indigo-100 text-sm font-medium mb-1">Total Paket Aktif</p>
+                        <h3 class="text-4xl font-bold">{{ $totalPakets }}</h3>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                        <i class="fa-solid fa-box-open text-xl"></i>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 col-md-12">
-                    <div class="container shadow-lg py-3 my-3 rounded-3">
-                        <p class="lead">Input Paket Baru</p>
-                        <form action="{{ route('store-paket') }}" method="POST">
-                            @csrf
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="namaPaket">
-                                <label for="floatingInput">Nama Paket</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingPassword" name="hargaPaket">
-                                <label for="floatingPassword">Harga</label>
-                            </div>
-                            <button type="submit" class="btn btn-sm btn-success w-100 mt-2">Submit</button>
-                        </form>
+
+            <!-- Form Card -->
+            <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
+                <div class="flex items-center mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3">
+                        <i class="fa-solid fa-plus text-sm"></i>
                     </div>
-                    <button type="button" class="btn btn-sm btn-danger mt-2"
-                        onclick="location.href='{{ route('admindashboard') }}'">BACK</button>
+                    <h2 class="text-lg font-bold text-slate-900">Tambah Paket Baru</h2>
                 </div>
+
+                <form action="{{ route('store-paket') }}" method="POST" class="space-y-4">
+                    @csrf
+                    <div>
+                        <label for="namaPaket" class="block text-sm font-medium text-slate-700 mb-1">Nama Paket</label>
+                        <input type="text" id="namaPaket" name="namaPaket" required
+                            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-white transition-colors"
+                            placeholder="Cth: Premium Package">
+                    </div>
+
+                    <div>
+                        <label for="hargaPaket" class="block text-sm font-medium text-slate-700 mb-1">Harga</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-slate-400 font-medium">Rp</span>
+                            </div>
+                            <input type="text" id="hargaPaket" name="hargaPaket" required
+                                class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-white transition-colors"
+                                placeholder="150.000">
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full mt-2 flex justify-center py-2.5 px-4 rounded-xl shadow-md shadow-emerald-500/20 text-white bg-emerald-600 hover:bg-emerald-700 font-bold transition-all hover:-translate-y-0.5">
+                        Simpan Data
+                    </button>
+                </form>
             </div>
         </div>
-        <div class="col-12 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Total Paket</h5>
-                    <table class="table">
+
+        <!-- Right Column: Data Table -->
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm h-full">
+                <div class="flex items-center mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3">
+                        <i class="fa-solid fa-list text-sm"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-slate-900">Daftar Paket</h2>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-100">
+                    <table class="w-full text-left border-collapse">
                         <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
+                            <tr class="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
+                                <th class="p-4 font-semibold border-b border-slate-200 w-16 text-center">ID</th>
+                                <th class="p-4 font-semibold border-b border-slate-200">Nama Paket</th>
+                                <th class="p-4 font-semibold border-b border-slate-200">Harga</th>
+                                <th class="p-4 font-semibold border-b border-slate-200 text-center w-32">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($pakets as $paket)
-                            <tr>
-                                <td>{{ $paket->id }}</td>
-                                <td>{{ $paket->nama }}</td>
-                                <td>{{ $paket->harga }}</td>
-                                <td class="ps-3">
-                                    <a href="{{ route('edit-paket', ['id' => $paket->id]) }}">
-                                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                                    </a>
+                        <tbody class="divide-y divide-slate-100 bg-white text-sm">
+                            @forelse ($pakets as $paket)
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-slate-500 text-center font-medium">#{{ $paket->id }}</td>
+                                <td class="p-4 text-slate-900 font-bold">{{ $paket->nama }}</td>
+                                <td class="p-4 text-indigo-600 font-semibold align-middle">
+                                    <span
+                                        class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold border border-indigo-100">
+                                        {{ $paket->harga }}
+                                    </span>
                                 </td>
-                                <td>
-                                    <form action="{{ route('delete-paket', ['id' => $paket->id]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a type="submit" class="ps-2 text-danger"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                class="fa-solid fa-trash fa-lg"></i></a>
-                                    </form>
+                                <td class="p-4">
+                                    <div class="flex items-center justify-center space-x-3">
+                                        <!-- Edit -->
+                                        <a href="{{ route('edit-paket', ['id' => $paket->id]) }}"
+                                            class="text-amber-500 hover:text-amber-600 hover:bg-amber-50 p-2 rounded-lg transition-colors border border-transparent hover:border-amber-200 tooltip"
+                                            title="Edit">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <!-- Delete -->
+                                        <form action="{{ route('delete-paket', ['id' => $paket->id]) }}" method="POST"
+                                            class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus paket ini?')"
+                                                class="text-rose-500 hover:text-rose-600 hover:bg-rose-50 p-2 rounded-lg transition-colors border border-transparent hover:border-rose-200 tooltip"
+                                                title="Hapus">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="4"
+                                    class="p-8 text-center text-slate-500 flex flex-col items-center justify-center">
+                                    <i class="fa-solid fa-inbox text-4xl mb-3 text-slate-300"></i>
+                                    <p>Belum ada data paket tersedia.</p>
+                                </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 @endsection
