@@ -1,3 +1,4 @@
+/* ===== COLOR TOKENS ===== */
 .bg-gradient-4 {
     background: #38280c;
     background: -webkit-linear-gradient(to right, #38280c, #5c3f0e);
@@ -14,13 +15,13 @@
     font-family: "Fira Code", monospace;
 }
 
+/* ===== OVERLAY / SPLASH SCREEN ===== */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/amara/assets/galery2.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +30,9 @@
     justify-content: center;
     align-items: center;
     opacity: 1;
-    transition: opacity 0.5s, transform 0.5s;
+    transition:
+        opacity 0.5s,
+        transform 0.5s;
 }
 
 .overlay.hidden {
@@ -47,22 +50,27 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* ===== HIDDEN CONTENT ===== */
 .hidden-content {
     display: none;
 }
+
+/* ===== HOVER ANIMASI ===== */
 .cenatcenut {
     transition: transform 0.5s;
+    max-width: 140px;
 }
 
 .cenatcenut:hover {
     transform: scale(0.7);
 }
 
+/* ===== BANNER SECTION 1 ===== */
 .bgwedding1 {
     position: relative;
-    background: url("../img/amara/assets/galery1.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .bgwedding1::before {
@@ -72,18 +80,69 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(
-        0,
-        0,
-        0,
-        0.3
-    ); /* Ubah alpha (0.5) sesuai kebutuhan */
-    z-index: -1; /* Menempatkan overlay di belakang konten */
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
 }
 
 .section1 {
     position: relative;
-    z-index: 1; /* Menempatkan konten di atas overlay */
-    /* padding-top: 31rem;
-      padding-bottom: 3rem; */
+    z-index: 1;
+}
+
+/* ===== RESPONSIVE OVERRIDES ===== */
+@media (max-width: 767.98px) {
+    /* Heading sizes */
+    .display-2 {
+        font-size: 2rem !important;
+    }
+    .display-3 {
+        font-size: 1.8rem !important;
+    }
+    .display-4 {
+        font-size: 1.6rem !important;
+    }
+    .display-5 {
+        font-size: 1.4rem !important;
+    }
+
+    /* Section widths */
+    .container.w-75 {
+        width: 100% !important;
+    }
+    .container.w-50 {
+        width: 100% !important;
+    }
+
+    /* Maps iframe */
+    .ratio-21x9 {
+        --bs-aspect-ratio: 56.25%;
+    }
+
+    /* Section padding */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .p-5 {
+        padding: 1.5rem !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .display-2 {
+        font-size: 1.75rem !important;
+    }
+    .display-3 {
+        font-size: 1.5rem !important;
+    }
+    .fs-1 {
+        font-size: 1.4rem !important;
+    }
+
+    /* Buku tamu container */
+    .container.py-4.w-75 {
+        width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
 }

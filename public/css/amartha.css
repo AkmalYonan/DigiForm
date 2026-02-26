@@ -1,3 +1,4 @@
+/* ===== COLOR TOKENS ===== */
 .bg-gradient-4 {
     background: #0b666a;
     background: -webkit-linear-gradient(to right, #071952, #0b666a);
@@ -8,7 +9,7 @@
 }
 
 .border-warna-utama {
-    border: 8px solid #0b666a; /* Lebar border dan jenis garis */
+    border: 8px solid #0b666a;
 }
 
 .text-warna-utama2 {
@@ -19,28 +20,26 @@
 }
 
 .warna-bunga {
-    filter: hue-rotate(
-        240deg
-    ); /* Nilai derajat sesuaikan dengan warna yang diinginkan */
+    filter: hue-rotate(240deg);
 }
 
 .text1 {
     font-family: "Fira Code", monospace;
 }
+
+/* ===== HIDDEN CONTENT ===== */
 .hidden-content {
     position: relative;
     z-index: 1;
 }
 
-<<<<<<< HEAD
-=======
+/* ===== OVERLAY / SPLASH SCREEN ===== */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/amartha/img/galery2.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -49,10 +48,11 @@
     justify-content: center;
     align-items: center;
     opacity: 1;
-    transition: opacity 0.5s, transform 0.5s;
+    transition:
+        opacity 0.5s,
+        transform 0.5s;
 }
 
->>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
 .overlay.hidden {
     opacity: 0;
     transform: translateY(-100%);
@@ -69,26 +69,25 @@
     z-index: -1;
 }
 
+/* ===== HOVER ANIMASI ===== */
 .cenatcenut {
     transition: transform 0.5s;
+    max-width: 140px;
 }
 
 .cenatcenut:hover {
     transform: scale(0.7);
 }
 
-<<<<<<< HEAD
-=======
+/* ===== BANNER SECTION 1 ===== */
 .bgwedding1 {
     position: relative;
-    background: url("../img/amartha/img/galery1.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;
 }
 
->>>>>>> 424af9bf242a70786cc8aeedcfb99ca7f594a4e1
 .bgwedding1::before {
     content: "";
     position: absolute;
@@ -96,18 +95,78 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(
-        0,
-        0,
-        0,
-        0.3
-    ); /* Ubah alpha (0.5) sesuai kebutuhan */
-    z-index: -1; /* Menempatkan overlay di belakang konten */
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
 }
 
 .section1 {
     position: relative;
-    z-index: 1; /* Menempatkan konten di atas overlay */
-    /* padding-top: 31rem;
-      padding-bottom: 3rem; */
+    z-index: 1;
+}
+
+/* ===== RESPONSIVE OVERRIDES ===== */
+@media (max-width: 767.98px) {
+    /* Heading sizes */
+    .display-1 {
+        font-size: 2.5rem !important;
+    }
+    .display-2 {
+        font-size: 2rem !important;
+    }
+    .display-3 {
+        font-size: 1.8rem !important;
+    }
+    .display-4 {
+        font-size: 1.5rem !important;
+    }
+    .display-5 {
+        font-size: 1.3rem !important;
+    }
+
+    /* Section widths: override w-75 / w-50 */
+    .container.w-75 {
+        width: 100% !important;
+    }
+    .container.w-50 {
+        width: 100% !important;
+    }
+
+    /* Section padding */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .p-5 {
+        padding: 1.5rem !important;
+    }
+
+    /* Border on couple photos – reduce thickness for small screens */
+    .border-warna-utama {
+        border: 4px solid #0b666a;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .display-1 {
+        font-size: 2rem !important;
+    }
+    .display-2 {
+        font-size: 1.75rem !important;
+    }
+    .display-3 {
+        font-size: 1.5rem !important;
+    }
+    .fs-1 {
+        font-size: 1.35rem !important;
+    }
+
+    /* Maps iframe ratio override for small screens */
+    .ratio-21x9 {
+        --bs-aspect-ratio: 56.25%;
+    }
+
+    /* Footer */
+    .container.w-50 {
+        width: 100% !important;
+    }
 }
