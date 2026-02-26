@@ -57,9 +57,11 @@ body {
     height: 100%;
     bottom: 0;
     background: rgb(181, 0, 0);
-    background: linear-gradient(0deg,
-            rgb(78, 1, 14) 30%,
-            rgba(9, 9, 121, 0) 100%);
+    background: linear-gradient(
+        0deg,
+        rgb(78, 1, 14) 30%,
+        rgba(9, 9, 121, 0) 100%
+    );
 }
 
 .bg-img img {
@@ -229,7 +231,8 @@ h3 {
 }
 
 form {
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -241,13 +244,13 @@ label {
 input[type="text"],
 select,
 textarea {
-    width: 70%;
+    width: 100%;
     padding: 5px;
     margin-top: 5px;
 }
 
 input[type="submit"] {
-    width: 70%;
+    width: 100%;
     padding: 10px;
     margin-top: 10px;
     background-color: #cfb975;
@@ -262,7 +265,8 @@ input[type="submit"]:hover {
 
 .comment-layout {
     display: none;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     margin: 0 auto;
     padding: 10px;
     background-color: #333;
@@ -297,9 +301,14 @@ input[type="submit"]:hover {
 }
 
 .bg-navbar-template {
-    background-color: rgba(255,
-            255,
-            255,
-            0.7);
-    /* Transparansi 50% untuk warna putih */
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 575.98px) {
+    .mari {
+        font-size: 36px;
+    }
+    .opening {
+        margin-top: 150px;
+    }
 }

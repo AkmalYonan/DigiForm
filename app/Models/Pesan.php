@@ -44,6 +44,6 @@ class Pesan extends Model
     }
     public function gallery()
     {
-        return $this->hasMany(GalleryUser::class, 'id');
+        return $this->hasOne(galeryUser::class, 'id_pesan', 'id');
     }
 }
