@@ -21,8 +21,8 @@
                 <h3>The Wedding of</h3>
                 <h1 class="pengantin">{{ $pesan->mPria->nama_pria }} & {{ $pesan->mWanita->nama_wanita }}</h1>
                 <div class="logo">
-                    <img src="{{ asset('img/dawa/resource/images/logo.png') }}" alt="" class="img-fluid"
-                        style="max-width:175px;">
+                    <img src="{{ asset('img/dawa/resource/images/logo.png') }}" alt="" alt="" width="175"
+                        height="185.5">
                 </div>
                 <div class="details">
                     <p><span class="date">{{ $tgl_resepsi }}</span></p>
@@ -74,8 +74,8 @@
         <section @if (in_array('Animasi',$fitur)) class="hidden" @endif>
             <div class="container2">
                 <div class="logo">
-                    <img src="{{ asset('img/dawa/resource/images/logo.png') }}" alt="" class="img-fluid"
-                        style="max-width:105px;">
+                    <img src="{{ asset('img/dawa/resource/images/logo.png') }}" alt="" alt="" width="105"
+                        height="115.5">
                 </div>
                 <p>"Dan diantara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari
                     jenismu sendiri, agar kamu cenderung merasa tentram kepadanya, dan Dia menjadikan diantaramu rasa
@@ -187,22 +187,22 @@
                     <h1>Gallery</h1>
                     <div class="slider">
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe2.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="{{ asset('img/dawa/resource/images/hehe2.jpg') }}" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto5)}}" alt="img">
                         </div>
                         <div class="slide">
-                            <img src="" alt="img">
+                            <img src="{{ url('storage/'. $pesan->gallery->foto6)}}" alt="img">
                         </div>
                     </div>
                     <div class="prev-btn">

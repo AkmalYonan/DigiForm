@@ -9,6 +9,7 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/yonans/yonans.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script&family=Parisienne&display=swap"
@@ -17,29 +18,31 @@
 
 <body>
     <div class="konten">
-        <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif " id="page1">
-            <img src="{{ asset('img/yonans/rose3.jpg') }}" alt="img">
-            <div class="container mt-5 isian">
-                <div class="opening">
-                    <h3 class="card-title text-center">The Wedding of</h3>
-                    <h1 class="text-center mt-5">{{ $pesan->mPria->nama_pria }}</h1>
-                    <h2 class="text-center">and</h2>
-                    <h1 class="text-center">{{ $pesan->mWanita->nama_wanita }}</h1>
-                    <hr>
-                    <div class="text-center details mb-2">
-                        <p><span class="date">{{ $tgl_resepsi }}</span></p>
+        <div class="hiden">
+            <section class="bg-img @if(in_array('Animasi', $fitur))hidden @endif" id="page1">
+                <img src="{{ asset('img/yonans/rose3.jpg') }}" alt="img">
+                <div class="container mt-5 isian">
+                    <div class="opening">
+                        <h3 class="card-title text-center">The Wedding of</h3>
+                        <h1 class="text-center mt-5">{{ $pesan->mPria->nama_pria }}</h1>
+                        <h2 class="text-center">and</h2>
+                        <h1 class="text-center">{{ $pesan->mWanita->nama_wanita }}</h1>
+                        <hr>
+                        <div class="text-center details mb-2">
+                            <p><span class="date">{{ $tgl_resepsi }}</span></p>
+                        </div>
+                        <div class="text-center sambut">
+                            <p>Kepada yth.</p>
+                            <p>Bapa/Ibu/Saudara/I</p>
+                        </div>
+                        <div class="text-center nama-tamu">
+                            <p>Dengan segala Hormat Kami Meminta Agar Membuka Undangan Dari Kami</p>
+                        </div>
+                        <a class="btn button-39 scrollButton">OPEN INVITATION</a>
                     </div>
-                    <div class="text-center sambut">
-                        <p>Kepada yth.</p>
-                        <p>Bapa/Ibu/Saudara/I</p>
-                    </div>
-                    <div class="text-center nama-tamu">
-                        <p>Dengan segala Hormat Kami Meminta Agar Membuka Undangan Dari Kami</p>
-                    </div>
-                    <a class="btn button-39 scrollButton">OPEN INVITATION</a>
                 </div>
-        </section>
-    </div>
+            </section>
+        </div>
     </div>
     @if (in_array('Countdown', $fitur))
     <div class="konten">
@@ -150,18 +153,23 @@
         <h3 class="text-center mb-3 mari">Gallery</h3>
         <div class="row">
             <div class="col-md-4 mb-3">
-                <a href="{{ asset('img/yonans/zee.jpg') }}" data-lightbox="gallery">
-                    <img src="{{ asset('img/yonans/zee.jpg') }}" alt="Gambar 1" class="img-fluid">
+                <a href="{{ url('storage/'. $pesan->gallery->foto1)}}" data-lightbox="gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto1)}}" alt="Gambar 1" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4 mb-3">
-                <a href="{{ asset('img/yonans/hehe.jpg') }}" data-lightbox="gallery">
-                    <img src="{{ asset('img/yonans/hehe.jpg') }}" alt="Gambar 1" class="img-fluid">
+                <a href="{{ url('storage/'. $pesan->gallery->foto2)}}" data-lightbox="gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto2)}}" alt="Gambar 1" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4 mb-3">
-                <a href="{{ asset('img/yonans/eheh2.jpg') }}" data-lightbox=" gallery">
-                    <img src="{{ asset('img/yonans/eheh2.jpg') }}" alt=" Gambar 1" class="img-fluid">
+                <a href="{{ url('storage/'. $pesan->gallery->foto3)}}" data-lightbox=" gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto3)}}" alt=" Gambar 1" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url('storage/'. $pesan->gallery->foto4)}}" data-lightbox=" gallery">
+                    <img src="{{ url('storage/'. $pesan->gallery->foto4)}}" alt=" Gambar 1" class="img-fluid">
                 </a>
             </div>
         </div>

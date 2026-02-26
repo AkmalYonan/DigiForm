@@ -47,13 +47,13 @@
                                         class="text-xs text-slate-400 font-normal ml-1">(ID: {{ $pesan->id_user
                                         }})</span></span>
                                 <span class="text-xs text-slate-500 mt-0.5"><i class="fa-regular fa-envelope mr-1"></i>
-                                    {{ $pesan->data->email }}</span>
+                                    {{ $pesan->data->email ?? 'Email Kosong' }}</span>
                             </div>
                         </td>
 
                         <!-- WA -->
                         <td class="p-4">
-                            <a href="https://wa.me/{{ $pesan->data->no_wa }}" target="_blank"
+                            <a href="https://wa.me/{{ $pesan->data->no_wa ?? 'WA Tidak Tersedia' }}" target="_blank"
                                 class="inline-flex items-center text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors border border-emerald-100">
                                 <i class="fa-brands fa-whatsapp text-sm mr-1.5"></i> Hubungi WA
                             </a>

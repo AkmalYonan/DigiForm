@@ -39,6 +39,7 @@ class AdminController extends Controller
     {
         return view('admin.detailPesan', [
             'pesan' => pesan::find($pesan)
+
         ]);
     }
 

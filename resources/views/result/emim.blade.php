@@ -120,10 +120,8 @@
                     <a href="{{$pesan->data->link_akad}}" class="btn" target="_blank"><i
                             class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
                     @if (in_array('Lokasi Acara Maps', $fitur))
-                    <div class="ratio ratio-16x9 mt-2">
-                        <iframe src="{{ $pesan->data->iframeMaps_akad }}" style="border:0;" allowfullscreen=""
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    <iframe src="{{ $pesan->data->iframeMaps_akad }}" width="300" height="200" style="border:0;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     @endif
                 </div>
                 <div class="acara resepsi">
@@ -136,10 +134,8 @@
                     <a href="{{$pesan->data->link_resepsi}}" class="btn" target="_blank"><i
                             class="fa-solid fa-location-dot"></i> Lihat lokasi</a>
                     @if (in_array('Lokasi Acara Maps', $fitur))
-                    <div class="ratio ratio-16x9 mt-2">
-                        <iframe src="{{ $pesan->data->iframeMaps_resepsi }}" style="border:0;" allowfullscreen=""
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    <iframe src="{{ $pesan->data->iframeMaps_resepsi }}" width="300" height="200" style="border:0;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     @endif
                 </div>
             </div>

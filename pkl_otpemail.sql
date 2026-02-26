@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 25, 2026 at 10:00 PM
--- Server version: 8.4.3
--- PHP Version: 8.3.30
+-- Host: localhost
+-- Generation Time: Feb 26, 2026 at 01:39 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pkl_otpemail`
+-- Database: `pkl_OTPEMAIL`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id` bigint UNSIGNED NOT NULL,
-  `emailAdmin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `noHp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `emailAdmin` varchar(255) NOT NULL,
+  `noHp` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -40,7 +40,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `emailAdmin`, `noHp`, `created_at`, `updated_at`) VALUES
-(1, 'akmalyonanda@gmail.com', '+62881025433363', NULL, '2023-07-25 02:18:45');
+(1, 'akmalyonanda@gmail.com', '+62881025433363', NULL, '2023-08-13 23:42:12');
 
 -- --------------------------------------------------------
 
@@ -49,18 +49,35 @@ INSERT INTO `admins` (`id`, `emailAdmin`, `noHp`, `created_at`, `updated_at`) VA
 --
 
 CREATE TABLE `data` (
-  `id_pesan` int NOT NULL,
-  `salam_pembuka` text COLLATE utf8mb4_unicode_ci,
-  `lokasi_acara` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tgl_akad` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tgl_resepsi` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jam_acara` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_wa` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_panggilan` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_pesan` int(99) NOT NULL,
+  `salam_pembuka` text NOT NULL,
+  `lokasi_akad` varchar(255) NOT NULL,
+  `lokasi_resepsi` varchar(255) NOT NULL,
+  `tgl_akad` varchar(20) NOT NULL,
+  `tgl_resepsi` varchar(20) NOT NULL,
+  `jam_akad` varchar(20) NOT NULL,
+  `jam_resepsi` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `no_wa` varchar(20) NOT NULL,
+  `nama_panggilan` varchar(25) NOT NULL,
+  `nama_pasangan` varchar(255) NOT NULL,
+  `imgThumbnail` varchar(255) DEFAULT NULL,
+  `imgBanner` varchar(255) DEFAULT NULL,
+  `imgCouple` varchar(255) DEFAULT NULL,
+  `link_akad` longtext DEFAULT NULL,
+  `link_resepsi` longtext DEFAULT NULL,
+  `iframeMaps_akad` longtext DEFAULT NULL,
+  `iframeMaps_resepsi` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `data`
+--
+
+INSERT INTO `data` (`id_pesan`, `salam_pembuka`, `lokasi_akad`, `lokasi_resepsi`, `tgl_akad`, `tgl_resepsi`, `jam_akad`, `jam_resepsi`, `email`, `no_wa`, `nama_panggilan`, `nama_pasangan`, `imgThumbnail`, `imgBanner`, `imgCouple`, `link_akad`, `link_resepsi`, `iframeMaps_akad`, `iframeMaps_resepsi`, `created_at`, `updated_at`) VALUES
+(1, 'Selamat Pagi', 'sbav', 'amgue', '1111-11-11', '1111-11-11', 'sdfg', '1', 'akmalyonanda@gmail.com', '09888899999999', 'yanto', 'linux&Momot', 'fotoThumbnail/1693882562.png', 'fotoBanner/1693882562.png', 'fotoCouple/1693882562.png', 'ewq', 'fasda', 'ewq', 'fasda', '2023-09-05 02:19:58', '2023-09-05 03:12:57');
 
 -- --------------------------------------------------------
 
@@ -69,11 +86,28 @@ CREATE TABLE `data` (
 --
 
 CREATE TABLE `detail_fitur` (
-  `id_pesan` int NOT NULL,
-  `id_fitur` int NOT NULL,
+  `id_pesan` int(99) NOT NULL,
+  `id_fitur` int(99) NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_fitur`
+--
+
+INSERT INTO `detail_fitur` (`id_pesan`, `id_fitur`, `updated_at`, `created_at`) VALUES
+(1, 1, NULL, NULL),
+(1, 2, NULL, NULL),
+(1, 3, NULL, NULL),
+(1, 4, NULL, NULL),
+(1, 6, NULL, NULL),
+(1, 7, NULL, NULL),
+(1, 8, NULL, NULL),
+(1, 9, NULL, NULL),
+(1, 11, NULL, NULL),
+(1, 12, NULL, NULL),
+(1, 13, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -82,43 +116,45 @@ CREATE TABLE `detail_fitur` (
 --
 
 CREATE TABLE `detail_paket_fitur` (
-  `id` int NOT NULL,
-  `paket_id` int NOT NULL,
-  `fitur_id` int NOT NULL
+  `id` int(99) NOT NULL,
+  `paket_id` int(99) NOT NULL,
+  `fitur_id` int(99) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `detail_paket_fitur`
 --
 
-INSERT INTO `detail_paket_fitur` (`id`, `paket_id`, `fitur_id`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 1, 3),
-(4, 1, 4),
-(5, 1, 5),
-(6, 1, 7),
-(7, 2, 1),
-(8, 2, 2),
-(9, 2, 3),
-(10, 2, 4),
-(11, 2, 6),
-(12, 2, 7),
-(13, 2, 8),
-(14, 2, 9),
-(15, 2, 10),
-(16, 2, 13),
-(17, 3, 1),
-(18, 3, 2),
-(19, 3, 3),
-(20, 3, 4),
-(21, 3, 6),
-(22, 3, 7),
-(23, 3, 8),
-(24, 3, 9),
-(25, 3, 11),
-(26, 3, 12),
-(27, 3, 13);
+INSERT INTO `detail_paket_fitur` (`id`, `paket_id`, `fitur_id`, `created_at`, `updated_at`) VALUES
+(7, 2, 1, NULL, NULL),
+(8, 2, 2, NULL, NULL),
+(9, 2, 3, NULL, NULL),
+(10, 2, 4, NULL, NULL),
+(11, 2, 6, NULL, NULL),
+(12, 2, 7, NULL, NULL),
+(13, 2, 8, NULL, NULL),
+(14, 2, 9, NULL, NULL),
+(15, 2, 10, NULL, NULL),
+(16, 2, 13, NULL, NULL),
+(17, 3, 1, NULL, NULL),
+(18, 3, 2, NULL, NULL),
+(19, 3, 3, NULL, NULL),
+(20, 3, 4, NULL, NULL),
+(21, 3, 6, NULL, NULL),
+(22, 3, 7, NULL, NULL),
+(23, 3, 8, NULL, NULL),
+(24, 3, 9, NULL, NULL),
+(25, 3, 11, NULL, NULL),
+(26, 3, 12, NULL, NULL),
+(27, 3, 13, NULL, NULL),
+(54, 1, 1, NULL, NULL),
+(55, 1, 2, NULL, NULL),
+(56, 1, 3, NULL, NULL),
+(57, 1, 4, NULL, NULL),
+(58, 1, 5, NULL, NULL),
+(59, 1, 7, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,33 +163,36 @@ INSERT INTO `detail_paket_fitur` (`id`, `paket_id`, `fitur_id`) VALUES
 --
 
 CREATE TABLE `detail_paket_template` (
-  `id` int NOT NULL,
-  `paket_id` int NOT NULL,
-  `template_id` int NOT NULL
+  `id` int(99) NOT NULL,
+  `paket_id` int(99) NOT NULL,
+  `template_id` int(99) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `detail_paket_template`
 --
 
-INSERT INTO `detail_paket_template` (`id`, `paket_id`, `template_id`) VALUES
-(19, 1, 1),
-(20, 1, 2),
-(21, 1, 3),
-(22, 2, 1),
-(23, 2, 2),
-(24, 2, 3),
-(25, 2, 4),
-(26, 2, 5),
-(27, 2, 6),
-(28, 3, 1),
-(29, 3, 2),
-(30, 3, 3),
-(31, 3, 4),
-(32, 3, 5),
-(33, 3, 6),
-(34, 3, 7),
-(35, 3, 8);
+INSERT INTO `detail_paket_template` (`id`, `paket_id`, `template_id`, `created_at`, `updated_at`) VALUES
+(22, 2, 1, NULL, NULL),
+(23, 2, 2, NULL, NULL),
+(24, 2, 3, NULL, NULL),
+(25, 2, 4, NULL, NULL),
+(26, 2, 5, NULL, NULL),
+(27, 2, 6, NULL, NULL),
+(28, 3, 1, NULL, NULL),
+(29, 3, 2, NULL, NULL),
+(30, 3, 3, NULL, NULL),
+(31, 3, 4, NULL, NULL),
+(32, 3, 5, NULL, NULL),
+(33, 3, 6, NULL, NULL),
+(34, 3, 7, NULL, NULL),
+(35, 3, 8, NULL, NULL),
+(43, 1, 1, NULL, NULL),
+(44, 1, 2, NULL, NULL),
+(45, 1, 3, NULL, NULL),
+(46, 1, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -162,13 +201,13 @@ INSERT INTO `detail_paket_template` (`id`, `paket_id`, `template_id`) VALUES
 --
 
 CREATE TABLE `failed_jobs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -178,28 +217,55 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `fitur` (
-  `id` int NOT NULL,
-  `nama` varchar(99) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(99) NOT NULL,
+  `nama` varchar(99) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `fitur`
 --
 
-INSERT INTO `fitur` (`id`, `nama`) VALUES
-(1, 'Pembukaan'),
-(2, 'Nama Pengantin'),
-(3, 'Hari/Tgl Resepsi'),
-(4, 'Hari/Tgl Akad'),
-(5, 'Lokasi Acara (Non Maps)'),
-(6, 'Lokasi Acara (Maps)'),
-(7, 'Resposive Mobile'),
-(8, 'Countdown'),
-(9, 'Galeri'),
-(10, 'Backsound(No Request)'),
-(11, 'Backsound(Request)'),
-(12, 'Buku Tamu'),
-(13, 'Animasi');
+INSERT INTO `fitur` (`id`, `nama`, `created_at`, `updated_at`) VALUES
+(1, 'Pembukaan', NULL, NULL),
+(2, 'Nama Pengantin', NULL, NULL),
+(3, 'Hari/Tgl Resepsi', NULL, NULL),
+(4, 'Hari/Tgl Akad', NULL, NULL),
+(5, 'Lokasi Acara Non Maps', NULL, NULL),
+(6, 'Lokasi Acara Maps', NULL, NULL),
+(7, 'Resposive Mobile', NULL, NULL),
+(8, 'Countdown', NULL, NULL),
+(9, 'Galeri', NULL, NULL),
+(10, 'Backsound No Request', NULL, NULL),
+(11, 'Backsound Request', NULL, NULL),
+(12, 'Buku Tamu', NULL, NULL),
+(13, 'Animasi', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galery_users`
+--
+
+CREATE TABLE `galery_users` (
+  `id_pesan` int(99) NOT NULL,
+  `foto1` varchar(255) NOT NULL,
+  `foto2` varchar(255) NOT NULL,
+  `foto3` varchar(255) NOT NULL,
+  `foto4` varchar(255) NOT NULL,
+  `foto5` varchar(255) NOT NULL,
+  `foto6` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `galery_users`
+--
+
+INSERT INTO `galery_users` (`id_pesan`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `created_at`, `updated_at`) VALUES
+(1, 'fotoGallery/1693883232_64f69b6020574.png', 'fotoGallery/1693883032_64f69a98a9ab5.png', 'fotoGallery/1693883058_64f69ab2b2936.png', 'fotoGallery/1693883032_64f69a98a9ac4.png', 'fotoGallery/1693883577_64f69cb9def5b.png', 'fotoGallery/1693883045_64f69aa5e5434.png', '2023-09-05 02:19:58', '2023-09-05 03:12:57');
 
 -- --------------------------------------------------------
 
@@ -208,18 +274,20 @@ INSERT INTO `fitur` (`id`, `nama`) VALUES
 --
 
 CREATE TABLE `level` (
-  `id` int DEFAULT NULL,
-  `kelas` varchar(50) DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kelas` varchar(10) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `level`
 --
 
-INSERT INTO `level` (`id`, `kelas`, `updated_at`, `created_at`) VALUES
-(1, 'Admin', '2026-02-25 18:17:28', '2026-02-25 18:17:28');
+INSERT INTO `level` (`id`, `kelas`, `created_at`, `updated_at`) VALUES
+('0', 'User', NULL, NULL),
+('1', 'Manager', NULL, NULL),
+('2', 'Admin', '2023-08-22 04:49:44', '2023-08-22 04:49:44');
 
 -- --------------------------------------------------------
 
@@ -228,15 +296,24 @@ INSERT INTO `level` (`id`, `kelas`, `updated_at`, `created_at`) VALUES
 --
 
 CREATE TABLE `mempelai_pria` (
-  `id_pesan` int NOT NULL,
-  `nama_pria` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `anak_ke` int NOT NULL,
-  `nama_ayah` varchar(60) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_ibu` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `username_ig` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_pesan` int(99) NOT NULL,
+  `nama_pria` varchar(50) NOT NULL,
+  `nama_pria_lengkap` varchar(255) DEFAULT NULL,
+  `anak_ke` int(3) NOT NULL,
+  `nama_ayah` varchar(60) NOT NULL,
+  `nama_ibu` varchar(50) NOT NULL,
+  `username_ig` varchar(30) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mempelai_pria`
+--
+
+INSERT INTO `mempelai_pria` (`id_pesan`, `nama_pria`, `nama_pria_lengkap`, `anak_ke`, `nama_ayah`, `nama_ibu`, `username_ig`, `image`, `updated_at`, `created_at`) VALUES
+(1, 'linux', 'Sungut Bungut', 1, 'bjir', 'bjir', 'mamatgunshop', 'fotoPria/1693880398.png', '2023-09-05 03:12:57', '2023-09-05 02:19:58');
 
 -- --------------------------------------------------------
 
@@ -245,15 +322,24 @@ CREATE TABLE `mempelai_pria` (
 --
 
 CREATE TABLE `mempelai_wanita` (
-  `id_pesan` int NOT NULL,
-  `nama_wanita` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `anak_ke` int NOT NULL,
-  `nama_ayah` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_ibu` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `username_ig` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_pesan` int(99) NOT NULL,
+  `nama_wanita` varchar(100) NOT NULL,
+  `nama_wanita_lengkap` varchar(255) NOT NULL,
+  `anak_ke` int(11) NOT NULL,
+  `nama_ayah` varchar(100) NOT NULL,
+  `nama_ibu` varchar(100) NOT NULL,
+  `username_ig` varchar(100) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mempelai_wanita`
+--
+
+INSERT INTO `mempelai_wanita` (`id_pesan`, `nama_wanita`, `nama_wanita_lengkap`, `anak_ke`, `nama_ayah`, `nama_ibu`, `username_ig`, `image`, `updated_at`, `created_at`) VALUES
+(1, 'Momot', 'amogus', 1, 'adam', 'asel', 'akmil', 'fotoWanita/1693880398.png', '2023-09-05 03:12:57', '2023-09-05 02:19:58');
 
 -- --------------------------------------------------------
 
@@ -262,10 +348,18 @@ CREATE TABLE `mempelai_wanita` (
 --
 
 CREATE TABLE `migrations` (
-  `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(50, '2023_09_04_152915_create_galeryuser_table', 1),
+(51, '2023_09_04_154340_create_galery_users_table', 2);
 
 -- --------------------------------------------------------
 
@@ -274,19 +368,22 @@ CREATE TABLE `migrations` (
 --
 
 CREATE TABLE `paket` (
-  `id` int NOT NULL,
-  `nama` varchar(99) COLLATE utf8mb4_general_ci NOT NULL,
-  `harga` int NOT NULL
+  `id` int(99) NOT NULL,
+  `nama` varchar(99) NOT NULL,
+  `harga` int(99) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `paket`
 --
 
-INSERT INTO `paket` (`id`, `nama`, `harga`) VALUES
-(1, 'Bronze', 0),
-(2, 'Silver', 100000),
-(3, 'Gold', 200000);
+INSERT INTO `paket` (`id`, `nama`, `harga`, `created_at`, `updated_at`) VALUES
+(1, 'Bronze', 0, NULL, NULL),
+(2, 'Silver', 100000, NULL, NULL),
+(3, 'Gold', 200000, NULL, NULL),
+(4, 'VIP', 2500000, '2023-09-19 04:42:32', '2023-09-19 04:42:55');
 
 -- --------------------------------------------------------
 
@@ -295,8 +392,8 @@ INSERT INTO `paket` (`id`, `nama`, `harga`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -307,17 +404,10 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `password_reset_tokens`
---
-
-INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
-('akmalyonanda@gmail.com', '$2y$10$esGim0GXSqd6jg.M.dBw0OKFTgTGUx6lg51AqFWMHceqve5pZ6Nka', '2026-02-25 18:22:34');
 
 -- --------------------------------------------------------
 
@@ -326,12 +416,12 @@ INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
 --
 
 CREATE TABLE `personal_access_tokens` (
-  `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -345,12 +435,21 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 CREATE TABLE `pesan` (
-  `id` int NOT NULL,
-  `id_template` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id` int(99) NOT NULL,
+  `id_template` int(99) NOT NULL,
+  `id_user` int(99) NOT NULL,
+  `status` enum('0','1','2') NOT NULL DEFAULT '0',
+  `encrypted` varchar(255) NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id`, `id_template`, `id_user`, `status`, `encrypted`, `updated_at`, `created_at`) VALUES
+(1, 2, 3, '0', '$2y$10$j0qDFd20yheAONozhNNr/Oy3TLkBHLSfbrtFQXt.m4JUOPwnXnj5C', '2023-09-05 03:12:57', '2023-09-05 02:19:58');
 
 -- --------------------------------------------------------
 
@@ -359,23 +458,25 @@ CREATE TABLE `pesan` (
 --
 
 CREATE TABLE `template` (
-  `id` int NOT NULL,
-  `nama` varchar(99) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(99) NOT NULL,
+  `nama` varchar(99) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `template`
 --
 
-INSERT INTO `template` (`id`, `nama`) VALUES
-(1, 'Satya'),
-(2, 'Amartha'),
-(3, 'Prima'),
-(4, 'Arta'),
-(5, 'Yonans'),
-(6, 'Dawa'),
-(7, 'Emim'),
-(8, 'Kirei');
+INSERT INTO `template` (`id`, `nama`, `created_at`, `updated_at`) VALUES
+(1, 'Amara', NULL, '2023-08-15 00:24:42'),
+(2, 'Amartha', NULL, NULL),
+(3, 'Prima', NULL, NULL),
+(4, 'Arta', NULL, NULL),
+(5, 'Yonans', NULL, NULL),
+(6, 'Dawa', NULL, NULL),
+(7, 'Emim', NULL, NULL),
+(8, 'Kirei', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -384,18 +485,19 @@ INSERT INTO `template` (`id`, `nama`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_activated` tinyint(1) NOT NULL DEFAULT '0',
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `is_activated` tinyint(1) NOT NULL DEFAULT 0,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paket_id` int NOT NULL DEFAULT '1',
-  `level` enum('0','1','2') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `paket_id` int(11) NOT NULL DEFAULT 1,
+  `is_order` tinyint(1) NOT NULL DEFAULT 0,
+  `level` varchar(10) NOT NULL DEFAULT '0',
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `gender` enum('laki','perempuan') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` enum('laki','perempuan') NOT NULL,
   `birthdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -403,10 +505,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `is_activated`, `email_verified_at`, `password`, `paket_id`, `level`, `remember_token`, `created_at`, `updated_at`, `gender`, `birthdate`) VALUES
-(2, 'Admin', 'akmalyonanda@gmail.com', 1, NULL, '$2y$10$O.Kyy6rJkpmyyFZ8ZtNpWOa8pgD6ikfO1vEMxnGp0OMC./xwApOHS', 2, '2', 'G88jcn9U4NR0KaZN4MFqvdccxzbePPMotq17oLWHvgGP1rWYNSvDLXgTiDDb', '2023-07-18 01:39:12', '2026-02-25 15:29:50', 'laki', '2023-07-18'),
-(3, 'admin', 'admin@gmail.com', 1, NULL, '$2y$10$O4mdPk1uIFoZ4pZkNkoJMu3RcJzV6Q7sMW5hnz2ogFHKJDpdWKpCq', 3, '1', NULL, '2023-07-25 00:55:08', '2023-07-25 00:55:34', 'laki', '2023-07-25'),
-(4, 'user', 'user@gmail.com', 0, NULL, '$2y$10$Y0t1x3DiRp4LlyZXzdg2I.ZvQ/sQWLuIObm3auUmPIomkn/oy5qEG', 1, '0', NULL, '2023-07-25 02:27:22', '2023-07-25 02:27:22', 'laki', '2023-07-25');
+INSERT INTO `users` (`id`, `name`, `email`, `is_activated`, `email_verified_at`, `password`, `paket_id`, `is_order`, `level`, `remember_token`, `created_at`, `updated_at`, `gender`, `birthdate`) VALUES
+(3, 'admin', 'admin@gmail.com', 1, NULL, '$2y$10$O4mdPk1uIFoZ4pZkNkoJMu3RcJzV6Q7sMW5hnz2ogFHKJDpdWKpCq', 3, 1, '2', NULL, '2023-07-25 00:55:08', '2023-09-05 02:19:57', 'laki', '2023-07-25'),
+(4, 'user', 'user@gmail.com', 0, NULL, '$2y$10$Y0t1x3DiRp4LlyZXzdg2I.ZvQ/sQWLuIObm3auUmPIomkn/oy5qEG', 1, 0, '0', NULL, '2023-07-25 02:27:22', '2023-08-24 02:56:50', 'laki', '2023-07-25'),
+(5, 'linuxman', 'linuxman@gmail.com', 1, NULL, '$2y$10$wFZlbFYI0ycCaPohaVLuHO3/Xa9tP0QE.Eyso/wFsYoZNWWNnFBOy', 3, 0, '0', NULL, '2023-08-13 23:55:53', '2023-08-29 19:29:47', 'laki', '9999-06-02'),
+(9, 'AkmalYonan', 'akmalyonanda@gmail.com', 1, NULL, '$2y$10$NwqPbfZA2bg7TqlcC6GkLuZCQvMuMkl5bhfImfATQU6Abg5haSs/y', 3, 0, '2', NULL, '2023-08-28 21:28:30', '2023-08-28 21:29:29', 'laki', '2023-08-29'),
+(10, 'daoa', 'dafajibran00@gmail.com', 1, NULL, '$2y$10$kQxPdDk8i2incobGargTBeaQFfpCbPTCt0Rr.mqNjKWvm7A/jGMbC', 3, 0, '0', NULL, '2023-08-28 21:30:39', '2023-08-29 19:29:57', 'laki', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -415,10 +519,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `is_activated`, `email_verified_at`,
 --
 
 CREATE TABLE `verifytokens` (
-  `id` bigint UNSIGNED NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_activated` tinyint(1) NOT NULL DEFAULT '0',
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `is_activated` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL
@@ -429,7 +533,8 @@ CREATE TABLE `verifytokens` (
 --
 
 INSERT INTO `verifytokens` (`id`, `token`, `email`, `is_activated`, `created_at`, `updated_at`, `expires_at`) VALUES
-(6, '109579', 'user@gmail.com', 0, '2023-07-25 02:27:22', '2023-07-25 19:41:38', NULL);
+(6, '954546', 'user@gmail.com', 0, '2023-07-25 02:27:22', '2023-08-22 00:46:21', NULL),
+(9, '115571', 'naufalyonanda3@gmail.com', 0, '2023-08-22 00:46:59', '2023-08-22 00:46:59', NULL);
 
 --
 -- Indexes for dumped tables
@@ -481,6 +586,18 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `fitur`
 --
 ALTER TABLE `fitur`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `galery_users`
+--
+ALTER TABLE `galery_users`
+  ADD KEY `id_pesan` (`id_pesan`);
+
+--
+-- Indexes for table `level`
+--
+ALTER TABLE `level`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -547,7 +664,8 @@ ALTER TABLE `template`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD KEY `paket_id` (`paket_id`);
+  ADD KEY `paket_id` (`paket_id`),
+  ADD KEY `level` (`level`);
 
 --
 -- Indexes for table `verifytokens`
@@ -563,67 +681,67 @@ ALTER TABLE `verifytokens`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `detail_paket_fitur`
 --
 ALTER TABLE `detail_paket_fitur`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `detail_paket_template`
 --
 ALTER TABLE `detail_paket_template`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `fitur`
 --
 ALTER TABLE `fitur`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `template`
 --
 ALTER TABLE `template`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `verifytokens`
 --
 ALTER TABLE `verifytokens`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
@@ -657,6 +775,12 @@ ALTER TABLE `detail_paket_template`
   ADD CONSTRAINT `detail_paket_template_ibfk_2` FOREIGN KEY (`template_id`) REFERENCES `template` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `galery_users`
+--
+ALTER TABLE `galery_users`
+  ADD CONSTRAINT `galery_users_ibfk_1` FOREIGN KEY (`id_pesan`) REFERENCES `pesan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `mempelai_pria`
 --
 ALTER TABLE `mempelai_pria`
@@ -672,7 +796,8 @@ ALTER TABLE `mempelai_wanita`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`paket_id`) REFERENCES `paket` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`paket_id`) REFERENCES `paket` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`level`) REFERENCES `level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -11,11 +11,20 @@ class galeryUser extends Model
 
     protected $table = 'galery_users';
 
-    protected $guarded = ['id'];
-    protected $with = ['pesan_id'];
+    // Beritahu Laravel bahwa tabel ini tidak pakai kolom 'id' sebagai primary key
+    // Kita arahkan ke 'id_pesan'
+    protected $primaryKey = 'id_pesan';
 
-    public function pesan_id()
+    // Jika id_pesan bukan auto-incrementing integer, tambahkan ini:
+    public $incrementing = false;
+
+    protected $guarded = []; // Kosongkan jika tidak ada kolom id
+
+    // Eager load relasi (Pastikan nama fungsi relasi benar)
+    protected $with = ['pesan'];
+
+    public function pesan()
     {
-        return $this->belongsTo(pesan::class, 'id_pesan');
+        return $this->belongsTo(Pesan::class, 'id_pesan', 'id');
     }
 }

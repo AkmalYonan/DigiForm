@@ -240,7 +240,7 @@
                                     {{ $pesan->user->name }}
                                 </div>
                             </td>
-                            <td class="p-4 text-slate-500">{{ $pesan->data->email }}</td>
+                            <td class="p-4 text-slate-500">{{ $pesan->data->email ?? 'Email Kosong' }}</td>
                             <td class="p-4 text-slate-500 whitespace-nowrap">{{ $pesan->created_at->format('d M Y, H:i')
                                 }}</td>
                         </tr>

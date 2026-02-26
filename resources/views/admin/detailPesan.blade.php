@@ -8,8 +8,8 @@
         <div>
             <div class="flex items-center gap-3">
                 <h1 class="text-3xl font-extrabold text-slate-900 display-font">Detail Order <span
-                        class="text-indigo-600">#{{ $pesan->id }}</span></h1>
-                @if ($pesan->status == 1)
+                        class="text-indigo-600">#{{ $pesan?->id }}</span></h1>
+                @if ($pesan?->status == 1)
                 <span
                     class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200 shadow-sm"><i
                         class="fa-solid fa-circle-check mr-1"></i> Confirmed</span>
@@ -81,7 +81,8 @@
                         <td class="py-3 text-slate-500 font-medium h-fit">Keluarga</td>
                         <td class="py-3 font-medium text-slate-900">Anak ke-{{ $pesan->mPria->anak_ke }} dari pasangan
                             <br><span class="font-bold">Bpk. {{ $pesan->mPria->nama_ayah }}</span> & <span
-                                class="font-bold">Ibu {{ $pesan->mPria->nama_ibu }}</span></td>
+                                class="font-bold">Ibu {{ $pesan->mPria->nama_ibu }}</span>
+                        </td>
                     </tr>
                     <tr>
                         <td class="py-3 text-slate-500 font-medium">Username IG</td>
@@ -108,7 +109,8 @@
                         <td class="py-3 text-slate-500 font-medium">Keluarga</td>
                         <td class="py-3 font-medium text-slate-900">Anak ke-{{ $pesan->mWanita->anak_ke }} dari pasangan
                             <br><span class="font-bold">Bpk. {{ $pesan->mWanita->nama_ayah }}</span> & <span
-                                class="font-bold">Ibu {{ $pesan->mWanita->nama_ibu }}</span></td>
+                                class="font-bold">Ibu {{ $pesan->mWanita->nama_ibu }}</span>
+                        </td>
                     </tr>
                     <tr>
                         <td class="py-3 text-slate-500 font-medium">Username IG</td>
@@ -146,7 +148,8 @@
                         <td class="py-3 px-3 font-medium text-slate-900 leading-relaxed">{{ $pesan->data->lokasi_akad }}
                             <br> <a href="{{ $pesan->data->link_akad }}" target="_blank"
                                 class="text-sky-600 hover:underline text-xs mt-1 inline-block"><i
-                                    class="fa-solid fa-map-location-dot"></i> Lihat Map</a></td>
+                                    class="fa-solid fa-map-location-dot"></i> Lihat Map</a>
+                        </td>
                     </tr>
                     <tr>
                         <td class="py-3 px-3 text-slate-500 font-medium align-middle">Gmap Iframe</td>
