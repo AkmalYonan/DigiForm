@@ -1,54 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center py-5">
-        <div class="col-md-6">
-            <div class="card shadow">
+<section class="min-h-[calc(100vh-80px)] flex bg-slate-50 relative overflow-hidden py-12">
+    <!-- Decorative Blobs -->
+    <div
+        class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-indigo-200/50 blur-3xl mix-blend-multiply filter">
+    </div>
+    <div
+        class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-rose-200/50 blur-3xl mix-blend-multiply filter">
+    </div>
 
-                <div class="card-body">
+    <div class="container mx-auto px-4 flex justify-center items-center relative z-10">
+        <div class="w-full max-w-md">
 
-                    <div class="container text-center">
-                        <div class="fw-bold">{{ __('Reset Password') }}</div>
-                        <p>You can reset your password here.</p>
-                    </div>
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
+            <div class="text-center mb-8">
+                <a href="{{ url('/') }}" class="inline-block">
+                    <img class="w-20 h-20 rounded-2xl shadow-lg border border-white mx-auto mb-4"
+                        src="{{ asset('img/logo_110.png') }}" alt="logo">
+                </a>
+                <h1 class="text-3xl font-extrabold text-slate-900 display-font">{{ __('Reset Password') }}</h1>
+                <p class="text-slate-500 mt-2">Masukkan email Anda untuk menerima link reset</p>
+            </div>
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row mb-3 justify-content-center">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-text" id="mail-addon">&#9993;</span>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="Enter your email address">
-                                </div>
-                                
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-0 justify-content-center">
-                            <div class="col-md-6 text-center">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    {{ __('Send Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="bg-white rounded-3xl shadow-xl shadow-indigo-100/50 border border-slate-100 p-8 sm:p-10">
+                @if (session('status'))
+                <div class="mb-6 bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 rounded-xl relative flex items-center"
+                    role="alert">
+                    <i class="fa-solid fa-circle-check text-emerald-500 mr-3 text-lg"></i>
+                    <span class="block sm:inline text-sm font-medium">{{ session('status') }}</span>
                 </div>
+                @endif
+
+                <form method="POST" action="{{ route('password.email') }}" class="space-y-6" novalidate>
+                    @csrf
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Alamat E-Mail</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-regular fa-envelope text-slate-400"></i>
+                            </div>
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
+                                class="w-full pl-10 pr-3 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors @error('email') border-rose-500 focus:ring-rose-500 focus:border-rose-500 @enderror"
+                                placeholder="nama@email.com">
+                        </div>
+                        @error('email')
+                        <p class="mt-2 text-sm text-rose-500"><i class="fa-solid fa-circle-exclamation mr-1"></i> {{
+                            $message }}</p>
+                        @enderror
+                    </div>
+
+                    <button type="submit"
+                        class="w-full flex justify-center py-3.5 px-4 rounded-xl shadow-lg shadow-indigo-600/30 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-bold text-base transition-all hover:-translate-y-0.5">
+                        <i class="fa-regular fa-paper-plane mr-2 mt-1"></i> {{ __('Kirim Link Reset Password') }}
+                    </button>
+                </form>
+
+                <div class="mt-8 pt-6 text-center">
+                    <a href="{{ route('login') }}"
+                        class="text-sm font-semibold text-slate-500 hover:text-indigo-600 transition-colors"><i
+                            class="fa-solid fa-arrow-left mr-1"></i> Kembali ke Login</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 text-sm text-slate-500 font-light">
+                Copyright &copy; 2021-2024 &mdash; {{ config('app.name', 'DigiForm') }}
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

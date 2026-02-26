@@ -414,12 +414,10 @@ class OrderController extends Controller
                     'tgl_akad' => $request->input('tgl_akad'),
                     'jam_akad' => $request->input('jam_akad'),
                     'jam_resepsi' => $request->input('jam_resepsi'),
-                    'email' => $request->input('email'),
-                    'no_wa' => $request->input('no_wa'),
-                    'nama_panggilan' => $request->input('nama_panggilan'),
-                    'nama_pasangan' => $request->input('nama_mempelai_pria') . '&' . $request->input('nama_mempelai_wanita'),
-                    'iframeMaps_akad' => $request->input('iframeMaps_akad'),
-                    'iframeMaps_resepsi' => $request->input('iframeMaps_resepsi'),
+                    'nama_pasangan' => $request->input('nama_mempelai_pria') . ' & ' . $request->input('nama_mempelai_wanita'),
+                    'link_akad' => $request->input('iframeMaps_akad'),
+                    'link_resepsi' => $request->input('iframeMaps_resepsi'),
+
                 ]);
             }
 
