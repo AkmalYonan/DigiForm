@@ -12,6 +12,7 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,21 @@ Route::get('/verify-account', [App\Http\Controllers\HomeController::class, 'veri
 Route::post('/verifyotp', [App\Http\Controllers\HomeController::class, 'useractivation'])->name('verifyotp');
 Route::get('/resend-otp', [App\Http\Controllers\HomeController::class, 'resendOtp'])->name('resend.otp');
 Route::get('/result/{namaPasangan}/{encrypted}', [App\Http\Controllers\HomeController::class, 'result'])->name('result-order');
+Route::get('/debug-db', function () {
+    try {
+        DB::connection()->getPdo();
+        return response()->json([
+            'status' => 'Connected to MySQL!',
+            'database' => DB::connection()->getDatabaseName(),
+            'driver' => DB::connection()->getConfig('driver'),
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'Error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});
 
 
 
