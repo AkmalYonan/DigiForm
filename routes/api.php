@@ -14,6 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('v1')->group(function () {
+    // Auth Routes
+    Route::post('/login', [App\Http\Controllers\Api\V1\AuthController::class, 'login']);
+
+    // Protected Routes
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/logout', [App\Http\Controllers\Api\V1\AuthController::class, 'logout']);
+        Route::get('/me', [App\Http\Controllers\Api\V1\AuthController::class, 'me']);
+
+        // CRUD Routes
+        Route::apiResource('fiturs', App\Http\Controllers\Api\V1\FiturController::class);
+        Route::apiResource('pakets', App\Http\Controllers\Api\V1\PaketController::class);
+        Route::apiResource('orders', App\Http\Controllers\Api\V1\OrderController::class);
+        Route::apiResource('templates', App\Http\Controllers\Api\V1\TemplateController::class);
+    });
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
